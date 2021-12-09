@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @track.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @track.description %>
+</p>
+
+<p>
+  <strong>Source link:</strong>
+  <%= @track.source_link %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @track.release_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @track.duration %>
+</p>
+
+<p>
+  <strong>Countries:</strong>
+  <%= @track.countries %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @track.tags %>
+</p>
+
+<p>
+  <strong>Main genre:</strong>
+  <%= @track.main_genre %>
+</p>
+
+<p>
+  <strong>Related genres:</strong>
+  <%= @track.related_genres %>
+</p>
+
+<p>
+  <strong>Performer:</strong>
+  <%= @track.performer %>
+</p>
+
+<p>
+  <strong>Preview picture:</strong>
+  <%= @track.preview_picture %>
+</p>
+
+<p>
+  <strong>Age restrictions:</strong>
+  <%= @track.age_restrictions %>
+</p>
+
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %>
