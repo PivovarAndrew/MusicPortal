@@ -5,25 +5,25 @@ one:
   description: MyText
   source_link: MyString
   release_date: 2021-12-09
-  duration: 2021-12-09 04:56:43
+  duration: 2021-12-09 05:23:17
   countries: MyString
   tags: MyString
   main_genre: MyString
   related_genres: MyString
   performer: MyString
   preview_picture: MyString
-  age_restrictions: MyString
+  age_rest: MyString
 
 two:
   name: MyString
   description: MyText
   source_link: MyString
   release_date: 2021-12-09
-  duration: 2021-12-09 04:56:43
+  duration: 2021-12-09 05:23:17
   countries: MyString
   tags: MyString
   main_genre: MyString
   related_genres: MyString
   performer: MyString
   preview_picture: MyString
-  age_restrictions: MyString
+  age_rest: MyString
