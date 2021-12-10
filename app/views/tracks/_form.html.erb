@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag params[:controller] %>
 <%= form_with(model: track) do |form| %>
   <% if track.errors.any? %>
     <div id="error_explanation">
@@ -11,9 +12,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<form>
+    <div class="form-inline">
+
+  <div class="form-group">
+    <%= form.label :name, class: "control-label col-md-2 form-search" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
@@ -74,4 +78,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+  </div>
+  </form>
 <% end %>
