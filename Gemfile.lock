@@ -85,6 +85,7 @@ GEM
     ffi (1.15.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    htmlbeautifier (1.4.1)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.3)
@@ -207,6 +208,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.1.0)
   byebug
   capybara (>= 3.26)
+  htmlbeautifier
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
