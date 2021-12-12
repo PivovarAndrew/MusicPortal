@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag params[:controller] %>
-  <%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag "application" %>
 
     <%= form_with(model: track) do |form| %>
       <% if track.errors.any? %>
@@ -34,53 +34,63 @@
                 <%= form.text_field :source_link, class: "small-left-interval large-width" %>
             </div>
 
+            <div class="fields-group">
+            </div>
               <div class="field">
                 <%= form.label :release_date, class: "lbl-default" %>
-                <%= form.date_select :release_date, class: "small-left-interval small-width" %>
+                <%= form.date_select :release_date,  {
+                :order => [:day, :month, :year], 
+                :start_year => 1950, 
+                :end_year => Date.current.year
+               }, 
+               {:class => "small-left-interval"} %>
               </div>
 
               <div class="field">
                 <%= form.label :duration, class: "lbl-default" %>
-                  <%= form.time_select :duration, class: "small-left-interval small-width" %>
+                <%= form.time_select :duration, 
+                {},
+                {:class => "extra-small-width small-left-interval small-right-interval"} %>
               </div>
 
             <div class="field">
               <%= form.label :countries, class: "lbl-default" %>
-                <%= form.text_field :countries, class: "small-left-interval medium-width" %>
+              <%= form.text_field :countries, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field">
               <%= form.label :tags, class: "lbl-default" %>
-                <%= form.text_field :tags, class: "small-left-interval medium-width" %>
+              <%= form.text_field :tags, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field">
               <%= form.label :main_genre, class: "lbl-default" %>
-                <%= form.text_field :main_genre, class: "small-left-interval medium-width" %>
+              <%= form.text_field :main_genre, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field">
               <%= form.label :related_genres, class: "lbl-default" %>
-                <%= form.text_field :related_genres, class: "small-left-interval medium-width" %>
+              <%= form.text_field :related_genres, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field">
               <%= form.label :performer, class: "lbl-default" %>
-                <%= form.text_field :performer, class: "small-left-interval medium-width" %>
+              <%= form.text_field :performer, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field">
               <%= form.label :preview_picture, class: "lbl-default" %>
-                <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
+              <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
             </div>
 
             <div class="field">
               <%= form.label :age_rest, class: "lbl-default" %>
-                <%= form.text_field :age_rest, class: "small-left-interval small-width" %>
+              <%= form.text_field :age_rest, class: "small-left-interval extra-small-width" %>
             </div>
-
+            <div class="wrapper">
             <div class="actions">
               <%= form.submit %>
+            </div>
             </div>
           </div>
           <% end %>

@@ -95,6 +95,10 @@ label {
   margin-left: 15px;
 }
 
+.small-right-interval {
+  margin-right: 15px;
+}
+
 .lbl-default {
   font-size: $scaffold_label_font_size;
   color: $label_color;
@@ -106,14 +110,23 @@ label {
   text-align: $scaffold_h1_text_align;
 }
 
+.extra-small-width {
+  width: $extra_small_size;
+}
+
 .small-width {
-    width: $small_size;
+  width: $small_size;
 }
 
 .medium-width {
-    width: $medium_size;
+  width: $medium_size;
 }
 
 .large-width {
-    width: $large_size;
+  width: $large_size;
+}
+
+.field {
+  font-size: $scaffold_label_font_size;
+  color: $label_color;
 }
