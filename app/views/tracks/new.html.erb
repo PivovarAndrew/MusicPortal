@@ -1,5 +1,8 @@
-<h1>New Track</h1>
+<%= stylesheet_link_tag params[:controller] %>
+<div class="container unselectable">
+<h1 class = "header-default">Add track to album</h1>
 
-<%= render 'form', track: @track %>
+<%= render "form", track: @track %>
 
-<%= link_to 'Back', tracks_path %>
+<%= link_to "Back", tracks_path %>
+</div>

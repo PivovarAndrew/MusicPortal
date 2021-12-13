@@ -12,7 +12,7 @@ class CreateTracks < ActiveRecord::Migration[6.1]
       t.string :related_genres
       t.string :performer
       t.string :preview_picture
-      t.string :age_rest
+      t.string :age_restrictions
 
       t.timestamps
     end
