@@ -1,7 +1,22 @@
+<<<<<<< Updated upstream
 <%= form_with(model: track) do |form| %>
   <% if track.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(track.errors.count, "error") %> prohibited this track from being saved:</h2>
+=======
+<%= stylesheet_link_tag params[:controller] %>
+<%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag "multiselect" %>
+<%= javascript_pack_tag 'submit' %>
+    <div class="row">
+    <%= form_for @track do |form| %>
+    <% form.options[:html][:class] << 'form-horizontal' %>
+      <% if track.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(track.errors.count, "error" ) %> prohibited this track from being saved:
+          </h2>
+>>>>>>> Stashed changes
 
       <ul>
         <% track.errors.each do |error| %>
@@ -21,6 +36,7 @@
     <%= form.text_area :description %>
   </div>
 
+<<<<<<< Updated upstream
   <div class="field">
     <%= form.label :source_link %>
     <%= form.text_field :source_link %>
@@ -35,12 +51,43 @@
     <%= form.label :duration %>
     <%= form.time_select :duration %>
   </div>
+=======
+            <div class="fields-group">
+            </div>
+              <div class="field form-group">
+                <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
+                <%= form.date_select :release_date,  {
+                order: [:day, :month, :year], 
+                start_year: 1950, 
+                end_year: Date.current.year,
+                date_separator: "."
+               }, 
+               {:class => "small-left-interval small-right-interval"} %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :duration, class: "lbl-default col-sm-2 control-label" %>
+                <%= form.time_select :duration, {
+                  discard_hour: true,
+                  include_minutes: true,
+                  include_seconds: true,
+                  time_separator: ":"
+                },
+                {:class => "extra-small-width small-left-interval small-right-interval"} %>
+              </div>
+
+            <div class="field form-group">
+              <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
+              <%= select_tag :countries, raw(render partial: "partials/countries"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" %>
+            </div>
+>>>>>>> Stashed changes
 
   <div class="field">
     <%= form.label :countries %>
     <%= form.text_field :countries %>
   </div>
 
+<<<<<<< Updated upstream
   <div class="field">
     <%= form.label :tags %>
     <%= form.text_field :tags %>
@@ -50,6 +97,17 @@
     <%= form.label :main_genre %>
     <%= form.text_field :main_genre %>
   </div>
+=======
+            <div class="field form-group">
+              <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
+              <%= select_tag :main_genre, raw(render partial: "partials/genres"), class: "small-left-interval medium-width selectpicker"%>
+            </div>
+
+            <div class="field form-group">
+              <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
+              <%= select_tag :related_genres, raw(render partial: "partials/genres"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" %>
+            </div>
+>>>>>>> Stashed changes
 
   <div class="field">
     <%= form.label :related_genres %>
@@ -61,6 +119,7 @@
     <%= form.text_field :performer %>
   </div>
 
+<<<<<<< Updated upstream
   <div class="field">
     <%= form.label :preview_picture %>
     <%= form.text_field :preview_picture %>
@@ -75,3 +134,13 @@
     <%= form.submit %>
   </div>
 <% end %>
+=======
+            <div class="field form-group">
+              <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
+              <%= select_tag :age_restrictions, raw(render partial: "partials/age_restrictions"), class: "small-left-interval extra-small-width selectpicker"%>
+            </div>
+              <%= form.submit 'Submit', class: "submit-button small-bottom-interval small-top-interval"%>
+              </fieldset>
+          <% end %>
+</div>
+>>>>>>> Stashed changes
