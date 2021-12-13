@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_022316) do
+ActiveRecord::Schema.define(version: 2021_12_12_210332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_022316) do
     t.string "related_genres"
     t.string "performer"
     t.string "preview_picture"
-    t.string "age_rest"
+    t.string "age_restrictions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
