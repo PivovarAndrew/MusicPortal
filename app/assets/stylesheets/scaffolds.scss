@@ -92,11 +92,19 @@ label {
 }
 
 .small-left-interval {
-  margin-left: 15px;
+  margin-left: $small_interval;
 }
 
 .small-right-interval {
-  margin-right: 15px;
+  margin-right: $small_interval;
+}
+
+.small-bottom-interval {
+  margin-bottom: $small_interval;
+}
+
+.small-top-interval {
+  margin-top: $small_interval;
 }
 
 .lbl-default {
@@ -126,7 +134,10 @@ label {
   width: $large_size;
 }
 
-.field {
-  font-size: $scaffold_label_font_size;
-  color: $label_color;
+.display-as-table-cell  {
+ vertical-align: top;
+}
+
+.no-resizable {
+  resize:none;
 }

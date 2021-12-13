@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag params[:controller] %>
 <%= stylesheet_link_tag "application" %>
-
-    <%= form_with(model: track) do |form| %>
+<%= javascript_pack_tag 'submit' %>
+    <div class="row">
+    <%= form_for @track do |form| %>
+    <% form.options[:html][:class] << 'form-horizontal' %>
       <% if track.errors.any? %>
         <div id="error_explanation">
           <h2>
@@ -17,80 +19,81 @@
           </ul>
         </div>
         <% end %>
-
-          <div class="form-inline">
-            <div class="field">
-              <%= form.label :name, class: "lbl-default" %>
-                <%= form.text_field :name, class: "small-left-interval medium-width" %>
+        <fieldset>
+            <div class="field form-group">
+              <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :name, class: "small-left-interval medium-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :description, class: "lbl-default" %>
-                <%= form.text_area :description, class: "small-left-interval medium-width" %>
+            <div class="field form-group">
+              <%= form.label :description, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_area :description, class: "small-left-interval large-width no-resizable" %>
             </div>
 
-            <div class="field">
-              <%= form.label :source_link, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :source_link, class: "lbl-default col-sm-2 control-label" %>
                 <%= form.text_field :source_link, class: "small-left-interval large-width" %>
             </div>
 
             <div class="fields-group">
             </div>
-              <div class="field">
-                <%= form.label :release_date, class: "lbl-default" %>
+              <div class="field form-group">
+                <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
                 <%= form.date_select :release_date,  {
                 :order => [:day, :month, :year], 
                 :start_year => 1950, 
-                :end_year => Date.current.year
+                :end_year => Date.current.year,
+                :date_separator => "."
                }, 
-               {:class => "small-left-interval"} %>
+               {:class => "small-left-interval small-right-interval"} %>
               </div>
 
-              <div class="field">
-                <%= form.label :duration, class: "lbl-default" %>
-                <%= form.time_select :duration, 
-                {},
+              <div class="field form-group">
+                <%= form.label :duration, class: "lbl-default col-sm-2 control-label" %>
+                <%= form.time_select :duration, {
+                  discard_hours: true,
+                  include_minutes: true,
+                  include_seconds: true,
+                  time_separator: ":"
+                },
                 {:class => "extra-small-width small-left-interval small-right-interval"} %>
               </div>
 
-            <div class="field">
-              <%= form.label :countries, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :countries, class: "small-left-interval medium-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :tags, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :tags, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :tags, class: "small-left-interval medium-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :main_genre, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :main_genre, class: "small-left-interval medium-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :related_genres, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :related_genres, class: "small-left-interval medium-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :performer, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :performer, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :performer, class: "small-left-interval medium-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :preview_picture, class: "lbl-default" %>
+            <div class="field form-group">
+              <%= form.label :preview_picture, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
             </div>
 
-            <div class="field">
-              <%= form.label :age_rest, class: "lbl-default" %>
-              <%= form.text_field :age_rest, class: "small-left-interval extra-small-width" %>
+            <div class="field form-group">
+              <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :age_restrictions, class: "small-left-interval extra-small-width" %>
             </div>
-            <div class="wrapper">
-            <div class="actions">
-              <%= form.submit %>
-            </div>
-            </div>
-          </div>
+              <%= form.submit 'Submit', class: "submit-button small-bottom-interval small-top-interval"%>
+              </fieldset>
           <% end %>
+</div>
