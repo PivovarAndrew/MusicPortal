@@ -1,3 +1,6 @@
+@import "settings/*";
+@import "config/*";
+
 body {
   background-color: #fff;
   color: #333;
@@ -24,13 +27,14 @@ a {
   color: #000;
 }
 
+
 a:visited {
-  color: #666;
+  color: $link_color_visited;
 }
 
 a:hover {
-  color: #fff;
-  background-color: #000;
+  color: $link_color_hover;
+  background-color: $default_background_color;
 }
 
 th {
@@ -82,8 +86,6 @@ div.actions {
 label {
   display: block;
 }
-<<<<<<< Updated upstream
-=======
 
 .fields-group {
   display: flex;
@@ -133,21 +135,10 @@ label {
   width: $large_size;
 }
 
-.display-as-table-cell {
-  vertical-align: top;
+.display-as-table-cell  {
+ vertical-align: top;
 }
 
 .no-resizable {
-  resize: none;
+  resize:none;
 }
-
-.link-default {
-  font-size: $scaffold_link_font_size;
-}
-
-.links-separator-default {
-  font-size: $scaffold_link_font_size;
-  color: $color-black;
-  display: inline-block;
-}
->>>>>>> Stashed changes

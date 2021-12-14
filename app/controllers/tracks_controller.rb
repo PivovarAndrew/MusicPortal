@@ -17,11 +17,8 @@ class TracksController < ApplicationController
 
   # GET /tracks/1/edit
   def edit
-<<<<<<< Updated upstream
-=======
     render :edit
     puts @track.duration
->>>>>>> Stashed changes
   end
 
   # POST /tracks or /tracks.json
@@ -64,12 +61,6 @@ class TracksController < ApplicationController
 
   private
 
-<<<<<<< Updated upstream
-    # Only allow a list of trusted parameters through.
-    def track_params
-      params.require(:track).permit(:name, :description, :source_link, :release_date, :duration, :countries, :tags, :main_genre, :related_genres, :performer, :preview_picture, :age_rest)
-    end
-=======
   # Use callbacks to share common setup or constraints between actions.
   def set_track
     @track = Track.find(params[:id])
@@ -79,5 +70,4 @@ class TracksController < ApplicationController
   def track_params
     params.require(:track).permit(:name, :description, :source_link, :release_date, :duration, :countries, :tags, :main_genre, :related_genres, :performer, :preview_picture, :age_restrictions)
   end
->>>>>>> Stashed changes
 end
