@@ -11,6 +11,7 @@
 /log/*
 /tmp/*
 /node_modules/*
+/public/packs/js/*
 !/log/.keep
 !/tmp/.keep
 
