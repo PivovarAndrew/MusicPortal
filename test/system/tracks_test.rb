@@ -14,7 +14,7 @@ class TracksTest < ApplicationSystemTestCase
     visit tracks_url
     click_on "New Track"
 
-    fill_in "Age rest", with: @track.age_rest
+    fill_in "Age restrictions", with: @track.age_restrictions
     fill_in "Countries", with: @track.countries
     fill_in "Description", with: @track.description
     fill_in "Duration", with: @track.duration
@@ -36,7 +36,7 @@ class TracksTest < ApplicationSystemTestCase
     visit tracks_url
     click_on "Edit", match: :first
 
-    fill_in "Age rest", with: @track.age_rest
+    fill_in "Age restrictions", with: @track.age_restrictions
     fill_in "Countries", with: @track.countries
     fill_in "Description", with: @track.description
     fill_in "Duration", with: @track.duration
