@@ -62,6 +62,10 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (3.1.1)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 14.0)
+    ast (2.4.2)
     autoprefixer-rails (10.3.3.0)
       execjs (~> 2)
     bindex (0.8.1)
@@ -117,6 +121,9 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
+    parallel (1.21.0)
+    parser (3.0.3.2)
+      ast (~> 2.4.1)
     pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.5.2)
@@ -155,12 +162,32 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
+    rainbow (3.0.0)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.0)
     rexml (3.2.5)
+    rubocop (1.5.2)
+      parallel (~> 1.10)
+      parser (>= 2.7.1.5)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml
+      rubocop-ast (>= 1.2.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-ast (1.15.0)
+      parser (>= 3.0.1.1)
+    rubocop-rails (2.9.1)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 0.90.0, < 2.0)
+    rubocop-rspec (2.2.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
+    ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -195,6 +222,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (1.8.0)
     unicode_utils (1.4.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
@@ -221,24 +249,28 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  annotate (~> 3.1, >= 3.1.1)
   bootsnap (>= 1.4.4)
-  bootstrap-sass
-  byebug
+  bootstrap-sass (~> 3.4, >= 3.4.1)
+  byebug (~> 11.1, >= 11.1.3)
   capybara (>= 3.26)
-  country_select
+  country_select (~> 6.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  rubocop (~> 1.5.2)
+  rubocop-rails (~> 2.9.1)
+  rubocop-rspec (~> 2.2.0)
   sass-rails (>= 6)
-  selenium-webdriver
-  spring
+  selenium-webdriver (~> 4.1)
+  spring (~> 4.0)
   turbolinks (~> 5)
-  tzinfo-data
+  tzinfo-data (~> 1.2021, >= 1.2021.5)
   web-console (>= 4.1.0)
-  webdrivers
+  webdrivers (~> 5.0)
   webpacker (~> 5.0)
 
 RUBY VERSION

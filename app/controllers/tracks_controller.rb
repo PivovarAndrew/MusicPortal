@@ -17,7 +17,6 @@ class TracksController < ApplicationController
 
   # GET /tracks/1/edit
   def edit
-   puts @track.duration
   end
 
   # POST /tracks or /tracks.json

@@ -10,10 +10,14 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/node_modules/*
-/public/packs/js/*
 !/log/.keep
 !/tmp/.keep
+
+# Ignore webpacker files
+/node_modules
+/yarn-error.log
+/public/packs
+/public/packs-test
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
