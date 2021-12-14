@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag params[:controller] %>
 <%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag "multiselect" %>
 <%= javascript_pack_tag 'submit' %>
     <div class="row">
     <%= form_for @track do |form| %>
@@ -40,10 +41,10 @@
               <div class="field form-group">
                 <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
                 <%= form.date_select :release_date,  {
-                :order => [:day, :month, :year], 
-                :start_year => 1950, 
-                :end_year => Date.current.year,
-                :date_separator => "."
+                order: [:day, :month, :year], 
+                start_year: 1950, 
+                end_year: Date.current.year,
+                date_separator: "."
                }, 
                {:class => "small-left-interval small-right-interval"} %>
               </div>
@@ -51,7 +52,7 @@
               <div class="field form-group">
                 <%= form.label :duration, class: "lbl-default col-sm-2 control-label" %>
                 <%= form.time_select :duration, {
-                  discard_hours: true,
+                  discard_hour: true,
                   include_minutes: true,
                   include_seconds: true,
                   time_separator: ":"
@@ -61,7 +62,7 @@
 
             <div class="field form-group">
               <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.text_field :countries, class: "small-left-interval medium-width" %>
+              <%= select_tag :countries, raw(render partial: "partials/countries"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" %>
             </div>
 
             <div class="field form-group">
@@ -71,12 +72,12 @@
 
             <div class="field form-group">
               <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.text_field :main_genre, class: "small-left-interval medium-width" %>
+              <%= select_tag :main_genre, raw(render partial: "partials/genres"), class: "small-left-interval medium-width selectpicker"%>
             </div>
 
             <div class="field form-group">
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.text_field :related_genres, class: "small-left-interval medium-width" %>
+              <%= select_tag :related_genres, raw(render partial: "partials/genres"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" %>
             </div>
 
             <div class="field form-group">
@@ -88,10 +89,11 @@
               <%= form.label :preview_picture, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
             </div>
-
+          
             <div class="field form-group">
               <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.text_field :age_restrictions, class: "small-left-interval extra-small-width" %>
+              <%= select_tag :age_restrictions, raw(render partial: "partials/age_restrictions"), class: "small-left-interval extra-small-width selectpicker"%>
+
             </div>
               <%= form.submit 'Submit', class: "submit-button small-bottom-interval small-top-interval"%>
               </fieldset>
