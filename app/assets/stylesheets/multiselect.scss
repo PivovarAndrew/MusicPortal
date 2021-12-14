@@ -2,25 +2,26 @@
 @import "config/*";
 
 body {
-	font-family: $font-family;
-	background-color: #efefef;
+  font-family: $font-family;
+  background-color: #efefef;
 }
 p {
-	color: darken(#ccc, 10%);
-	font-weight: 300;
+  color: darken(#ccc, 10%);
+  font-weight: 300;
 }
 
 a {
-	transition: .3s all ease;
-	&, &:hover {
-		text-decoration: none!important;
-	}
+  transition: 0.3s all ease;
+  &,
+  &:hover {
+    text-decoration: none !important;
+  }
 }
 .content {
-	padding: 7rem 0;
+  padding: 7rem 0;
 }
 h2 {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 // .check-mark {
@@ -28,20 +29,20 @@ h2 {
 // 	margin-top: 2px;
 // }
 .dropdown-menu {
-	li {
-		&.selected {
-			> a {
-				&.selected {
-					color: $confirm-mark-color;
-				}
-			}
-		}
-	}
+  li {
+    &.selected {
+      > a {
+        &.selected {
+          color: $confirm-mark-color;
+        }
+      }
+    }
+  }
 }
 
 .check-mark {
-	font-size: 12px;
-	margin-top: 2px;
-	color: $confirm-mark-color;
-	position: relative;
+  font-size: 12px;
+  margin-top: 2px;
+  color: $confirm-mark-color;
+  position: relative;
 }

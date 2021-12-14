@@ -83,6 +83,12 @@ GEM
       xpath (~> 3.2)
     childprocess (4.1.0)
     concurrent-ruby (1.1.9)
+    countries (4.1.1)
+      i18n_data (~> 0.13.1)
+      sixarm_ruby_unaccent (~> 1.1)
+    country_select (6.0.0)
+      countries (~> 4.0)
+      sort_alphabetical (~> 1.1)
     crass (1.0.6)
     erubi (1.10.0)
     execjs (2.8.1)
@@ -91,6 +97,7 @@ GEM
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.13.1)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     listen (3.7.0)
@@ -170,6 +177,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    sixarm_ruby_unaccent (1.2.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (4.0.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -185,6 +195,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unicode_utils (1.4.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -214,6 +225,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara (>= 3.26)
+  country_select
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -233,4 +245,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.22
+   2.2.33

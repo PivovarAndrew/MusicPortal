@@ -62,7 +62,7 @@
 
             <div class="field form-group">
               <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
-              <%= select_tag :countries, raw(render partial: "partials/countries"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" %>
+              <%= form.country_select :countries, {},  {class: "small-left-interval large-width selectpicker", data: {"multiple": true, "data-mdb-clear-button": true, "data-max-options": "3"}} %>
             </div>
 
             <div class="field form-group">
@@ -72,12 +72,12 @@
 
             <div class="field form-group">
               <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
-              <%= select_tag :main_genre, raw(render partial: "partials/genres"), class: "small-left-interval medium-width selectpicker"%>
+              <%= form.select :main_genre, raw(render partial: "partials/genres"), {}, {class: "small-left-interval medium-width"}%>
             </div>
 
             <div class="field form-group">
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
-              <%= select_tag :related_genres, raw(render partial: "partials/genres"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" %>
+              <%= select_tag :related_genres, options_for_select(raw(render partial: "partials/genres"), selected: @track.related_genres), class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" %>
             </div>
 
             <div class="field form-group">
@@ -92,7 +92,7 @@
           
             <div class="field form-group">
               <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
-              <%= select_tag :age_restrictions, raw(render partial: "partials/age_restrictions"), class: "small-left-interval extra-small-width selectpicker"%>
+              <%= form.select :age_restrictions, options_for_select(raw(render partial: "partials/age_restrictions", selected: params[:related_genres])), {}, class: "small-left-interval extra-small-width selectpicker"%>
 
             </div>
               <%= form.submit 'Submit', class: "submit-button small-bottom-interval small-top-interval"%>
