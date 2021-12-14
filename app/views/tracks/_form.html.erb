@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-<%= form_with(model: track) do |form| %>
-  <% if track.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(track.errors.count, "error") %> prohibited this track from being saved:</h2>
-=======
 <%= stylesheet_link_tag params[:controller] %>
 <%= stylesheet_link_tag "application" %>
 <%= stylesheet_link_tag "multiselect" %>
@@ -16,42 +10,32 @@
           <h2>
             <%= pluralize(track.errors.count, "error" ) %> prohibited this track from being saved:
           </h2>
->>>>>>> Stashed changes
 
-      <ul>
-        <% track.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <ul>
+            <% track.errors.each do |error| %>
+              <li>
+                <%= error.full_message %>
+              </li>
+              <% end %>
+          </ul>
+        </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <fieldset>
+            <div class="field form-group">
+              <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :name, class: "small-left-interval medium-width" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+            <div class="field form-group">
+              <%= form.label :description, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_area :description, class: "small-left-interval large-width no-resizable" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+            <div class="field form-group">
+              <%= form.label :source_link, class: "lbl-default col-sm-2 control-label" %>
+                <%= form.text_field :source_link, class: "small-left-interval large-width" %>
+            </div>
 
-<<<<<<< Updated upstream
-  <div class="field">
-    <%= form.label :source_link %>
-    <%= form.text_field :source_link %>
-  </div>
-
-  <div class="field">
-    <%= form.label :release_date %>
-    <%= form.date_select :release_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.time_select :duration %>
-  </div>
-=======
             <div class="fields-group">
             </div>
               <div class="field form-group">
@@ -80,24 +64,12 @@
               <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
               <%= select_tag :countries, raw(render partial: "partials/countries"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" %>
             </div>
->>>>>>> Stashed changes
 
-  <div class="field">
-    <%= form.label :countries %>
-    <%= form.text_field :countries %>
-  </div>
+            <div class="field form-group">
+              <%= form.label :tags, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :tags, class: "small-left-interval medium-width" %>
+            </div>
 
-<<<<<<< Updated upstream
-  <div class="field">
-    <%= form.label :tags %>
-    <%= form.text_field :tags %>
-  </div>
-
-  <div class="field">
-    <%= form.label :main_genre %>
-    <%= form.text_field :main_genre %>
-  </div>
-=======
             <div class="field form-group">
               <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
               <%= select_tag :main_genre, raw(render partial: "partials/genres"), class: "small-left-interval medium-width selectpicker"%>
@@ -107,40 +79,28 @@
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
               <%= select_tag :related_genres, raw(render partial: "partials/genres"), class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" %>
             </div>
->>>>>>> Stashed changes
 
-  <div class="field">
-    <%= form.label :related_genres %>
-    <%= form.text_field :related_genres %>
-  </div>
+            <div class="field form-group">
+              <%= form.label :performer, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :performer, class: "small-left-interval medium-width" %>
+            </div>
 
-  <div class="field">
-    <%= form.label :performer %>
-    <%= form.text_field :performer %>
-  </div>
+            <div class="field form-group">
+              <%= form.label :preview_picture, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
+            </div>
 
-<<<<<<< Updated upstream
   <div class="field">
     <%= form.label :preview_picture %>
     <%= form.text_field :preview_picture %>
   </div>
-
-  <div class="field">
-    <%= form.label :age_rest %>
-    <%= form.text_field :age_rest %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-=======
+          
             <div class="field form-group">
               <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
               <%= select_tag :age_restrictions, raw(render partial: "partials/age_restrictions"), class: "small-left-interval extra-small-width selectpicker"%>
+
             </div>
               <%= form.submit 'Submit', class: "submit-button small-bottom-interval small-top-interval"%>
               </fieldset>
           <% end %>
 </div>
->>>>>>> Stashed changes
