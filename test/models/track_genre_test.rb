@@ -1,15 +1,21 @@
 # == Schema Information
 #
-# Table name: age_restrictions
+# Table name: track_genres
 #
 #  id         :bigint           not null, primary key
-#  value      :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  genre_id   :bigint
+#  track_id   :bigint
+#
+# Indexes
+#
+#  index_track_genres_on_genre_id  (genre_id)
+#  index_track_genres_on_track_id  (track_id)
 #
 require "test_helper"
 
-class AgeRestrictionTest < ActiveSupport::TestCase
+class TrackGenreTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

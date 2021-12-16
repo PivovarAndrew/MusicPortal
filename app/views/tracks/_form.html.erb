@@ -72,12 +72,12 @@
 
             <div class="field form-group">
               <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :main_genre, Genre.all.collect {|genre| [genre.genre_name]}, {}, {class: "small-left-interval medium-width"}%>
+              <%= form.select :main_genre, Genre.all.collect {|genre| [genre.name]}, {}, {class: "small-left-interval medium-width"}%>
             </div>
 
             <div class="field form-group">
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :related_genres, Genre.all.collect {|genre| [genre.genre_name]}, {"multiple": true, "data-max-options": "2"}, {class: "small-left-interval large-width selectpicker"} %>
+              <%= form.select :related_genres, Genre.all.collect {|genre| [genre.name]}, {"multiple": true, "data-max-options": "2"}, {class: "small-left-interval large-width selectpicker"} %>
             </div>
 
             <div class="field form-group">
@@ -92,7 +92,7 @@
           
             <div class="field form-group">
               <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :age_restrictions, AgeRestriction.all.collect {|age_restriction| [age_restriction.restriction]}, {}, class: "small-left-interval extra-small-width selectpicker"%>
+              <%= form.select :age_restrictions, AgeRestriction.all.collect {|age_restriction| [age_restriction.value]}, {}, class: "small-left-interval extra-small-width selectpicker"%>
 
             </div>
               <%= form.submit 'Submit', class: "submit-button small-bottom-interval small-top-interval"%>

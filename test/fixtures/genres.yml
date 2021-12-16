@@ -3,13 +3,13 @@
 # Table name: genres
 #
 #  id         :bigint           not null, primary key
-#  genre_name :string
+#  name       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 one:
-  genre_name: MyString
+  name: MyString
 
 two:
-  genre_name: MyString
+  name: MyString

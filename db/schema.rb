@@ -10,21 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_231120) do
+ActiveRecord::Schema.define(version: 2021_12_16_001059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "age_restrictions", force: :cascade do |t|
-    t.string "restriction"
+    t.integer "value", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre_name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "track_age_restrictions", force: :cascade do |t|
+    t.bigint "track_id"
+    t.bigint "age_restriction_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["age_restriction_id"], name: "index_track_age_restrictions_on_age_restriction_id"
+    t.index ["track_id"], name: "index_track_age_restrictions_on_track_id"
+  end
+
+  create_table "track_genres", force: :cascade do |t|
+    t.bigint "track_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_track_genres_on_genre_id"
+    t.index ["track_id"], name: "index_track_genres_on_track_id"
   end
 
   create_table "tracks", force: :cascade do |t|

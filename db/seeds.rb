@@ -6,60 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Genre.create(genre_name: "Rock")
-Genre.create(genre_name: "Jazz")
-Genre.create(genre_name: "Hip-Hop")
-Genre.create(genre_name: "Pop")
-Genre.create(genre_name: "Blues")
-Genre.create(genre_name: "Folk")
-Genre.create(genre_name: "Classic")
-Genre.create(genre_name: "Heavy Metal")
-Genre.create(genre_name: "Thrash Metal")
-Genre.create(genre_name: "Country")
-Genre.create(genre_name: "R&B")
-Genre.create(genre_name: "Punk Rock")
-Genre.create(genre_name: "Electronic")
-Genre.create(genre_name: "Soul")
-Genre.create(genre_name: "Reggae")
-Genre.create(genre_name: "Funk")
-Genre.create(genre_name: "Techno")
-Genre.create(genre_name: "Disco")
-Genre.create(genre_name: "Alternative Rock")
-Genre.create(genre_name: "Ambient")
-Genre.create(genre_name: "Swing")
-Genre.create(genre_name: "Industrial")
-Genre.create(genre_name: "Gospel")
-Genre.create(genre_name: "Trance")
-Genre.create(genre_name: "Instrumental")
-Genre.create(genre_name: "Dubstep")
-Genre.create(genre_name: "Breakbeat")
-Genre.create(genre_name: "Ska")
-Genre.create(genre_name: "Pop Rock")
-Genre.create(genre_name: "Indie Rock")
-Genre.create(genre_name: "Orchestra")
-Genre.create(genre_name: "Psychedelic Music")
-Genre.create(genre_name: "Electro")
-Genre.create(genre_name: "New Wave")
-Genre.create(genre_name: "Experimental")
-Genre.create(genre_name: "World")
-Genre.create(genre_name: "Grunge")
-Genre.create(genre_name: "Drum & Bass")
-Genre.create(genre_name: "Hardcore")
-Genre.create(genre_name: "Baroque")
-Genre.create(genre_name: "Bossa Nova")
-Genre.create(genre_name: "Bluegrass")
-Genre.create(genre_name: "Shoegaze")
-Genre.create(genre_name: "Easy Listening")
-Genre.create(genre_name: "Enka")
-Genre.create(genre_name: "Holiday")
-Genre.create(genre_name: "J-Pop")
-Genre.create(genre_name: "Latin")
-Genre.create(genre_name: "Power Metal")
-Genre.create(genre_name: "New Age")
-Genre.create(genre_name: "Opera")
+GENRES = ["Rock", "Jazz", "Hip-Hop", "Pop", "Blues", "Folk", "Classic", "Heavy Metal", "Thrash Metal", "Country",
+          "R&B", "Punk Rock", "Electronic", "Soul", "Reggae", "Funk", "Techno", "Disco", "Alternative Rock", "Ambient",
+          "Swing", "Industrial", "Gospel", "Trance", "Instrumental", "Dubstep", "Breakbeat", "Ska", "Pop Rock", "Indie Rock",
+          "Orchestra", "Psychedelic Music", "Electro", "New Wave", "Experimental", "World", "Grunge", "Drum & Bass", "Hardcore", "Baroque",
+          "Bossa Nova", "Bluegrass", "Shoegaze", "Easy Listening", "Enka", "Holiday", "J-Pop", "Latin", "Power Metal", "New Age", "Opera"].freeze
 
-AgeRestriction.create(restriction: "0+")
-AgeRestriction.create(restriction: "6+")
-AgeRestriction.create(restriction: "12+")
-AgeRestriction.create(restriction: "16+")
-AgeRestriction.create(restriction: "18+")
+AGE_RESTRICTIONS = [0, 6, 12, 16, 18]
+
+ActiveRecord::Base.transaction do
+  GENRES.each do |genre_name|
+    Genre.create(name: genre_name)
+  end
+end
+
+ActiveRecord::Base.transaction do
+  AGE_RESTRICTIONS.each do |age_restriction|
+    AgeRestriction.create(value: age_restriction)
+  end
+end

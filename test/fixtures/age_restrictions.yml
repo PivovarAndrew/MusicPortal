@@ -2,14 +2,14 @@
 #
 # Table name: age_restrictions
 #
-#  id          :bigint           not null, primary key
-#  restriction :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :bigint           not null, primary key
+#  value      :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 one:
-  restriction: MyString
+  value: 1
 
 two:
-  restriction: MyString
+  value: 1

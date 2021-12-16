@@ -38,6 +38,8 @@ group :development, :test do
   gem 'annotate', '~> 3.1', '>= 3.1.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 11.1', '>= 11.1.3', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-byebug', '~> 3.9'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do

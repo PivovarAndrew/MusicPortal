@@ -19,4 +19,8 @@
 #  updated_at       :datetime         not null
 #
 class Track < ApplicationRecord
+  has_many :track_genres
+  has_many :genres, through: :track_genres
+  has_many :track_age_restrictions
+  has_many :age_restrictions, through: :track_age_restrictions
 end
