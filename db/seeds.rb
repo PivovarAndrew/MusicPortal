@@ -14,6 +14,8 @@ GENRES = ["Rock", "Jazz", "Hip-Hop", "Pop", "Blues", "Folk", "Classic", "Heavy M
 
 AGE_RESTRICTIONS = [0, 6, 12, 16, 18]
 
+ROLES = ["User", "Editor", "Admin"]
+
 ActiveRecord::Base.transaction do
   GENRES.each do |genre_name|
     Genre.create(name: genre_name)
@@ -23,5 +25,11 @@ end
 ActiveRecord::Base.transaction do
   AGE_RESTRICTIONS.each do |age_restriction|
     AgeRestriction.create(value: age_restriction)
+  end
+end
+
+ActiveRecord::Base.transaction do
+  ROLES.each do |role|
+    Role.create(name: role)
   end
 end
