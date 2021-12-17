@@ -14,8 +14,11 @@
   </head>
 
   <body>
-    <%= render "alerts" %>
-    <%= render "navigation" %>
+    <header>
+      <%= render "layouts/navigation" %>
+    </header>
+    <div class="container unselectable">
     <%= yield %>
+    <div>
   </body>
 </html>
