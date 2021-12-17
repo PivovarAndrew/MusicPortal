@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -32,6 +31,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
 gem "country_select", "~> 6.0"
 gem "devise", "~> 4.8", ">= 4.8.1"
+gem 'devise-bootstrapped', '~> 0.1.1'
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
 
 group :development, :test do
