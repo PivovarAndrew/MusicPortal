@@ -1,13 +1,7 @@
-<div class="bigbox">
-  <div class="box">
-    <table class="table-minimal">
-      <tbody>
+ <div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
         <% @users.each do |user| %>
-          <tr>
+             <div class="row user-row">
             <%= render user %>
-          </tr>
+          </div>
         <% end %>
-      </tbody>
-    </table>
-  </div>
 </div>

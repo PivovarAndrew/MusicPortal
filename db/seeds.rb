@@ -12,9 +12,11 @@ GENRES = ["Rock", "Jazz", "Hip-Hop", "Pop", "Blues", "Folk", "Classic", "Heavy M
           "Orchestra", "Psychedelic Music", "Electro", "New Wave", "Experimental", "World", "Grunge", "Drum & Bass", "Hardcore", "Baroque",
           "Bossa Nova", "Bluegrass", "Shoegaze", "Easy Listening", "Enka", "Holiday", "J-Pop", "Latin", "Power Metal", "New Age", "Opera"].freeze
 
-AGE_RESTRICTIONS = [0, 6, 12, 16, 18]
+AGE_RESTRICTIONS = [0, 6, 12, 16, 18].freeze
 
-ROLES = ["User", "Editor", "Admin"]
+ROLES = %w[User Editor Admin]
+
+TEST_USERS_COUNT = 30
 
 ActiveRecord::Base.transaction do
   GENRES.each do |genre_name|
@@ -31,5 +33,17 @@ end
 ActiveRecord::Base.transaction do
   ROLES.each do |role|
     Role.create(name: role)
+  end
+end
+
+ActiveRecord::Base.transaction do
+  TEST_USERS_COUNT.times do |counter|
+    email = "test-#{counter + 1}@gmail.com"
+    password = "123456"
+    User.create!(
+      email: email,
+      password: password,
+      password_confirmation: password,
+    )
   end
 end

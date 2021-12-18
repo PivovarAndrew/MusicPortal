@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     authorize @user
-    @user.update_attributes(secure_params) ? (redirect_to users_path, success: "User updated") : (redirect_to users_path, alert: "Unable to update user")
+    @user.update(secure_params) ? (redirect_to users_path, success: "User updated") : (redirect_to users_path, alert: "Unable to update user")
   end
 
   private
