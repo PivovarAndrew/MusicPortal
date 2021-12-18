@@ -10,7 +10,7 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  role_id                :integer
+#  role                   :integer
 #
 # Indexes
 #
@@ -18,8 +18,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  enum role: [:user, :editor, :admin]
-  after_initialize :set_default_role, :if => :new_record?
+  enum role: %i[user editor admin]
+  after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
     self.role ||= :user
