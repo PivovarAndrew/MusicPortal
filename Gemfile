@@ -28,11 +28,18 @@ gem "bcrypt", "~> 3.1", ">= 3.1.16"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
+# Sass-powered version of Bootstrap 3
 gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
+# Provides a simple helper to get an HTML select list of countries
 gem "country_select", "~> 6.0"
+# Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.8", ">= 4.8.1"
+# Generates nicer default devise views styled with Bootstrap
 gem 'devise-bootstrapped', '~> 0.1.1'
+# A normaliser/beautifier for HTML
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
+# Object oriented authorization for application
+gem 'pundit', '~> 2.1', '>= 2.1.1'
 
 group :development, :test do
   gem "annotate", "~> 3.1", ">= 3.1.1"

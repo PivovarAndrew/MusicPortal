@@ -1,7 +1,8 @@
 @import "../config/*";
 
 $default_font_family: $open_sans_font_family;
-$navigation_bar_links: $apple_font_family;
+$navigation_bar_links_font_family: $open_sans_font_family;
+$navigation_bar_brand_font_family: $montserrat_font_family;
 
 $scaffold_label_font_size: $normal_label_font_size;
 $scaffold_h1_font_size: $h1_font_size;

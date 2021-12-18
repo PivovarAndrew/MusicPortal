@@ -24,11 +24,11 @@ body {
   background-color: $default_background_color;
 }
 
-@media screen and (min-width: 768px) {
-  body {
-    padding-top: 100px;
-  }
-}
+//@media screen and (min-width: 768px) {
+//  body {
+//    padding-top: 100px;
+//  }
+//}
 
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
