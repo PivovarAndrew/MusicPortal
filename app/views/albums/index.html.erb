@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag params[:controller] %>
+<%= stylesheet_link_tag "application" %>
+
+<div class="team-grid container intro text-center">
+   <h1>Albums</h1>
+</div>
+
+<% @albums.each do |album| %>
+  <div class="col-md-4 col-lg-3 item">
+      <div class="box" class="album-preview-image" style="background-image:url(<%= album.image_preview_url %>)">
+         <div class="cover">
+            <div><%= album.name %></div>
+            <h3 class="name">Ben Johnson</h3>
+            <p class="title">Musician</p>
+            <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+         </div>
+     </div>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image preview</th>
+      <th>Release date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= album.name %></td>
+        <td><%= album.description %></td>
+        <td><%= image_tag(album.image_preview_url, class: "album-preview-image") %></td>
+        <td><%= album.release_date %></td>
+        <td><%= link_to "Show", album %></td>
+        <td><%= link_to "Edit", edit_album_path(album) %></td>
+        <td><%= link_to "Destroy", album, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "New Album", new_album_path %>

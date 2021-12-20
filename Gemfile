@@ -26,8 +26,10 @@ gem "bcrypt", "~> 3.1", ">= 3.1.16"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Ajax scaffold generator is a rails generator for ajaxified scaffolds
+gem 'ajax_scaffold_generator', '~> 3.1', '>= 3.1.11'
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.4.4", require: false
+gem 'bootsnap', '~> 1.9', '>= 1.9.3', require: false
 # Sass-powered version of Bootstrap 3
 gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
 # Provides a simple helper to get an HTML select list of countries

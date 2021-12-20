@@ -1,5 +1,3 @@
-<%= stylesheet_link_tag "application" %>
-<%= stylesheet_link_tag params[:controller] %>
 <div class="row user-row">
     <div class="col-xs-3 col-sm-2 col-md-6 col-lg-1">
         <img class="img-circle"
@@ -25,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
                         <img class="img-circle main-img"
-                                        src="https://img.flaticon.com/icons/png/512/306/306007.png?size=120x120"
+                            src="https://img.flaticon.com/icons/png/512/306/306007.png?size=120x120"
                             alt="User Pic">
                     </div>
                     <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
@@ -59,14 +57,21 @@
                     </div>
                 </div>
             </div>
+            <% unless user == current_user %>
             <div class="panel-footer">
-                    <button class="btn btn-sm btn-warning" type="button" data-toggle="tooltip"
-                        data-original-title="Edit this user"><i class="glyphicon glyphicon-edit"></i></button>
+                <%= form_for user do |form| %>
+                  <%= button_tag(type: "submit", class: "btn btn-sm btn-warning") do %> 
+                    <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {}, class: "selectpicker" %>
+                    <i class="glyphicon glyphicon-edit"></i>
+                  <% end %>
                 <span class="pull-right">
-                    <button class="btn btn-sm btn-danger" type="button" data-toggle="tooltip"
-                        data-original-title="Remove this user"><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "button") unless user == current_user %><i class="glyphicon glyphicon-remove"></i></button>
+                    <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
+                        <i class="glyphicon glyphicon-remove glyphicon-white"></i>
+                    <% end %>
                 </span>
+                <% end %>    
             </div>
+            <% end %>
         </div>
     </div>
 </div>

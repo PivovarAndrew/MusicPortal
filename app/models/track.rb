@@ -17,6 +17,7 @@
 #  tags             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  album_id         :bigint
 #
 class Track < ApplicationRecord
   has_many :track_genres

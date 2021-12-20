@@ -1,4 +1,10 @@
- <div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+<%= stylesheet_link_tag "application" %>
+<%= stylesheet_link_tag "scaffolds" %>
+<%= stylesheet_link_tag params[:controller] %>
+
+<h1 class = "header-default medium-bottom-interval">Users</h1>
+
+<div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
         <% @users.each do |user| %>
              <div class="row user-row">
             <%= render user %>

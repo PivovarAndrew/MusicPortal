@@ -108,6 +108,22 @@ label {
   margin-top: $small_interval;
 }
 
+.medium-left-interval {
+  margin-left: $medium_interval;
+}
+
+.medium-right-interval {
+  margin-right: $medium_interval;
+}
+
+.medium-bottom-interval {
+  margin-bottom: $medium_interval;
+}
+
+.medium-top-interval {
+  margin-top: $medium_interval;
+}
+
 .lbl-default {
   font-size: $scaffold_label_font_size;
   color: $label_color;
@@ -159,4 +175,18 @@ label {
   color: $color-black;
   font-size: $scaffold_link_separator_font_size;
   display: inline-block;
+}
+
+.invisible-text {
+  text-indent: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+.glyphicon-large {
+  font-size: $glyphicon_font_size;
+}
+
+.glyphicon-white {
+  color: $normal_glyphicon_text_color;
 }
