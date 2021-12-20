@@ -9,6 +9,6 @@
 #
 class AgeRestriction < ApplicationRecord
   validates :value, presence: true, uniqueness: true
-  has_many :track_age_restrictions
-  has_many :tracks, through: :track_age_restrictions
+  has_many :track_age_restrictions, dependent: :destroy
+  has_many :tracks, through: :track_age_restrictions, dependent: :destroy
 end

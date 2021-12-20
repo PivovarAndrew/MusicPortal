@@ -25,4 +25,5 @@ class Track < ApplicationRecord
   has_many :track_age_restrictions
   has_many :age_restrictions, through: :track_age_restrictions
   belongs_to :album
+  validates :album_id, null: false
 end

@@ -11,5 +11,5 @@
 #  updated_at        :datetime         not null
 #
 class Album < ApplicationRecord
-  has_many :tracks
+  has_many :tracks, dependent: :destroy
 end
