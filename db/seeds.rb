@@ -17,6 +17,7 @@ AGE_RESTRICTIONS = [0, 6, 12, 16, 18].freeze
 ROLES = %w[User Editor Admin]
 
 TEST_USERS_COUNT = 30
+TEST_ALBUMS_COUNT = 30
 
 ActiveRecord::Base.transaction do
   GENRES.each do |genre_name|
@@ -44,6 +45,17 @@ ActiveRecord::Base.transaction do
       email: email,
       password: password,
       password_confirmation: password,
+    )
+  end
+end
+
+ActiveRecord::Base.transaction do
+  TEST_USERS_COUNT.times do |counter|
+    Album.create!(
+      name: "Name #{counter + 1}",
+      description: "Descr #{counter + 1}",
+      release_date: DateTime.current.to_date + counter,
+      image_preview_url: "https://www.hd-freewallpapers.com/latest-wallpapers/desktop-funny-images-of-dogs-and-puppies-download.jpg",
     )
   end
 end

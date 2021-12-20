@@ -2,7 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "settings/*";
+@import "config/*";
+
 .album-preview-image {
-   width: 143px;
-   height: 143px;
+   width: $preview_image_width_size;
+   height: $preview_image_height_size;
+}
+
+.album-description {
+    font-size: $album_description_font_size;
+    color: album_description_text_color;
+}
+
+.album-release-date {
+    color: album_release_date_text_color;
 }
