@@ -12,9 +12,9 @@
 
 .album-description {
     font-size: $album_description_font_size;
-    color: album_description_text_color;
+    color: $album_description_text_color;
 }
 
 .album-release-date {
-    color: album_release_date_text_color;
+    color: $album_release_date_text_color;
 }
