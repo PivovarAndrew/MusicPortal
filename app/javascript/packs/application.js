@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import './users'
+import './selectors'
 
 Rails.start()
 Turbolinks.start()

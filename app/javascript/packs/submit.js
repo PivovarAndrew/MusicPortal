@@ -1,5 +1,4 @@
 document.querySelector('input[type=submit]').addEventListener('click',function clickHandler(e){
-  alert(100)
   this.removeEventListener('click',clickHandler,false);
 
   e.preventDefault();
