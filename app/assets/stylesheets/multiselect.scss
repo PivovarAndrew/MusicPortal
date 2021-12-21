@@ -1,0 +1,46 @@
+@import "settings/*";
+@import "config/*";
+
+body {
+  font-family: $default_font-family;
+  background-color: #efefef;
+}
+
+p {
+  color: darken(#ccc, 10%);
+}
+
+a {
+  transition: 0.3s all ease;
+  &,
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.content {
+  padding: 7rem 0;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.dropdown-menu {
+  li {
+    &.selected {
+      > a {
+        &.selected {
+          color: $confirm-mark-color;
+        }
+      }
+    }
+  }
+}
+
+.check-mark {
+  font-size: 12px;
+  margin-top: 2px;
+  color: $confirm-mark-color;
+  position: relative;
+}

@@ -36,7 +36,7 @@
         <td><%= track.related_genres %></td>
         <td><%= track.performer %></td>
         <td><img class = "preview-image" src ="<%= track.preview_picture %>"></td>
-        <td><%= track.age_rest %></td>
+        <td><%= track.age_restrictions %></td>
         <td><%= link_to "Show", track %></td>
         <td><%= link_to "Edit", edit_track_path(track) %></td>
         <td><%= link_to "Destroy", track, method: :delete, data: { confirm: "Are you sure?" } %></td>
