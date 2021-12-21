@@ -20,9 +20,15 @@
 @import "settings/*";
 
 body {
-  font-family: $font_family;
+  font-family: $default_font_family;
   background-color: $default_background_color;
 }
+
+//@media screen and (min-width: 768px) {
+//  body {
+//    padding-top: 100px;
+//  }
+//}
 
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
