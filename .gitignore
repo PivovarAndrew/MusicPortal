@@ -15,10 +15,11 @@
 !/tmp/.keep
 
 # Ignore secrets which being uploaded to the repo
-config/initializers/secret_token.rb
-config/master.key
-config/database.yml
-config/credentials.yml.enc
+/config/initializers/secret_token.rb
+/config/master.key
+/config/database.yml
+/config/credentials.yml.enc
+db.vuerd.json
 
 # Ignore node_modules
 /node_modules

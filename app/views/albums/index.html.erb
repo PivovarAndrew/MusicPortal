@@ -1,15 +1,15 @@
 <%= stylesheet_link_tag "application" %>
-
+<%= render "layouts/album_tracks" %>
 <div class="team-grid container intro text-center">
    <h1 class="header-default medium-bottom-interval">Albums</h1>
 </div>
 
 <% @albums.each do |album| %>
   <div class="col-md-4 col-lg-2 item medium-bottom-interval">
-      <%= link_to image_tag(album.image_preview_url, class: "album-preview-image box"), album %>
+      <%= image_tag(album.image_preview_url, class: "album-preview-image box sidebar-open-button") %>
       <div class="album-description">
-          <div class="album-name">
-              <%= link_to album.name, album %>
+          <div class="album-name sidebar-open-button">
+              <%= album.name %>
           </div>
           <div class = "album-release-date">
               <%= album.release_date %>

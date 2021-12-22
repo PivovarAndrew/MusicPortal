@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
     var panels = $('.user-infos');
     var panelsButton = $('.dropdown-user');
     var changeSelectors = $('.dropdown-role-selectors');
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     panels.hide();
     changeSelectors.hide();
 
-    panelsButton.click(function () {
+    $(document).on('click', panelsButton, function () {
         var id_for = $($(this).attr('data-for'));
         var current_button = $(this);
         id_for.slideToggle(400, function () {
@@ -14,14 +14,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
     });
 
-    changeSelectorsButton.click(function () {
+    $(document).on('click', changeSelectorsButton, function () {
         var idFor = $($(this).attr('data-for'));
         var currentButton = $(this);
         idFor.slideToggle(400, function () {
             idFor.is(':visible') ? currentButton.html('<i class="glyphicon glyphicon-chevron-left"></i>') : currentButton.html('<i class="glyphicon glyphicon-chevron-right"></i>');
         })
     });
-
 
     $('[data-toggle="tooltip"]').tooltip();
 });

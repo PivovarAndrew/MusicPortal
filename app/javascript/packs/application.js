@@ -8,6 +8,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import './users'
 import './selectors'
+import './sidebar'
 
 Rails.start()
 ActiveStorage.start()
