@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-<%= stylesheet_link_tag params[:controller] %>
 <%= stylesheet_link_tag "application" %>
 
 <div class="team-grid container intro text-center">
@@ -8,19 +6,30 @@
 
 <% @albums.each do |album| %>
   <div class="col-md-4 col-lg-2 item medium-bottom-interval">
-      <%= image_tag(album.image_preview_url, class: "album-preview-image box") %>
+      <%= link_to image_tag(album.image_preview_url, class: "album-preview-image box"), album %>
       <div class="album-description">
-          <%= album.name %>
+          <div class="album-name">
+              <%= link_to album.name, album %>
+          </div>
           <div class = "album-release-date">
               <%= album.release_date %>
           </div>
-          <%= link_to "Show", album %>
-          <%= link_to "Edit", edit_album_path(album) %>
-          <%= link_to "Destroy", album, method: :delete, data: { confirm: "Are you sure?" } %>
+          <% if current_user.try(:admin?) or current_user.try(:editor?) %>
+          <%= link_to edit_album_path(album), class: "btn btn-sm btn-warning" do %>
+              <i class="glyphicon glyphicon-edit glyphicon-white"></i>
+          <% end %>     
+          <%= link_to album_path(album), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-danger" do %>
+              <i class="glyphicon glyphicon-remove glyphicon-white"></i>
+          <% end %>
+          <% end %>
       </div>    
   </div>
 <% end %>
 
 <br>
 
-<%= link_to "New Album", new_album_path %>
+<div class="col-md-4 col-lg-2 item medium-bottom-interval">
+ <div class = "add-album-btn-box">
+    <%= link_to image_tag("add.png", alt: "Add album.", class: "add-album-btn"), new_album_path %>
+</div>
+</div>

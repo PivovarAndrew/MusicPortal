@@ -13,22 +13,22 @@
 }
 
 .navbar-inverse {
-  background-color:  $navigation_bar_default_background_color;
+  background-color: $navigation_bar_default_background_color;
 }
 
-.navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>li>a:hover,
-.navbar-inverse .navbar-nav>li>a:focus {
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
   background-color: $navigation_bar_hover_background_color;
 }
 
-.navbar-inverse .navbar-nav>.active>a,
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a:hover,
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a:hover,
-.navbar-inverse .navbar-nav>.open>a:focus {
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
   background-color: $navigation_bar_default_background_color;
 }
 
@@ -36,8 +36,8 @@
   background-color: $navigation_bar_dropdown_menu_background_color;
 }
 
-.dropdown-menu>li>a:hover,
-.dropdown-menu>li>a:focus {
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
   background-color: $navigation_bar_hover_background_color;
 }
 
@@ -45,8 +45,8 @@
   background-image: none;
 }
 
-.dropdown-menu>li>a:hover,
-.dropdown-menu>li>a:focus {
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
   background-image: none;
 }
 
@@ -59,52 +59,52 @@
 }
 
 .navbar-inverse .navbar-brand:hover {
-  color: $navigation_bar_text_color_hover
+  color: $navigation_bar_text_color_hover;
 }
 
-.navbar-inverse .navbar-nav>li>a {
+.navbar-inverse .navbar-nav > li > a {
   color: $navigation_bar_text_color_default;
 }
 
-.navbar-inverse .navbar-nav>li>a:hover,
-.navbar-inverse .navbar-nav>li>a:focus {
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
   color: $navigation_bar_text_color_hover;
 }
 
-.navbar-inverse .navbar-nav>.active>a,
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a:hover,
-.navbar-inverse .navbar-nav>.open>a:focus {
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
   color: $navigation_bar_text_color_hover;
 }
 
-.navbar-inverse .navbar-nav>.active>a:hover,
-.navbar-inverse .navbar-nav>.active>a:focus {
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
   color: $navigation_bar_text_color_hover;
 }
 
-.dropdown-menu>li>a {
+.dropdown-menu > li > a {
   color: $navigation_bar_text_color_default;
 }
 
-.dropdown-menu>li>a:hover,
-.dropdown-menu>li>a:focus {
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
   color: $navigation_bar_text_color_hover;
 }
 
-.navbar-inverse .navbar-nav>.dropdown>a .caret {
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
   border-top-color: $navigation_bar_text_color_default;
 }
 
-.navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+.navbar-inverse .navbar-nav > .dropdown > a:hover .caret {
   border-top-color: $navigation_bar_text_color_default;
 }
 
-.navbar-inverse .navbar-nav>.dropdown>a .caret {
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
   border-bottom-color: $navigation_bar_text_color_default;
 }
 
-.navbar-inverse .navbar-nav>.dropdown>a:hover .caret {
+.navbar-inverse .navbar-nav > .dropdown > a:hover .caret {
   border-bottom-color: $navigation_bar_text_color_default;
 }
 

@@ -6,15 +6,37 @@
 @import "config/*";
 
 .album-preview-image {
-   width: $preview_image_width_size;
-   height: $preview_image_height_size;
+  width: $preview_image_width_size;
+  height: $preview_image_height_size;
+}
+
+.album-name {
+  a,
+  a:hover {
+    text-decoration: none;
+    color: $color-black;
+  }
 }
 
 .album-description {
-    font-size: $album_description_font_size;
-    color: $album_description_text_color;
+  font-size: $album_description_font_size;
+  color: $album_description_text_color;
 }
 
 .album-release-date {
-    color: $album_release_date_text_color;
+  color: $album_release_date_text_color;
+}
+
+.add-album-btn {
+  max-width: $add_button_width_size;
+  max-height: $add_button_height_size;
+  margin: 0;
+}
+
+.add-album-btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $preview_image_width_size;
+  height: $preview_image_height_size;
 }

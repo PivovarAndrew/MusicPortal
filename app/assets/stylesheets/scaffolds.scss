@@ -183,8 +183,19 @@ label {
   display: block;
 }
 
+.glyphicon-small {
+  width: $small_glyphicon_size;
+  height: $small_glyphicon_size;
+}
+
+.glyphicon-medium {
+  width: $medium_glyphicon_size;
+  height: $medium_glyphicon_size;
+}
+
 .glyphicon-large {
-  font-size: $glyphicon_font_size;
+  width: $large_glyphicon_size;
+  height: $large_glyphicon_size;
 }
 
 .glyphicon-white {
