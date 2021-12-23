@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :albums
+  get "/_album_tracks", to: "albums#_album_tracks"
   devise_for :users
   root to: "pages#home"
   resources :tracks

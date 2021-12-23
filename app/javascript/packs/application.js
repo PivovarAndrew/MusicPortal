@@ -9,6 +9,7 @@ import "channels"
 import './users'
 import './selectors'
 import './sidebar'
+import './album'
 
 Rails.start()
 ActiveStorage.start()

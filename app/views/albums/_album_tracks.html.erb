@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<% if @current_album %>
+<p>
+  <strong>Name:</strong>
+  <%= @current_album.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @current_album.description %>
+</p>
+
+<p>
+  <strong>Image preview url:</strong>
+  <%= @current_album.image_preview_url %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @current_album.release_date %>
+</p>
+
+<%= link_to "Edit", edit_album_path(@current_album) %> |
+<%= link_to "Back", albums_path %>
+<% end %>
