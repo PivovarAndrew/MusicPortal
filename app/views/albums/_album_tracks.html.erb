@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<% if @current_album %>
+<% if @current_album.tracks %>
+<h1>ALBUM</h1>
+<%= @current_album.tracks[0].age_restrictions %>
 <p>
   <strong>Name:</strong>
   <%= @current_album.name %>
