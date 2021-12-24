@@ -24,6 +24,9 @@ TEST_ALBUMS_COUNT = 20
 TEST_TRACKS_IN_ALBUM_COUNT = 5
 INITIAL_ENUMERATION_NUMBER = 1
 
+MIN_TIME_VALUE = Time.parse("00:00:01")
+MAX_TIME_VALUE = Time.parse("23:59:59")
+
 ActiveRecord::Base.transaction do
   GENRES.each do |genre_name|
     Genre.create(name: genre_name)
@@ -74,13 +77,14 @@ ActiveRecord::Base.transaction do
         description: "Description #{tracks_in_album_counter}",
         source_link: "Source link #{tracks_in_album_counter}",
         release_date: DateTime.current.to_date + tracks_in_album_counter,
-        duration: albums_counter + tracks_in_album_counter,
+        duration: rand(MIN_TIME_VALUE..MAX_TIME_VALUE),
         countries: "Countries #{tracks_in_album_counter}",
         tags: "Tags #{tracks_in_album_counter}",
         main_genre: Genre.all.collect(&:name).sample,
         related_genres: Genre.all.collect(&:name).sample,
         performer: "Performer #{tracks_in_album_counter}",
         preview_picture: "https://www.hd-freewallpapers.com/latest-wallpapers/desktop-funny-images-of-dogs-and-puppies-download.jpg",
+        age_restrictions: Genre.all.collect(&:name).sample,
         album_id: albums_counter,
       )
     end

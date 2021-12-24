@@ -10,6 +10,7 @@ import './users'
 import './selectors'
 import './sidebar'
 import './album'
+import './time'
 
 Rails.start()
 ActiveStorage.start()

@@ -1,28 +1,21 @@
-<p id="notice"><%= notice %></p>
+<p id="notice">
+  <%= notice %>
+</p>
 
 <% if @current_album.tracks %>
-<h1>ALBUM</h1>
-<%= @current_album.tracks[0].age_restrictions %>
-<p>
-  <strong>Name:</strong>
-  <%= @current_album.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @current_album.description %>
-</p>
-
-<p>
-  <strong>Image preview url:</strong>
-  <%= @current_album.image_preview_url %>
-</p>
-
-<p>
-  <strong>Release date:</strong>
-  <%= @current_album.release_date %>
-</p>
-
-<%= link_to "Edit", edit_album_path(@current_album) %> |
-<%= link_to "Back", albums_path %>
+  <h1>ALBUM</h1>
+  <h2>
+    <%= @current_album.name %>
+  </h2>
+  <%= image_tag(@current_album.image_preview_url, class: "sidebar-album-preview-image" ) %>
+    <%= @current_album.tracks.each_with_index do |track, counter| %>
+      <div class="field form-group">
+          <%= "#{counter + 1}  #{track.name}" %>
+          <div class="converted-time" >
+            <%= track.duration %>
+          </div>
+      </div>
+    <% end %>
+  <%= link_to "Edit" , edit_album_path(@current_album) %> |
+  <%= link_to "Back" , albums_path %>
 <% end %>
