@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "config/*";
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -27,7 +29,6 @@
 .table-user-information > tbody > tr:first-child {
     border-top: 0;
 }
-
 
 .table-user-information > tbody > tr > td {
     border-top: 0;

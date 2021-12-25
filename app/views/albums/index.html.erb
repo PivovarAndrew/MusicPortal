@@ -13,16 +13,8 @@
               <%= album.name %>
           </div>
           <div class = "album-release-date">
-              <%= album.release_date %>
+              <%= album.release_date.year %>
           </div>
-          <% if current_user.try(:admin?) or current_user.try(:editor?) %>
-          <%= link_to edit_album_path(album), class: "btn btn-sm btn-warning" do %>
-              <i class="glyphicon glyphicon-edit glyphicon-white"></i>
-          <% end %>     
-          <%= link_to album_path(album), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-danger" do %>
-              <i class="glyphicon glyphicon-remove glyphicon-white"></i>
-          <% end %>
-          <% end %>
       </div>    
   </div>
 <% end %>

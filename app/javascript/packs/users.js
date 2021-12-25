@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     panels.hide();
     changeSelectors.hide();
 
-    $(document).on('click', panelsButton, function () {
+    panelsButton.click(function () {
         var id_for = $($(this).attr('data-for'));
         var current_button = $(this);
         id_for.slideToggle(400, function () {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     });
 
-    $(document).on('click', changeSelectorsButton, function () {
+    changeSelectorsButton.click(function () {
         var idFor = $($(this).attr('data-for'));
         var currentButton = $(this);
         idFor.slideToggle(400, function () {
