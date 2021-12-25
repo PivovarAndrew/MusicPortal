@@ -7,9 +7,9 @@
 
 <% @albums.each do |album| %>
   <div class="col-md-4 col-lg-2 item medium-bottom-interval">
-      <%= image_tag(album.image_preview_url, { class: "album-preview-image box sidebar-open-button", onclick: "getAlbum(#{album.id})", "remote": true }) %>
+      <%= image_tag(album.image_preview_url, { class: "album-preview-image box selected-album-sidebar-open", onclick: "getAlbum(#{album.id})", "remote": true }) %>
       <div class="album-description">
-          <div class="album-name sidebar-open-button" onclick="getAlbum(<%= album.id %>)">
+          <div class="album-name selected-album-sidebar-open" onclick="getAlbum(<%= album.id %>)">
               <%= album.name %>
           </div>
           <div class = "album-release-date">
