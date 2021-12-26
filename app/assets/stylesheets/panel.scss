@@ -1,0 +1,22 @@
+@import "config/*";
+
+.content {
+  padding: 20px;
+  position: absolute;
+}
+
+.panel {
+  background: $color-light-gray;
+  box-shadow: none;
+  border-radius: 1px;
+  padding-top: 50px;
+  left: 43%;
+  margin-top: 11px;
+  position: fixed;
+  width: 250px;
+  z-index:99999 !important;
+}
+
+.panel p {
+  padding: 20px;
+}
