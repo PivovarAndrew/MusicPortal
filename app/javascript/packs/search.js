@@ -1,6 +1,6 @@
 import { openSidebar, closeSidebar } from './sidebar.js'
 
-window.searchAlbum = function (text) {
+function searchAlbum() {
     $.ajax({
         url: '/_searched_albums',
         type: 'GET',
@@ -11,7 +11,7 @@ window.searchAlbum = function (text) {
         },
 
         success: function (data) {
-            $("#searced-albums").html(data)
+            $("#searched-albums").html(data)
         },
 
         error: function (request, status, error) {
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const search = $('#search')
 
     search.on('input', function () {
+        searchAlbum();
         openSidebar(searced_results_sidebar_id);
         if ($('#search').val() == "") {
             closeSidebar(searced_results_sidebar_id);

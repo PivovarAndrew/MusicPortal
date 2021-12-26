@@ -1,0 +1,13 @@
+<p id="notice">
+  <%= notice %>
+</p>
+
+<% unless @searched_albums.empty? %>
+     <%= @searched_albums.each do |album| %>
+       <div class="field form-group">
+         <%= image_tag(album.image_preview_url, class: "dropdown-panel-preview-image") %>
+             <%= label_tag "", album.name %>
+             <%= label_tag "", album.release_date %>
+       </div>
+     <% end %>
+<% end %>

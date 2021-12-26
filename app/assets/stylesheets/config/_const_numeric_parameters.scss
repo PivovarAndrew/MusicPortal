@@ -6,7 +6,8 @@ $small_glyphicon_size: 7px;
 $medium_glyphicon_size: 27px;
 $large_glyphicon_size: 43px;
 
-$navigation_bar_links_default_font_size: 1.3rem !important;
+$navigation_bar_links_default_font_size: 1.3rem;
+$navigation_bar_brand_default_font_size: 1.5rem;
 $h1_font_size: 40px;
 $link_font_size: 22px;
 $link_separator_font_size: 22px;
@@ -21,6 +22,8 @@ $medium_interval: 40px !important;
 
 $preview_image_width_size: 143px;
 $preview_image_height_size: 143px;
+$dropdown_panel_preview_image_width_size: 75px;
+$dropdown_panel_preview_image_height_size: 75px;
 $sidebar_preview_image_width_size: 180px;
 $sidebar_preview_image_height_size: 180px;
 $add_button_width_size: 60px;
