@@ -1,0 +1,2 @@
+class UserAlbum < ApplicationRecord
+end
