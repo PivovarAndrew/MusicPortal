@@ -10,6 +10,6 @@ class SearchService
 
       results.push albums.where "#{attribute}::text ILIKE '%#{text}%'"
     end
-    puts results.flatten!
+    results.flatten!
   end
 end
