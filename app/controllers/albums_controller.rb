@@ -5,6 +5,10 @@ class AlbumsController < ApplicationController
     @albums = Album.all
   end
 
+  def user_albums
+    @albums = current_user.albums
+  end
+
   # GET /albums/1 or /albums/1.json
   def show
   end

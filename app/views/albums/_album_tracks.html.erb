@@ -7,7 +7,7 @@
   <div class="field form-group">
   <%= label_tag "", @current_album.name, { class: "lbl-default", style: "display:inline-block;color:black" } %>
   <div class="pull-right">
-  <% if current_user.try(:admin?) or current_user.try(:editor?) %>
+    <% if current_user.try(:admin?) or current_user.try(:editor?) %>
           <%= link_to edit_album_path(@current_album), class: "btn btn-sm btn-warning" do %>
               <i class="glyphicon glyphicon-edit glyphicon-white"></i>
           <% end %>     
@@ -18,7 +18,7 @@
   </div>
   </div>
   <%= image_tag(@current_album.image_preview_url, class: "sidebar-album-preview-image small-bottom-interval") %>
-    <%= @current_album.tracks.each_with_index do |track, counter| %>
+    <% @current_album.tracks.each_with_index do |track, counter| %>
       <div class="field form-group">
           <%= "#{counter + 1}  #{track.name}" %>
           <div class="converted-time pull-right" >
@@ -27,3 +27,5 @@
       </div>
     <% end %>
 <% end %>
+
+<%= button_tag "Add to playlist +", type: "submit", class: "submit-button small-bottom-interval small-top-interval" %>

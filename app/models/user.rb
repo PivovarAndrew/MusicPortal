@@ -18,6 +18,8 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  has_many :user_albums
+  has_many :albums, through: :user_albums
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
 
