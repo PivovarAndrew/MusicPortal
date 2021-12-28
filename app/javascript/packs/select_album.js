@@ -1,12 +1,12 @@
 import {openSidebar, closeSidebar} from './sidebar.js'
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    const selected_album_sidebar_id = "selected-album-sidebar"
+    const SELECTED_ALBUM_SIDEBAR_ID = "selected-album-sidebar"
     $('.selected-album-sidebar-open').click(function () {
-        openSidebar(selected_album_sidebar_id);
+        openSidebar(SELECTED_ALBUM_SIDEBAR_ID);
     });
     
     $('#selected-album-sidebar-close-button').click(function () {
-        closeSidebar(selected_album_sidebar_id);
+        closeSidebar(SELECTED_ALBUM_SIDEBAR_ID);
     });
 });

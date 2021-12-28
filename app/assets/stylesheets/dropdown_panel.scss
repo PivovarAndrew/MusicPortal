@@ -20,6 +20,7 @@
   right: 98%;
   max-height: 600px;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .dropdown-panel-preview-image {
@@ -28,7 +29,8 @@
 }
 
 .search-results-hr {
-	height: 20px !important;
+	height: 20px;
+	width: 500px;
 	border: 0;
 	box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }

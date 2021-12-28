@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
+
   # GET /albums or /albums.json
   def index
     @albums = Album.all
@@ -11,6 +12,11 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1 or /albums/1.json
   def show
+  end
+
+  def add_album_to_playlist
+    @user_album = UserAlbum.new(user_id: current_user.id, album_id: params[:id])
+    @user_album.save!
   end
 
   def _album_tracks
