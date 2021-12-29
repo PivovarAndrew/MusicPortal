@@ -14,11 +14,6 @@ class AlbumsController < ApplicationController
   def show
   end
 
-  def add_album_to_playlist
-    @user_album = UserAlbum.new(user_id: current_user.id, album_id: params[:id])
-    @user_album.save!
-  end
-
   def _album_tracks
     @current_album = Album.find(params[:id].to_i)
     respond_to do |format|

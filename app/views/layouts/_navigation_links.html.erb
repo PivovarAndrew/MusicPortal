@@ -1,7 +1,7 @@
 <li> <%= render "layouts/search" %> </li>
 <% if user_signed_in? %>
    <% unless current_user.albums.empty? %>
-      <li><%= link_to "My Playlist", "/my_playlist" %></li>
+      <li><%= link_to "My Playlist", user_albums_path %></li>
    <% end %>
 <% end %>
 <li><%= link_to "Albums", albums_path %></li>
