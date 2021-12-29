@@ -32,6 +32,8 @@ gem 'ajax_scaffold_generator', '~> 3.1', '>= 3.1.11'
 gem 'bootsnap', '~> 1.9', '>= 1.9.3', require: false
 # Sass-powered version of Bootstrap 3
 gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
+# Provides a simple and extremely flexible way to upload files
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 # Provides a simple helper to get an HTML select list of countries
 gem "country_select", "~> 6.0"
 # Flexible authentication solution for Rails with Warden

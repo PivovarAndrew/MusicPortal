@@ -17,6 +17,7 @@
 # Ignore secrets which being uploaded to the repo
 config/initializers/secret_token.rb
 config/master.key
+config/credentials.yml.enc
 config/database.yml
 
 # Ignore node_modules
