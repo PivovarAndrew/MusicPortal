@@ -20,6 +20,7 @@
 class User < ApplicationRecord
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
+  has_one :user_profile, dependent: :destroy
 
   def set_default_role
     self.role ||= :user
