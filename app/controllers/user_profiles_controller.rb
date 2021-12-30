@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: %i[ show edit update ]
-  before_action :get_profile, only: [:edit, :update]
-
+  before_action :get_user_profile, only: [:edit, :update]
+  
   # GET /user_profiles/1 or /user_profiles/1.json
   def show
   end
@@ -31,7 +31,7 @@ class UserProfilesController < ApplicationController
   end
 
   def get_user_profile
-    @user_profile = current_user.profile
+    @user_profile = current_user.user_profile
   end
 
   # Only allow a list of trusted parameters through.

@@ -305,6 +305,7 @@ DEPENDENCIES
   htmlbeautifier (~> 1.4, >= 1.4.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mini_magick (~> 4.11)
   pg (~> 1.1)
   pry-byebug (~> 3.9)
   pry-rails (~> 0.3.9)

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "config/*";
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -40,4 +42,9 @@
 
 .preview-image {
     padding-left: 2px;
+}
+
+.users-preview-image {
+    width: $users_preview_image_width_size;
+    height: $users_preview_image_height_size;
 }
