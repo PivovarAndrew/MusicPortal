@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_profiles
   resources :albums
   devise_for :users
   root to: "pages#home"

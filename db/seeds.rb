@@ -59,3 +59,14 @@ ActiveRecord::Base.transaction do
     )
   end
 end
+
+ActiveRecord::Base.transaction do
+  UserProfile.create!(
+    name: "Andrew",
+    surname: "Pivovar",
+    nickname: "Admin",
+    date_of_birthday: DateTime.current.to_date,
+    address: "Example address",
+    user_id: 8,
+  )
+end

@@ -26,6 +26,12 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
+  def user_profile
+    super || build_user_profile
+  end
+
+  after_create :build_user_profile
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
