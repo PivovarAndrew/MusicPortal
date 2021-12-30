@@ -20,6 +20,7 @@
 class User < ApplicationRecord
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
+  after_initialize :build_user_profile, if: :new_record?
   has_one :user_profile, dependent: :destroy
 
   def set_default_role
@@ -29,8 +30,6 @@ class User < ApplicationRecord
   def user_profile
     super || build_user_profile
   end
-
-  after_create :build_user_profile
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
