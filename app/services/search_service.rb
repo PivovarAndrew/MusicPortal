@@ -1,16 +1,8 @@
 # Class required for search injection
 class SearchService
-  OUT_OF_USE_ATTRIBUTES = %w[id created_at updated_at description image_preview_url].freeze
+  REQUIRED_ATTRIBUTES = %w[name release_date].freeze
 
   def search_album(text)
-    albums = Album.all
-    results = []
-    Album.where
-    albums[0].attribute_names.each do |attribute|
-      next if OUT_OF_USE_ATTRIBUTES.include? attribute
-
-      results.push albums.where "#{attribute}::text ILIKE '%#{text}%'", text
-    end
-    results.flatten!
+    Album.where(REQUIRED_ATTRIBUTES.map { |attributes| "#{attributes}::text ILIKE :searched_text" }.join(" OR "), searched_text: "%#{text}%")
   end
 end

@@ -1,27 +1,14 @@
 class UserAlbumsController < ApplicationController
-  before_action :set_user_album, only: %i[ show edit update destroy ]
+  before_action :set_user_album, only: %i[ update destroy ]
 
   # GET /user_albums or /user_albums.json
   def index
     @albums = current_user.albums
   end
 
-  # GET /user_albums/1 or /user_albums/1.json
-  def show
-  end
-
-  # GET /user_albums/new
-  def new
-    @user_album = UserAlbum.new
-  end
-
-  # GET /user_albums/1/edit
-  def edit
-  end
-
   # POST /user_albums or /user_albums.json
   def create
-    @user_album = UserAlbum.new(user_album: { user_id: current_user.id, album_id: params[:id] })
+    @user_album = UserAlbum.new(user_id: current_user.id, album_id: params[:id])
 
     respond_to do |format|
       if @user_album.save
@@ -29,19 +16,6 @@ class UserAlbumsController < ApplicationController
         format.json { render :show, status: :created, location: @user_album }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_album.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /user_albums/1 or /user_albums/1.json
-  def update
-    respond_to do |format|
-      if @user_album.update(user_album_params)
-        format.html { redirect_to @user_album, notice: "User album was successfully updated." }
-        format.json { render :show, status: :ok, location: @user_album }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user_album.errors, status: :unprocessable_entity }
       end
     end
