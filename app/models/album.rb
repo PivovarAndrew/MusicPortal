@@ -12,4 +12,6 @@
 #
 class Album < ApplicationRecord
   has_many :tracks, dependent: :destroy
+  has_many :user_albums
+  has_many :user, through: :user_albums
 end

@@ -1,0 +1,123 @@
+@import "settings/*";
+
+.navbar-brand {
+  font-family: $navigation_bar_brand_font_family;
+  text-transform: uppercase;
+  font-size: $navigation_bar_brand_font_size;
+}
+
+.navbar .nav {
+  font-family: $navigation_bar_links_font_family;
+  text-transform: uppercase;
+  letter-spacing: $navigation_bar_links_letter_spacing;
+  font-size: $navigation_bar_links_font_size;
+}
+
+.navbar-inverse {
+  background-color: $navigation_bar_default_background_color;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  background-color: $navigation_bar_hover_background_color;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: $navigation_bar_default_background_color;
+}
+
+.nav-dropdown-menu {
+  background-color: $navigation_bar_dropdown_menu_background_color;
+}
+
+.nav-dropdown-menu > li > a:hover,
+.nav-dropdown-menu > li > a:focus {
+  background-color: $navigation_bar_hover_background_color;
+}
+
+.navbar-inverse {
+  background-image: none;
+}
+
+.nav-dropdown-menu > li > a:hover,
+.nav-dropdown-menu > li > a:focus {
+  background-image: none;
+}
+
+.navbar-inverse {
+  border-color: $navigation_bar_dropdown_menu_border_color;
+}
+
+.navbar-inverse .navbar-brand {
+  color: $navigation_bar_text_color_default;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color: $navigation_bar_text_color_hover;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: $navigation_bar_text_color_default;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: $navigation_bar_text_color_hover;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: $navigation_bar_text_color_hover;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: $navigation_bar_text_color_hover;
+}
+
+.nav-dropdown-menu > li > a {
+  color: $navigation_bar_text_color_default;
+}
+
+.nav-dropdown-menu > li > a:hover,
+.nav-dropdown-menu > li > a:focus {
+  color: $navigation_bar_text_color_hover;
+}
+
+.navbar-inverse .navbar-nav > .navdropdown > a .caret {
+  border-top-color: $navigation_bar_text_color_default;
+}
+
+.navbar-inverse .navbar-nav > .nav-dropdown > a:hover .caret {
+  border-top-color: $navigation_bar_text_color_default;
+}
+
+.navbar-inverse .navbar-nav > .nav-dropdown > a .caret {
+  border-bottom-color: $navigation_bar_text_color_default;
+}
+
+.navbar-inverse .navbar-nav > .nav-dropdown > a:hover .caret {
+  border-bottom-color: $navigation_bar_text_color_default;
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
+}

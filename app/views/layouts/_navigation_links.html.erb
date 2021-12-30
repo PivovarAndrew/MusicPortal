@@ -1,3 +1,10 @@
+<li> <%= render "layouts/search" %> </li>
+<% if user_signed_in? %>
+   <% unless current_user.albums.empty? %>
+      <li><%= link_to "My Playlist", user_albums_path %></li>
+   <% end %>
+<% end %>
 <li><%= link_to "Albums", albums_path %></li>
-<li><%= link_to "Users", users_path %></li>
-<li><%= link_to "Tracks", tracks_path %></li>
+<% if current_user.try(:admin?) %>
+   <li><%= link_to "Users", users_path %></li>
+<% end %>

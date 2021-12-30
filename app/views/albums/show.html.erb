@@ -1,24 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @album.name %>
+<p id="notice">
+  <%= notice %>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @album.description %>
-</p>
-
-<p>
-  <strong>Image preview url:</strong>
-  <%= @album.image_preview_url %>
-</p>
-
-<p>
-  <strong>Release date:</strong>
-  <%= @album.release_date %>
-</p>
-
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<% if @album.tracks %>
+  <h1>ALBUM</h1>
+  <h2>
+    <%= @album.name %>
+  </h2>
+  <%= image_tag(@album.image_preview_url, class: "sidebar-album-preview-image") %>
+    <%= @album.tracks.each_with_index do |track, counter| %>
+      <div class="field form-group">
+          <%= "#{counter + 1}  #{track.name}" %>
+          <div class="converted-time" >
+            <%= track.duration %>
+          </div>
+      </div>
+    <% end %>
+  <%= link_to "Edit", edit_album_path(@album) %> |
+  <%= link_to "Back", albums_path %>
+<% end %>
