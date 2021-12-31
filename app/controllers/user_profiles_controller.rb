@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
   before_action :set_user_profile, only: %i[ show edit update ]
   before_action :get_user_profile, only: [:edit, :update]
-  
+
   # GET /user_profiles/1 or /user_profiles/1.json
   def show
   end

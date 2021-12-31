@@ -24,11 +24,4 @@
 class UserProfile < ActiveRecord::Base
   belongs_to :user
   mount_uploader :avatar, AvatarUploader
-  after_initialize :set_default_avatar
-
-  DEFAULT_AVATAR_IMAGE_NAME = "default_avatar"
-
-  def set_default_avatar
-    self.avatar ||= DEFAULT_AVATAR_IMAGE_NAME
-  end
 end

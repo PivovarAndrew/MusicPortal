@@ -13,8 +13,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  def extension_allowlist
-    %w(jpg jpeg gif png)
+  def cache_dir
+    "/app/assets/image"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
