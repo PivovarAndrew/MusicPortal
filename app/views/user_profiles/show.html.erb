@@ -1,12 +1,16 @@
+<%= stylesheet_link_tag "application" %>
 <p id="notice"><%= notice %></p>
-
+<table>
+<tr>
+<td class="half-screen">
+<div class="fixed-top">
 <p>
   <strong>Name:</strong>
   <%= @user_profile.name %>
 </p>
 
 <p>
-  <strong>Surname::</strong>
+  <strong>Surname:</strong>
   <%= @user_profile.surname %>
 </p>
 
@@ -22,3 +26,9 @@
 
 <%= link_to "Edit", edit_user_profile_path(@user_profile) %> |
 <%= link_to "Back", user_profiles_path %>
+</td>
+<td class="half-screen">
+<%= render "devise/registrations/edit" %>
+</td>
+<tr>
+</table>
