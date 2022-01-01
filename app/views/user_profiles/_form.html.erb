@@ -1,4 +1,6 @@
-<%= form_with(model: user_profile) do |form| %>
+<div class="row">
+  <%= form_for @user_profile do |form| %>
+  <% form.options[:html][:class] << "form-horizontal" %>
   <% if user_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
@@ -10,38 +12,46 @@
       </ul>
     </div>
   <% end %>
+  <fieldset>
+    <div class="field form-group">
+        <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :name, class: "small-left-interval medium-width" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field form-group">
+        <%= form.label :surname, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :surname, class: "small-left-interval medium-width" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname %>
-  </div>
+    <div class="field form-group">
+        <%= form.label :nickname, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :nickname, class: "small-left-interval medium-width" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :nickname %>
-    <%= form.text_field :nickname %>
-  </div>
+     <div class="field form-group">
+        <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.date_select :release_date, {
+                               order: [:day, :month, :year],
+                               start_year: 1950,
+                               end_year: Date.current.year,
+                               date_separator: ".",
+                             },
+                             { :class => "small-left-interval small-right-interval" } %>
+              </div>
 
-  <div class="field">
-    <%= form.label :date_of_birthday %>
-    <%= form.text_field :date_of_birthday %>
-  </div>
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_field :address %>
+    </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
+    <div class="field">
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
+    </div>
 
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="actions">
+       <%= form.submit %>
+    </div>
+    </fieldset>
+  <% end %>
+</div>

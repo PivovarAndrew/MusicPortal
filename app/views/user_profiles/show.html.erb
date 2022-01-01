@@ -1,34 +1,17 @@
-<%= stylesheet_link_tag "application" %>
 <p id="notice"><%= notice %></p>
-<table>
-<tr>
-<td class="half-screen">
-<div class="fixed-top">
-<p>
-  <strong>Name:</strong>
-  <%= @user_profile.name %>
-</p>
-
-<p>
-  <strong>Surname:</strong>
-  <%= @user_profile.surname %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
-  <%= image_tag default_avatar(@user_profile), class: "users-preview-image" %>
-</p>
-
-<p>
-  <strong>Date of birthday:</strong>
-  <%= @user_profile.date_of_birthday %>
-</p>
-
+<div class="inline">
+<div class = "first-element">
+<%= image_tag default_avatar(@user_profile), class: "users-preview-image" %>
+<div class="container user-profile-text small-top-interval">
+<%= name? %>
+<%= nickname? %>
+<%= date_of_birthday? %>
+<%= address? %>
+</div>
 <%= link_to "Edit", edit_user_profile_path(@user_profile) %> |
 <%= link_to "Back", user_profiles_path %>
-</td>
-<td class="half-screen">
+</div>
+<div class="second-element">
 <%= render "devise/registrations/edit" %>
-</td>
-<tr>
-</table>
+</div>
+</div>
