@@ -34,14 +34,17 @@ class UserProfile < ActiveRecord::Base
   validates :name,
             presence: { message: ONE_WORD_MESSAGE },
             length: { within: NAME_AND_SURNAME_LENGTH },
-            format: { with: ONE_WORD_REGEX, multiline: true }
+            format: { with: ONE_WORD_REGEX, multiline: true },
+            on: :update
 
   validates :surname,
             presence: { message: ONE_WORD_MESSAGE },
             length: { within: NAME_AND_SURNAME_LENGTH },
-            format: { with: ONE_WORD_REGEX, multiline: true }
+            format: { with: ONE_WORD_REGEX, multiline: true },
+            on: :update
 
   validates :nickname,
             presence: { message: OCCUPIED_NICKNAME_MESSAGE, unless: ->(nickname) { !UserProfile.all.collect(&:nickname).include? nickname } },
-            length: { within: NICKNAME_LENGTH }
+            length: { within: NICKNAME_LENGTH },
+            on: :update
 end
