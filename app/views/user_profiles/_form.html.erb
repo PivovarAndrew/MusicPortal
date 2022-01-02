@@ -1,7 +1,6 @@
-<div class="row">
-  <%= form_for @user_profile do |form| %>
-  <% form.options[:html][:class] << "form-horizontal" %>
-  <% if user_profile.errors.any? %>
+<%= form_for @user_profile do |form| %>
+<% form.options[:html][:class] << "form-horizontal" %>
+<% if user_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:</h2>
 
@@ -29,29 +28,23 @@
     </div>
 
      <div class="field form-group">
-        <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.date_select :release_date, {
+        <%= form.label :date_of_birthday, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.date_select :date_of_birthday, {
                                order: [:day, :month, :year],
                                start_year: 1950,
                                end_year: Date.current.year,
-                               date_separator: ".",
+                               date_separator: ". ",
                              },
                              { :class => "small-left-interval small-right-interval" } %>
-              </div>
+     </div>
 
-    <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address %>
-    </div>
+     <div class="field form-group">
+        <%= form.label :address, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :address, class: "small-left-interval medium-width" %>
+     </div>
 
-    <div class="field">
-      <%= form.label :avatar %>
-      <%= form.file_field :avatar %>
-    </div>
-
-    <div class="actions">
+     <div class="actions">
        <%= form.submit %>
-    </div>
+     </div>
     </fieldset>
-  <% end %>
-</div>
+<% end %>

@@ -1,6 +1,9 @@
-<h1>Editing User Profile</h1>
+<%= stylesheet_link_tag "scaffolds" %>
+<h1 class="medium-bottom-interval">Editing User Profile</h1>
 
-<%= render 'form', user_profile: @user_profile %>
+<div class="row">
+   <%= render "form", user_profile: @user_profile %>
+</div>
 
-<%= link_to 'Show', @user_profile %> |
-<%= link_to 'Back', user_profiles_path %>
+<%= link_to "Show", @user_profile %> |
+<%= link_to "Back", user_profiles_path %>

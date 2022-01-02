@@ -42,8 +42,6 @@ gem "devise", "~> 4.8", ">= 4.8.1"
 gem 'devise-bootstrapped', '~> 0.1.1'
 # A normaliser/beautifier for HTML
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
-# Simplify postal addresses management and geocoding with Google Maps
-gem 'jt-rails-address', '~> 1.3', '>= 1.3.1'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
 gem 'mini_magick', '~> 4.11'
 # Object oriented authorization for application
