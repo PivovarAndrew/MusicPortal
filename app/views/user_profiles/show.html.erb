@@ -1,15 +1,16 @@
-<p id="notice"><%= notice %></p>
 <div class="inline">
 <div class = "first-element">
-<%= image_tag default_avatar(@user_profile), class: "users-preview-image" %>
+<%= image_tag default_avatar, class: "users-preview-image" %>
 <div class="container user-profile-text small-top-interval">
-<%= name? %>
-<%= nickname? %>
-<%= date_of_birthday? %>
-<%= address? %>
+<div class="small-bottom-interval">
+<%= name? %><br />
+<%= nickname? %><br />
+<%= date_of_birthday? %><br />
+<%= address? %><br />
 </div>
 <%= link_to "Edit", edit_user_profile_path(@user_profile) %> |
 <%= link_to "Back", user_profiles_path %>
+</div>
 </div>
 <div class="second-element">
 <%= render "devise/registrations/edit" %>

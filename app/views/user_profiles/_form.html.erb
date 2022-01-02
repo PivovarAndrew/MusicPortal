@@ -13,22 +13,22 @@
   <% end %>
   <fieldset>
     <div class="field form-group">
-        <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.label :name, class: "user-profile-text col-sm-2 control-label" %>
         <%= form.text_field :name, class: "small-left-interval medium-width" %>
     </div>
 
     <div class="field form-group">
-        <%= form.label :surname, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.label :surname, class: "user-profile-text col-sm-2 control-label" %>
         <%= form.text_field :surname, class: "small-left-interval medium-width" %>
     </div>
 
     <div class="field form-group">
-        <%= form.label :nickname, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.label :nickname, class: "user-profile-text col-sm-2 control-label" %>
         <%= form.text_field :nickname, class: "small-left-interval medium-width" %>
     </div>
 
      <div class="field form-group">
-        <%= form.label :date_of_birthday, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.label :date_of_birthday, class: "user-profile-text col-sm-2 control-label" %>
         <%= form.date_select :date_of_birthday, {
                                order: [:day, :month, :year],
                                start_year: 1950,
@@ -39,7 +39,7 @@
      </div>
 
      <div class="field form-group">
-        <%= form.label :address, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.label :address, class: "user-profile-text col-sm-2 control-label" %>
         <%= form.text_field :address, class: "small-left-interval medium-width" %>
      </div>
 

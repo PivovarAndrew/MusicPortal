@@ -24,4 +24,24 @@
 class UserProfile < ActiveRecord::Base
   belongs_to :user
   mount_uploader :avatar, AvatarUploader
+
+  NAME_AND_SURNAME_LENGTH = 2..20
+  NICKNAME_LENGTH = 5..25
+  ONE_WORD_REGEX = /^\w+$/
+  ONE_WORD_MESSAGE = "must be one word."
+  OCCUPIED_NICKNAME_MESSAGE = "nickname is occuppied by another user."
+
+  validates :name,
+            presence: { message: ONE_WORD_MESSAGE },
+            length: { within: NAME_AND_SURNAME_LENGTH },
+            format: { with: ONE_WORD_REGEX, multiline: true }
+
+  validates :surname,
+            presence: { message: ONE_WORD_MESSAGE },
+            length: { within: NAME_AND_SURNAME_LENGTH },
+            format: { with: ONE_WORD_REGEX, multiline: true }
+
+  validates :nickname,
+            presence: { message: OCCUPIED_NICKNAME_MESSAGE, unless: ->(nickname) { !UserProfile.all.collect(&:nickname).include? nickname } },
+            length: { within: NICKNAME_LENGTH }
 end
