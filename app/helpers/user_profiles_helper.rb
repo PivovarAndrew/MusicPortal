@@ -1,10 +1,4 @@
 module UserProfilesHelper
-  DEFAULT_AVATAR_IMAGE = "default_avatar.png"
-
-  def default_avatar()
-    @user_profile.avatar.url.nil? ? DEFAULT_AVATAR_IMAGE : @user_profile.avatar.url
-  end
-
   def resource
     @resource ||= current_user
   end
@@ -30,6 +24,8 @@ module UserProfilesHelper
   end
 
   def address?
-    "Address: #{@user_profile.address}" unless @user_profile.address.empty?
+    if @user_profile.address
+      "Address: #{@user_profile.address}" unless @user_profile.address.empty?
+    end
   end
 end

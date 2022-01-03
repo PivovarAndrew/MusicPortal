@@ -1,11 +1,11 @@
 <div class="row user-row">
     <div class="col-xs-3 col-sm-2 col-md-6 col-lg-1">
-        <img class="img-circle"
-            src="https://img.flaticon.com/icons/png/512/306/306007.png?size=65x65"
-            alt="User Pic">
+        <%= image_tag default_avatar(user.user_profile), alt: "avatar" , class: "img-circle users-preview-image" %>
     </div>
     <div class="col-xs-8 col-sm-9 col-md-12 col-lg-9 small-left-interval">
-        <strong><%= link_to user.email, user %></strong><br>
+        <strong>
+            <%= link_to user.email, user %>
+        </strong><br>
         <span class="text-muted">Role: <%= user.role %></span>
     </div>
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".user-<%= user.id %>">
@@ -22,55 +22,106 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">
-                        <img class="img-circle main-img"
-                            src="https://img.flaticon.com/icons/png/512/306/306007.png?size=120x120"
-                            alt="User Pic">
+                        <%= image_tag default_avatar(user.user_profile), alt: "avatar", class: "img-circle main-img users-image" %>
                     </div>
                     <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
-                        <img class="img-circle"
-                            src="https://img.flaticon.com/icons/png/512/306/306007.png?size=65x65"
+                        <img class="img-circle" src="https://img.flaticon.com/icons/png/512/306/306007.png?size=65x65"
                             alt="User Pic">
                     </div>
                     <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
-                        <strong><%= link_to user.email, user %></strong><br>
+                        <strong>
+                            <%= link_to user.email, user %>
+                        </strong><br>
                         <dl>
                             <dt>User role:</dt>
-                            <dd><%= user.role %></dd>
+                            <dd>
+                                <%= user.role %>
+                            </dd>
+                            <dt>Name:</dt>
+                            <dd>
+                                <%= name?(user.user_profile) %>
+                            </dd>
+                            <dt>Nickname:</dt>
+                            <dd>
+                                <%= nickname?(user.user_profile) %>
+                            </dd>
+                            <dt>Date of birthday:</dt>
+                            <dd>
+                                <%= date_of_birthday?(user.user_profile) %>
+                            </dd>
+                            <dt>Address:</dt>
+                            <dd>
+                                <%= address?(user.user_profile) %>
+                            </dd>
                             <dt>Registered since:</dt>
-                            <dd><%= user.created_at %></dd>
+                            <dd>
+                                <%= user.created_at %>
+                            </dd>
                         </dl>
                     </div>
                     <div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
-                        <strong><%= link_to user.email, user %></strong><br>
+                        <strong>
+                            <%= link_to user.email, user %>
+                        </strong><br>
                         <table class="table table-user-information">
                             <tbody>
                                 <tr>
                                     <td>User role:</td>
-                                    <td><%= user.role %></td>
+                                    <td>
+                                        <%= user.role %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Name:</td>
+                                    <td>
+                                        <%= name?(user.user_profile) %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nickname:</td>
+                                    <td>
+                                        <%= nickname?(user.user_profile) %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Date of birthday:</td>
+                                    <td>
+                                        <%= date_of_birthday?(user.user_profile) %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address:</td>
+                                    <td>
+                                        <%= address?(user.user_profile) %>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Registered since:</td>
-                                    <td><%= user.created_at %></td>
+                                    <td>
+                                        <%= user.created_at %>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <% unless user == current_user %>
-            <div class="panel-footer">
-                <%= form_for user do |form| %>
-                  <%= button_tag(type: "submit", class: "btn btn-sm btn-warning") do %> 
-                    <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {}, class: "selectpicker" %>
-                    <i class="glyphicon glyphicon-edit"></i>
-                  <% end %>
-                <span class="pull-right">
-                    <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
-                        <i class="glyphicon glyphicon-remove glyphicon-white"></i>
-                    <% end %>
-                </span>
-                <% end %>    
-            </div>
+            <% unless user==current_user %>
+                <div class="panel-footer">
+                    <%= form_for user do |form| %>
+                        <%= button_tag(type: "submit" , class: "btn btn-sm btn-warning" ) do %>
+                        <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {},
+                                class: "selectpicker" %>
+                            <i class="glyphicon glyphicon-edit"></i>
+                            <% end %>
+                                <span class="pull-right">
+                                    <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method:
+                                        :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
+                                        <i class="glyphicon glyphicon-remove glyphicon-white"></i>
+                                    <% end %>
+                                </span>
+                     <% end %>
+                </div>
             <% end %>
         </div>
     </div>
