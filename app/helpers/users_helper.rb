@@ -1,8 +1,8 @@
 module UsersHelper
   EMPTY_MESSAGE = "Still not filled"
 
-  def name?(user_profile)
-    user_profile.name && user_profile.surname ? "#{user_profile.name} #{user_profile.surname}" : current_user.email
+  def name?(user)
+    user.user_profile.name && user.user_profile.surname ? "#{user.user_profile.name} #{user.user_profile.surname}" : user.email
   end
 
   def nickname?(user_profile)

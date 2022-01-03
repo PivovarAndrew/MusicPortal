@@ -1,15 +1,15 @@
 <div class="inline">
     <div class="first-element">
-        <%= image_tag default_avatar(@user_info), class: "user-info-image" %>
-            <div class="container user-profile-text small-top-interval">
-                <div class="small-bottom-interval box-block">
-                    <%= label_tag name?(@user_info) %>
-                    <%= label_tag nickname?(@user_info) %>
-                    <%= label_tag date_of_birthday?(@user_info) %>
-                    <%= label_tag address?(@user_info) %>
-                </div>
-                <%= link_to "Edit" , edit_user_profile_path(@user_profile) %>
+        <%= image_tag default_avatar(@user_profile), class: "user-info-image" %>
+        <div class="container user-profile-text medium-top-interval">
+            <div class="small-bottom-interval box-block">
+                <%= label_tag show_name? %>
+                <%= label_tag show_nickname? %>
+                <%= label_tag show_date_of_birthday? %>
+                <%= label_tag show_address? %>
             </div>
+            <%= link_to "Edit" , edit_user_profile_path(@user_profile) %>
+        </div>
     </div>
     <div class="second-element">
         <%= render "devise/registrations/edit" %>

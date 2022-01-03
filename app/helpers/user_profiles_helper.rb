@@ -11,21 +11,19 @@ module UserProfilesHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def name?
+  def show_name?
     @user_profile.name && @user_profile.surname ? "Name: #{@user_profile.name} #{@user_profile.surname}" : "Email: #{current_user.email}"
   end
 
-  def nickname?
+  def show_nickname?
     "Nickname: #{@user_profile.nickname}" if @user_profile.nickname
   end
 
-  def date_of_birthday?
+  def show_date_of_birthday?
     "Date of birthday: #{@user_profile.date_of_birthday}" if @user_profile.date_of_birthday
   end
 
-  def address?
-    if @user_profile.address
-      "Address: #{@user_profile.address}" unless @user_profile.address.empty?
-    end
+  def show_address?
+    "Address: #{@user_profile.address}" if @user_profile.address
   end
 end

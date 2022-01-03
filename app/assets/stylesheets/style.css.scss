@@ -1,0 +1,155 @@
+@import "settings/*";
+@import "config/*";
+
+.fields-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-left-interval {
+  margin-left: $small_interval;
+}
+
+.small-right-interval {
+  margin-right: $small_interval;
+}
+
+.small-bottom-interval {
+  margin-bottom: $small_interval;
+}
+
+.small-top-interval {
+  margin-top: $small_interval;
+}
+
+.medium-left-interval {
+  margin-left: $medium_interval;
+}
+
+.medium-right-interval {
+  margin-right: $medium_interval;
+}
+
+.medium-bottom-interval {
+  margin-bottom: $medium_interval;
+}
+
+.medium-top-interval {
+  margin-top: $medium_interval;
+}
+
+.lbl-default {
+  font-size: $scaffold_label_font_size;
+  color: $label_color;
+}
+
+.header-default {
+  font-size: $scaffold_h1_font_size;
+  color: $header_color;
+  text-align: $scaffold_h1_text_align;
+}
+
+.extra-small-width {
+  width: $extra_small_size;
+}
+
+.small-width {
+  width: $small_size;
+}
+
+.medium-width {
+  width: $medium_size;
+}
+
+.large-width {
+  width: $large_size;
+}
+
+.display-as-table-cell {
+  vertical-align: top;
+}
+
+.no-resizable {
+  resize: none;
+}
+
+.link-default {
+  font-size: $scaffold_link_font_size;
+  color: $link_color_default;
+  display: inline-block;
+  &:hover {
+    color: $link_color_hover;
+  }
+  &:visited {
+    color: $link_color_visited;
+  }
+}
+
+.link-separator-default {
+  color: $color-black;
+  font-size: $scaffold_link_separator_font_size;
+  display: inline-block;
+}
+
+.invisible-text {
+  text-indent: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+.glyphicon-large {
+  font-size: $glyphicon_font_size;
+}
+
+.glyphicon-white {
+  color: $normal_glyphicon_text_color;
+}
+
+.not-visible {
+  display: none;
+}
+
+.full-screen {
+  width: $screen_width_size;
+}
+
+.half-screen {
+  width: $half_screen_width_size;
+}
+
+.inline {
+  width: 100%;
+  height: auto;
+  display: flex;
+  .first-element,
+  .second-element {
+    width: 50%;
+    height: 100px;
+    margin: 10px;
+  }
+}
+
+div.box-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.block {
+    display:block
+}
+
+div.change-image:after {
+  content: "\A";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+div.change-image:hover:after {
+  opacity: 1;
+}
