@@ -29,13 +29,13 @@
 }
 
 .search-results-hr {
-	height: 20px;
-	width: 500px;
-	border: 0;
-	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+  border-radius: 2px;
+  color: $search-hr-color;
+  border: 2px solid currentColor;
+  width: 38%;
 }
 
 .searched-text-message {
-  font-size: $small_label_font_size !important;
-  font-style: bold !important;
+  font-size: $small_label_font_size;
+  font-style: bold;
 }

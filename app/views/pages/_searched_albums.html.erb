@@ -1,10 +1,11 @@
+<%= stylesheet_link_tag "scaffolds" %>
 <% unless @searched_albums.empty? %>
      <hr class="search-results-hr">
      </div>
      <% @searched_albums.each do |album| %>
-       <div class="field form-group">
-         <%= image_tag(album.image_preview_url, class: "dropdown-panel-preview-image") %>
-            <div class="album-description">
+       <div class="inline-block small-bottom-interval">
+         <%= image_tag(album.image_preview_url, class: "dropdown-panel-preview-image small-right-interval") %>
+            <div class="album-description block">
               <%= album.name %>
               <%= album.release_date %>
             </div>
