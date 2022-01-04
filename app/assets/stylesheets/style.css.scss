@@ -106,7 +106,7 @@
 }
 
 .not-visible {
-  display: none;
+  display: none !important;
 }
 
 .full-screen {
@@ -136,20 +136,31 @@ div.box-block {
 }
 
 .block {
-    display:block
+  display: block;
 }
 
-div.change-image:after {
-  content: "\A";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
+div.change-image {
+  position: relative;
+  width: 400px;
 }
 
-div.change-image:hover:after {
-  opacity: 1;
+div.change-image img {
+  -webkit-filter: brightness(100%);
+  -moz-filter: brightness(100%);
+  -o-filter: brightness(100%);
+  -ms-filter: brightness(100%);
+  filter: brightness(100%);
+}
+
+div.change-image img:hover {
+  -webkit-filter: brightness(40%);
+  -moz-filter: brightness(40%);
+  -o-filter: brightness(40%);
+  -ms-filter: brightness(40%);
+  filter: brightness(40%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }

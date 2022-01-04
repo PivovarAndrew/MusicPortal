@@ -7,6 +7,6 @@
 }
 
 .user-info-image {
-    width: $user_info_image_width_size;
-    height: $user_info_image_height_size;
+    max-width: $user_info_image_width_size;
+    max-height: $user_info_image_height_size;
 }

@@ -8,7 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import './users'
-import './render_partial'
+import './upload_image'
 
 Rails.start()
 Turbolinks.start()
