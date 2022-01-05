@@ -3,14 +3,6 @@ class UserProfilesController < ApplicationController
   before_action :get_user_profile, only: [:edit, :update]
   skip_before_action :set_user_profile, only: [:update_avatar]
 
-  # GET /user_profiles/1 or /user_profiles/1.json
-  def show
-  end
-
-  # GET /user_profiles/1/edit
-  def edit
-  end
-
   # PATCH/PUT /user_profiles/1 or /user_profiles/1.json
   def update
     respond_to do |format|
@@ -32,7 +24,7 @@ class UserProfilesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user_profile
-    @user_profile = current_user.user_profile
+    @user_profile = UserProfile.all.find(params[:id])
   end
 
   def get_user_profile
