@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "config/*";
+@import "settings/*";
 
 .user-row {
     margin-bottom: 14px;
@@ -43,3 +44,7 @@
     padding-left: 2px;
 }
 
+.not-confirmed-user {
+  color: $not_confirmed_text_color;
+  font-weight: $not_confirmed_font_weight;
+}
