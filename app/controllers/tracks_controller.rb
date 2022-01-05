@@ -70,13 +70,9 @@ class TracksController < ApplicationController
                                   :source_link,
                                   :release_date,
                                   :duration,
-                                  :countries,
                                   :tags,
-                                  :main_genre,
                                   :related_genres,
-                                  :performer,
                                   :preview_picture,
-                                  :age_restrictions,
                                   :album_id)
   end
 end
