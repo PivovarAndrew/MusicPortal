@@ -29,7 +29,6 @@ class UserProfile < ActiveRecord::Base
   NICKNAME_LENGTH = 5..25
   ONE_WORD_REGEX = /^\w+$/
   ONE_WORD_MESSAGE = "must be one word."
-  OCCUPIED_NICKNAME_MESSAGE = "nickname is occuppied by another user."
 
   validates :name,
             presence: { message: ONE_WORD_MESSAGE },
@@ -45,7 +44,7 @@ class UserProfile < ActiveRecord::Base
 
   validates :nickname,
             uniqueness: true,
-            presence: { message: OCCUPIED_NICKNAME_MESSAGE },
+            presence: true,
             length: { within: NICKNAME_LENGTH },
             on: :update
 end
