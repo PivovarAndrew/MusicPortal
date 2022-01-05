@@ -44,7 +44,8 @@ class UserProfile < ActiveRecord::Base
             on: :update
 
   validates :nickname,
-            presence: { message: OCCUPIED_NICKNAME_MESSAGE, unless: ->(nickname) { !UserProfile.all.collect(&:nickname).include? nickname } },
+            uniqueness: true,
+            presence: { message: OCCUPIED_NICKNAME_MESSAGE },
             length: { within: NICKNAME_LENGTH },
             on: :update
 end
