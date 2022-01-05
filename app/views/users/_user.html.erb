@@ -1,6 +1,6 @@
 <div class="row user-row">
     <div class="col-xs-3 col-sm-2 col-md-6 col-lg-1">
-        <%= image_tag default_avatar(user.user_profile), alt: "avatar" , class: "img-circle users-preview-image" %>
+        <%= image_tag default_avatar(user.user_profile), alt: "avatar", class: "img-circle users-preview-image" %>
     </div>
     <div class="col-xs-8 col-sm-9 col-md-12 col-lg-9 small-left-interval">
         <strong>
@@ -39,19 +39,19 @@
                             </dd>
                             <dt>Name:</dt>
                             <dd>
-                                <%= name?(user) %>
+                                <%= name(user) %>
                             </dd>
                             <dt>Nickname:</dt>
                             <dd>
-                                <%= nickname?(user.user_profile) %>
+                                <%= nickname(user.user_profile) %>
                             </dd>
                             <dt>Date of birthday:</dt>
                             <dd>
-                                <%= date_of_birthday?(user.user_profile) %>
+                                <%= date_of_birthday(user.user_profile) %>
                             </dd>
                             <dt>Address:</dt>
                             <dd>
-                                <%= address?(user.user_profile) %>
+                                <%= address(user.user_profile) %>
                             </dd>
                             <dt>Registered since:</dt>
                             <dd>
@@ -74,25 +74,25 @@
                                 <tr>
                                     <td>Name:</td>
                                     <td>
-                                        <%= name?(user) %>
+                                        <%= name(user) %>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Nickname:</td>
                                     <td>
-                                        <%= nickname?(user.user_profile) %>
+                                        <%= nickname(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Date of birthday:</td>
                                     <td>
-                                        <%= date_of_birthday?(user.user_profile) %>
+                                        <%= date_of_birthday(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Address:</td>
                                     <td>
-                                        <%= address?(user.user_profile) %>
+                                        <%= address(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
@@ -106,17 +106,16 @@
                     </div>
                 </div>
             </div>
-            <% unless user==current_user %>
+            <% unless user == current_user %>
                 <div class="panel-footer">
                     <%= form_for user do |form| %>
-                        <%= button_tag(type: "submit" , class: "btn btn-sm btn-warning" ) do %>
+                        <%= button_tag(type: "submit", class: "btn btn-sm btn-warning") do %>
                         <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {},
-                                class: "selectpicker" %>
+                                        class: "selectpicker" %>
                             <i class="glyphicon glyphicon-edit"></i>
                             <% end %>
                                 <span class="pull-right">
-                                    <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method:
-                                        :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
+                                    <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
                                         <i class="glyphicon glyphicon-remove glyphicon-white"></i>
                                     <% end %>
                                 </span>
