@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_020940) do
+ActiveRecord::Schema.define(version: 2022_01_05_184956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,15 +64,10 @@ ActiveRecord::Schema.define(version: 2021_12_27_020940) do
     t.string "name"
     t.text "description"
     t.string "source_link"
-    t.date "release_date"
     t.time "duration"
-    t.string "countries"
     t.string "tags"
-    t.string "main_genre"
     t.string "related_genres"
-    t.string "performer"
     t.string "preview_picture"
-    t.string "age_restrictions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "album_id"
@@ -87,6 +82,19 @@ ActiveRecord::Schema.define(version: 2021_12_27_020940) do
     t.index ["user_id"], name: "index_user_albums_on_user_id"
   end
 
+  create_table "user_profiles", force: :cascade do |t|
+    t.string "avatar"
+    t.string "name"
+    t.string "surname"
+    t.string "nickname"
+    t.date "date_of_birthday"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,8 +104,16 @@ ActiveRecord::Schema.define(version: 2021_12_27_020940) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_profiles", "users"
 end
