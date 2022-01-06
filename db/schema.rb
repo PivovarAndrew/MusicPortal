@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_193239) do
+ActiveRecord::Schema.define(version: 2022_01_05_214644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "age_restrictions", force: :cascade do |t|
-    t.integer "value", null: false
+    t.string "value", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "album_age_restrictions", force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "age_restriction_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["age_restriction_id"], name: "index_album_age_restrictions_on_age_restriction_id"
+    t.index ["album_id"], name: "index_album_age_restrictions_on_album_id"
   end
 
   create_table "album_genres", force: :cascade do |t|
@@ -40,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_01_05_193239) do
     t.string "countries"
     t.string "main_genre"
     t.string "performer"
-    t.integer "age_restrictions"
+    t.string "age_restrictions"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -53,15 +62,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_193239) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "track_age_restrictions", force: :cascade do |t|
-    t.bigint "track_id"
-    t.bigint "age_restriction_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["age_restriction_id"], name: "index_track_age_restrictions_on_age_restriction_id"
-    t.index ["track_id"], name: "index_track_age_restrictions_on_track_id"
   end
 
   create_table "track_genres", force: :cascade do |t|

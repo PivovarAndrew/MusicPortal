@@ -26,21 +26,42 @@
         <%= form.text_area :description, class: "small-left-interval large-width no-resizable" %>
     </div>
 
-  <div class="field form-group">
-    <%= form.label :image_preview_url, class: "lbl-default col-sm-2 control-label" %>
-    <%= form.text_field :image_preview_url, class: "small-left-interval large-width" %>
-  </div>
+    <div class="field form-group">
+        <%= form.label :performer, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :performer, class: "small-left-interval medium-width" %>
+    </div>
 
-  <div class="field form-group">
-                <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
-                <%= form.date_select :release_date, {
-                                       order: [:day, :month, :year],
-                                       start_year: 1950,
-                                       end_year: Date.current.year,
-                                       date_separator: ".",
-                                     },
-                                     { class: "small-left-interval medium-width small-right-interval selectpicker" } %>
-   </div>
+    <div class="field form-group">
+        <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width selectpicker" } %>
+        <%= #form.collection_select(:id, Genre.all, :id, :name, { include_blank: false, :include_hidden => false, :selected => @album.genres.map(&:id) }, { :multiple => true }) %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.country_select :countries, {}, { class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" } %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.date_select :release_date, {
+                               order: [:day, :month, :year],
+                               start_year: 1950,
+                               end_year: Date.current.year,
+                               date_separator: ".",
+                             },
+                             { class: "small-left-interval medium-width small-right-interval selectpicker" } %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| ["#{age_restriction.value}+"] }, {}, class: "small-left-interval extra-small-width selectpicker" %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :image_preview_url, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :image_preview_url, class: "small-left-interval large-width" %>
+    </div>
 
    <div class="actions">
       <%= form.submit "Submit", class: "submit-button small-bottom-interval large-top-interval" %>

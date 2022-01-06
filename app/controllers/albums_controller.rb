@@ -33,7 +33,6 @@ class AlbumsController < ApplicationController
   # POST /albums or /albums.json
   def create
     @album = Album.new(album_params)
-
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: "Album was successfully created." }
@@ -72,6 +71,12 @@ class AlbumsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_album
     @album = Album.find(params[:id])
+  end
+
+  def set_album_genres
+    @album.main_genre.split(",").each do |genre|
+      AlbumGenre.new(album_id: @album.id, genre_id: Genre.all.find_by(name: genre).id).save
+    end
   end
 
   # Only allow a list of trusted parameters through.

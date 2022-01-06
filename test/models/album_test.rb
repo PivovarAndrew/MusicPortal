@@ -3,7 +3,7 @@
 # Table name: albums
 #
 #  id                :bigint           not null, primary key
-#  age_restrictions  :integer
+#  age_restrictions  :string
 #  countries         :string
 #  description       :text
 #  image_preview_url :string

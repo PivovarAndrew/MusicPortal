@@ -3,7 +3,7 @@
 # Table name: albums
 #
 #  id                :bigint           not null, primary key
-#  age_restrictions  :integer
+#  age_restrictions  :string
 #  countries         :string
 #  description       :text
 #  image_preview_url :string
@@ -16,10 +16,14 @@
 #
 class Album < ApplicationRecord
   has_many :tracks, dependent: :destroy
+
   has_many :user_albums
 
-  has_many :albums_genres
-  has_many :albums, through: :albums_genres
+  has_many :album_age_restrictions
+  has_many :age_restrictions, through: :album_age_restrictions
+
+  has_many :album_genres
+  has_many :genres, through: :album_genres
 
   has_many :user, through: :user_albums
 end
