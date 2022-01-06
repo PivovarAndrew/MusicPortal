@@ -12,6 +12,7 @@ import './sidebar'
 import './select_album'
 import './album'
 import './search'
+import './comment'
 
 Rails.start()
 ActiveStorage.start()

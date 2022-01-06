@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   get "/_album_tracks", to: "albums#_album_tracks"
+  get "/_comments", to: "comments#_comments"
   get "/_searched_albums", to: "pages#_searched_albums"
   post "/_add_album_to_playlist", to: "albums#_add_album_to_playlist"
   devise_for :users

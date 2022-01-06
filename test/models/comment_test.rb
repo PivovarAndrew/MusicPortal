@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  album_id   :bigint           not null
+#  parent_id  :integer
 #  user_id    :bigint           not null
 #
 # Indexes
