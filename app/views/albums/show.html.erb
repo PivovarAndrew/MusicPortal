@@ -17,6 +17,6 @@
         <%= link_to "Back", albums_path %>
     <% end %>
     <h2 class="comments-interval">Comments</h2>
-    <%= render @album.comments %>
-    <%= render_partial "comments/form", locals: { album: @album } %>
+    <%= render @album.comments.order(id: :desc) %>
+    <%= render partial: "comments/form", locals: { album: @album } %>
 <% end %>

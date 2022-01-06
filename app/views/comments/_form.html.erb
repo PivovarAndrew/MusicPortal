@@ -1,0 +1,19 @@
+<%= form_tag album_comments_path(album) do |form| %>
+  <% if album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% album.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<%= text_area :comment, :content, class: "large-width no-resizable" %>
+
+<div class="actions">
+    <%= submit_tag "Submit", class: "submit-button small-bottom-interval small-top-interval" %>
+</div>
+<% end %>
