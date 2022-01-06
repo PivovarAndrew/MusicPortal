@@ -27,6 +27,7 @@
 class User < ApplicationRecord
   has_many :user_albums
   has_many :albums, through: :user_albums
+  has_many :likes
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
 
