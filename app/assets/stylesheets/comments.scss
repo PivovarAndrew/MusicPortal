@@ -1,3 +1,23 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "settings/*";
+@import "config/*";
+
+.comment {
+  color: $comment_text_color;
+  font-size: $comment_font_size;
+}
+
+.comment-hr {
+    display: block;
+    border-style: inset;
+    border-width: 1px;
+    border-color: $comment_hr_color;
+}
+
+.comments-interval {
+    margin-top: $medium_interval;
+    margin-bottom: $medium_interval;
+}
