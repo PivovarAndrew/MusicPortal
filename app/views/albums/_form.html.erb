@@ -34,7 +34,7 @@
     <div class="field form-group">
         <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
         <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width selectpicker" } %>
-        <%= #form.collection_select(:id, Genre.all, :id, :name, { include_blank: false, :include_hidden => false, :selected => @album.genres.map(&:id) }, { :multiple => true }) %>
+        <%= form.collection_select(:id, Genre.all, :id, :name, { include_blank: false, :include_hidden => false, :selected => @album.genres.map(&:id) }, { :multiple => true }) %>
     </div>
 
     <div class="field form-group">
@@ -64,7 +64,7 @@
     </div>
 
    <div class="actions">
-      <%= form.submit "Submit", class: "submit-button small-bottom-interval large-top-interval" %>
+      <%= form.submit "Submit", class: "submit-button small-bottom-interval medium-top-interval" %>
    </div>
 </fieldset>
 <% end %>
