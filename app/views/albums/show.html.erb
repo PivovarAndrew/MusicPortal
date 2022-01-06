@@ -21,6 +21,6 @@
     <div id="comments">    
         <%= render @album.comments.where(parent_id:nil).includes(:user).order(id: :desc) %>
     </div>
-    <%= render partial: "comments/form", locals: { album: @album } %>
+    <%= render partial: "comments/form", locals: { album: @album, parent: nil } %>
 <% end %>
 </div>

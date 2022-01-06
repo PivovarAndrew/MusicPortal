@@ -5,9 +5,8 @@
       <%= label_tag "reply", "Reply", class: "reply" %>
    </div>
    <div class="comment-form comment-<%= comment.id %>">
-      <%= render partial: "comments/form", locals: { album: comment.album } %>
+      <%= render partial: "comments/form", locals: { album: comment.album, parent: comment } %>
    </div>
-   <hr class="sub-comment-hr"/>
    <div class="sub-comment">
       <%= render comment.comments %>
    </div>

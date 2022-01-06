@@ -17,6 +17,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content).merge(album_id: params[:album_id])
+    params.require(:comment).permit(:content, :parent_id).merge(album_id: params[:album_id])
   end
 end
