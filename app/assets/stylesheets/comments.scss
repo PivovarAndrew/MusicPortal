@@ -10,13 +10,12 @@
 .comment {
   color: $comment_text_color;
   font-size: $comment_font_size;
+  font-weight: 200;
 }
 
 .comment-hr {
     display: block;
-    border-style: inset;
-    border-width: 2px;
-    border-color: $comment_hr_color;
+    border-bottom: 2px inset $comment_hr_color;
 }
 
 .comments-interval {
@@ -32,6 +31,7 @@
 .sub-comment {
   @extend .comment;
   padding-left: 15px;
+  border-left: 2px inset $comment_hr_color;
 }
 
 .reply {
@@ -43,11 +43,20 @@
   @extend .submit-button;
   font-size: $normal_text_font_size !important;
   height: 12% !important;
-  width: 9% !important;
+  width: 12% !important;
   padding: 0 0 !important;
   font-weight: 600 !important;
 }
 
 .comment-form {
   display:none;
+}
+
+.comment-input-area {
+   width: 70%;
+}
+
+.comment-avatar-preview-image {
+  width: $comment_avatar_preview_image_width_size;
+  height: $comment_avatar_preview_image_height_size;
 }

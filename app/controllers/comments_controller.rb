@@ -1,8 +1,14 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
-    format.html { render :new, status: :unprocessable_entity } unless @comment.save
-    redirect_to @comment.album
+    respond_to do |format|
+      if @comment.save
+        format.js
+        format.html { redirect_to @comment.album }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
   end
 
 =begin

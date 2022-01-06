@@ -1,6 +1,11 @@
 <article>
-   <p><%= label_tag comment.content, nil, class: "comment" %></p>
-   <small>by <%= label_tag comment.user.email %></small><br/>
+   <div class="form-group inline-block">
+      <%= image_tag("https://img.flaticon.com/icons/png/512/306/306007.png", class: "comment-avatar-preview-image small-right-interval") %>
+      <div class="block">
+         by <%= label_tag comment.user.email %><br/>
+         <small><%= label_tag comment.content, nil, class: "comment" %></small>
+      </div>
+   </div>
    <div class="reply-button" data-for=".comment-<%= comment.id %>">
       <%= label_tag "reply", "Reply", class: "reply" %>
    </div>

@@ -1,4 +1,4 @@
-window.addComment = function(album_id) {
+window.addComment = function (album_id) {
     $.ajax({
         url: '/_comments',
         type: 'GET',
@@ -17,7 +17,7 @@ window.addComment = function(album_id) {
         }
 
     });
-return false;
+    return false;
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         idFor.slideToggle(400, function () {
             idFor.is(':visible') ? currentButton.html(`<label name="${hide_text.toLowerCase()}", 
             class="${reply_text.toLowerCase()}">${hide_text}</label>`) : currentButton.html(
-            `<label name="${reply_text.toLowerCase()}", class="${reply_text.toLowerCase()}">${reply_text}</label>`);
+                `<label name="${reply_text.toLowerCase()}", class="${reply_text.toLowerCase()}">${reply_text}</label>`);
         })
     });
 
