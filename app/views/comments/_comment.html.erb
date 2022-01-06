@@ -1,8 +1,12 @@
 <article>
    <p><%= label_tag comment.content, nil, class: "comment" %></p>
    <small>by <%= label_tag comment.user.email %></small><br/>
-   <%= label_tag "reply", "Reply", class: "reply"%>
-   <%= render partial: "comments/form", locals: { album: comment.album } %>
+   <div class="reply-button" data-for=".comment-<%= comment.id %>">
+      <%= label_tag "reply", "Reply", class: "reply" %>
+   </div>
+   <div class="comment-form comment-<%= comment.id %>">
+      <%= render partial: "comments/form", locals: { album: comment.album } %>
+   </div>
    <hr class="sub-comment-hr"/>
    <div class="sub-comment">
       <%= render comment.comments %>
