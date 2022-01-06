@@ -4,6 +4,8 @@
 
 @import "settings/*";
 @import "config/*";
+@import "scaffolds";
+@import "submit";
 
 .comment {
   color: $comment_text_color;
@@ -13,11 +15,35 @@
 .comment-hr {
     display: block;
     border-style: inset;
-    border-width: 1px;
+    border-width: 2px;
     border-color: $comment_hr_color;
 }
 
 .comments-interval {
     margin-top: $medium_interval;
-    margin-bottom: $medium_interval;
+    margin-bottom: $small_interval;
+}
+
+.sub-comment-hr {
+  @extend .comment-hr;
+  border-width: 1px !important;
+}
+
+.sub-comment {
+  @extend .comment;
+  padding-left: 15px;
+}
+
+.reply {
+  @extend .link-default;
+  font-size: 13px !important;
+}
+
+.submit-comment-button {
+  @extend .submit-button;
+  font-size: 13px !important;
+}
+
+.comment-form {
+  width: $extra_large_size;
 }

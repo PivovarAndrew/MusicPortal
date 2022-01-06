@@ -1,6 +1,12 @@
 <article>
    <p><%= label_tag comment.content, nil, class: "comment" %></p>
-   <small>by <%= label_tag comment.user.email %></small>
+   <small>by <%= label_tag comment.user.email %></small><br/>
+   <%= label_tag "reply", "Reply", class: "reply"%>
+   <%= render partial: "comments/form", locals: { album: comment.album } %>
+   <hr class="sub-comment-hr"/>
+   <div class="sub-comment">
+      <%= render comment.comments %>
+   </div>
 </article>
 
 <hr class="comment-hr"/>

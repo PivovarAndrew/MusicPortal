@@ -9,6 +9,7 @@ $scaffold_h1_font_size: $h1_font_size;
 $scaffold_h1_text_align: $text_align_center;
 $scaffold_link_font_size: $link_font_size;
 $scaffold_link_separator_font_size: $link_separator_font_size;
+$h2_text_align: $text_align_left;
 
 $navigation_bar_links_font_size: $navigation_bar_links_default_font_size;
 $navigation_bar_links_letter_spacing: $default_letter_spacing;
@@ -18,4 +19,4 @@ $glyphicon_font_size: $normal_glyphicon_font_size;
 
 $album_description_font_size: $small_label_font_size;
 
-$comment_font_size: $normal_label_font_size;
+$comment_font_size: $normal_text_font_size;
