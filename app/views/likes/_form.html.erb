@@ -14,7 +14,7 @@
     <% end %>
     <%= hidden_field :like, :album_id, value: album.id %>
     <div class="actions">
-        <%= submit_tag "Submit", value: "Like", remote: true, class: "submit-comment-button small-bottom-interval small-top-interval" %>
+        <%= submit_tag "Submit", value: "Like", remote: true, "data-disable-with": false, class: "submit-comment-button small-bottom-interval small-top-interval" %>
     </div>
   <% end %>
 <% else %>
@@ -32,7 +32,7 @@
     <% end %>
     <%= hidden_field :like, :album_id, name: "_method", value: "DELETE" %>
     <div class="actions">
-        <%= submit_tag "Unlike", value: "Unlike", remote: true, class: "submit-comment-button small-bottom-interval small-top-interval" %>
+        <%= submit_tag "Unlike", value: "Unlike", remote: true, "data-disable-with": false, class: "submit-comment-button small-bottom-interval small-top-interval" %>
     </div>
   <% end %>
 <% end %>
