@@ -2,14 +2,17 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(like_params)
     @like.save
-    redirect_to @like.album
+    respond_to do |format|
+      format.js
+    end
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
-    album = @like.album
     @like.destroy
-    redirect_to album
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

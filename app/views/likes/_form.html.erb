@@ -1,38 +1,47 @@
-<%= like = current_user.likes.find_by(album: album) %>
-<% unless like %>
-  <%= form_tag "/likes" do |form| %>
-    <% if album.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<div class="inline-block">
+   <% like = current_user.likes.find_by(album: album) %>
+   <% unless like %>
+     <%= form_tag "/likes", remote: true, html: { "data-type": :js } do |form| %>
+       <% if album.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-        <ul>
-           <% album.errors.each do |error| %>
-             <li><%= error.full_message %></li>
+           <ul>
+              <% album.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+           </ul>
+         </div>
+       <% end %>
+       <%= hidden_field :like, :album_id, value: album.id %>
+       <div class="actions">
+           <%= button_tag(type: "submit", remote: true, "data-disable-with": "<i id='like-loading' class='fa fa-spinner fa-spin'></i>", class: "like-button small-bottom-interval small-top-interval") do %>
+                <i id="like" class="fa fa-thumbs-up"></i>        
            <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= hidden_field :like, :album_id, value: album.id %>
-    <div class="actions">
-        <%= submit_tag "Submit", value: "Like", remote: true, "data-disable-with": false, class: "submit-comment-button small-bottom-interval small-top-interval" %>
-    </div>
-  <% end %>
-<% else %>
-    <%= form_tag like do |form| %>
-    <% if album.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
+       </div>
+     <% end %>
+   <% else %>
+       <%= form_tag like, remote: true, html: { "data-type": :js } do |form| %>
+       <% if album.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-        <ul>
-           <% album.errors.each do |error| %>
-             <li><%= error.full_message %></li>
+           <ul>
+              <% album.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+           </ul>
+         </div>
+       <% end %>
+       <%= hidden_field :like, :album_id, name: "_method", value: "DELETE" %>
+       <div class="actions">
+           <%= button_tag(type: "submit", remote: true, "data-disable-with": "<i id='like-loading' class='fa fa-spinner fa-spin'></i>", class: "like-button small-bottom-interval small-top-interval") do %>
+                <i id="liked" class="fa fa-thumbs-up"></i>
            <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= hidden_field :like, :album_id, name: "_method", value: "DELETE" %>
-    <div class="actions">
-        <%= submit_tag "Unlike", value: "Unlike", remote: true, "data-disable-with": false, class: "submit-comment-button small-bottom-interval small-top-interval" %>
-    </div>
-  <% end %>
-<% end %>
+       </div>
+     <% end %>
+   <% end %>
+   <div id="likes-count">
+      <%= label_tag album.likes.count, nil, class: "likes-count" %>
+   </div>
+</div>
