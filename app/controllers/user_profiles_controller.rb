@@ -1,5 +1,5 @@
 class UserProfilesController < ApplicationController
-  before_action :set_user_profile, only: %i[ show edit update ]
+  before_action :set_user_profile, only: %i[ show ]
   before_action :get_user_profile, only: [:edit, :update]
   skip_before_action :set_user_profile, only: [:update_avatar]
 
@@ -14,10 +14,6 @@ class UserProfilesController < ApplicationController
         format.json { render json: @user_profile.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def update_avatar
-    @avatar = params[:avatar]
   end
 
   private
