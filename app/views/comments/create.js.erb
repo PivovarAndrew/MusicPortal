@@ -1,3 +1,7 @@
-$('.submit-comment-button').bind('ajax:success', function() {
-   $(this).closest('article').fadeIn()
-});
+if ("<%= @comment.parent_id %>" === "") {
+   $("#comments").append('<%= j render @comment, locals: { comment: @comment } %>')
+} else {
+   $("#sub-comment-<%= @comment.parent_id %>").append('<%= j render @comment, locals: { comment: @comment } %>').show("slow")
+}
+
+$('.comment-input-area').val('')

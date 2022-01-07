@@ -19,8 +19,9 @@
     <% end %>
     <h2 class="comments-interval secondary-header-default">Comments</h2>
     <div id="comments">    
-        <%= render @album.comments.where(parent_id:nil).includes(:user).order(id: :desc) %>
+        <%= render @album.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
     </div>
+    <h2>Leave comment</h2>
     <%= render partial: "comments/form", locals: { album: @album, parent: nil } %>
 <% end %>
 </div>

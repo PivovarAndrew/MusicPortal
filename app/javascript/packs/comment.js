@@ -1,31 +1,9 @@
-window.addComment = function (album_id) {
-    $.ajax({
-        url: '/_comments',
-        type: 'GET',
-        dataType: 'html',
-        data:
-        {
-            id: album_id,
-        },
-        success: function (data) {
-            alert(data)
-            $("#comments").html(data)
-        },
-
-        error: function (request, status, error) {
-            // add error notification
-        }
-
-    });
-    return false;
-}
-
 document.addEventListener("DOMContentLoaded", function (event) {
     let commentForms = $('.comment-form');
-    let replyButton = $('.reply-button');
+    let replyButton = '.reply-button';
     commentForms.hide();
 
-    replyButton.click(function () {
+    $(document).on('click', replyButton, function () {
         let reply_text = "Reply"
         let hide_text = "Hide"
         let idFor = $($(this).attr('data-for'));
