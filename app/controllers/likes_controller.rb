@@ -1,22 +1,15 @@
 class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(like_params)
-    respond_to do |format|
-      if @track.save
-        redirect_to @like.album
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
-    end
+    @like.save
+    redirect_to @like.album
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
     album = @like.album
     @like.destroy
-    respond_to do |format|
-      redirect_to album
-    end
+    redirect_to album
   end
 
   private
