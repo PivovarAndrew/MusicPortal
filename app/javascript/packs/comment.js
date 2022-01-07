@@ -15,5 +15,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
     });
 
+    let subComments = $('.sub-comment');
+    let subCommentsButton = '.dropdown-sub-comments';
+    subComments.hide();
+
+    $(document).on('click', subCommentsButton, function () {
+        let idFor = $($(this).attr('data-for'));
+        let current_button = $(this);
+        idFor.slideToggle(400, function () {
+            idFor.is(':visible') ? current_button.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>') : current_button.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+        })
+    });
+
     $('[data-toggle="tooltip"]').tooltip();
 });

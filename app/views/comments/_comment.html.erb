@@ -1,6 +1,13 @@
 <article>
    <div class="form-group inline-block">
-      <%= image_tag("https://img.flaticon.com/icons/png/512/306/306007.png", class: "comment-avatar-preview-image small-right-interval") %>
+      <div class="block">
+         <%= image_tag("https://img.flaticon.com/icons/png/512/306/306007.png", class: "comment-avatar-preview-image small-right-interval") %><br/>
+         <% unless comment.comments.empty? %>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-sub-comments" data-for=".parent-comment-<%= comment.id %>">
+               <i class="glyphicon glyphicon-chevron-down text-muted"></i>
+            </div>
+         <% end %>   
+      </div>
       <div class="block">
          by <%= label_tag comment.user.email %><br/>
          <small><%= label_tag comment.content, nil, class: "comment" %></small>
@@ -12,7 +19,7 @@
    <div class="comment-form comment-<%= comment.id %>">
       <%= render partial: "comments/form", locals: { album: comment.album, parent: comment } %>
    </div>
-   <div class="sub-comment" id="sub-comment-<%= comment.id %>">
+   <div class="sub-comment parent-comment-<%= comment.comments.empty? || comment.id %>" id="sub-comment-<%= comment.id %>">
       <%= render comment.comments %>
    </div>
 </article>
