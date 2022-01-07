@@ -1,7 +1,8 @@
 if ("<%= @comment.parent_id %>" === "") {
-   $("#comments").append('<%= j render @comment, locals: { comment: @comment } %>')
+   $("#comments").append('<%= j render @comment, locals: { comment: @comment } %>').show("slow")
 } else {
    $("#sub-comment-<%= @comment.parent_id %>").append('<%= j render @comment, locals: { comment: @comment } %>').show("slow")
 }
 
 $('.comment-input-area').val('')
+$('#dropdown-comments-<%= @comment.parent_id %>').html('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-sub-comments" data-for=".parent-comment-<%= @comment.parent_id %>"><i class="glyphicon glyphicon-chevron-down text-muted"></i></div>').show("slow")

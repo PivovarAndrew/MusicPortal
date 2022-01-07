@@ -14,13 +14,13 @@
 }
 
 .comment-hr {
-    display: block;
-    border-bottom: 2px inset $comment_hr_color;
+  display: block;
+  border-bottom: 1px inset $comment_hr_color;
 }
 
 .comments-interval {
-    margin-top: $medium_interval;
-    margin-bottom: $small_interval;
+  margin-top: $medium_interval;
+  margin-bottom: $small_interval;
 }
 
 .sub-comment-hr {
@@ -31,7 +31,7 @@
 .sub-comment {
   @extend .comment;
   padding-left: 15px;
-  border-left: 2px inset $comment_hr_color;
+  border-left: 1px inset $comment_hr_color;
 }
 
 .reply {
@@ -49,11 +49,11 @@
 }
 
 .comment-form {
-  display:none;
+  display: none;
 }
 
 .comment-input-area {
-   width: 80%;
+  width: 80%;
 }
 
 .comment-avatar-preview-image {

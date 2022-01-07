@@ -2,11 +2,13 @@
    <div class="form-group inline-block">
       <div class="block">
          <%= image_tag("https://img.flaticon.com/icons/png/512/306/306007.png", class: "comment-avatar-preview-image small-right-interval") %><br/>
-         <% unless comment.comments.empty? %>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-sub-comments" data-for=".parent-comment-<%= comment.id %>">
-               <i class="glyphicon glyphicon-chevron-down text-muted"></i>
-            </div>
-         <% end %>   
+         <div id="dropdown-comments-<%= comment.id %>">
+            <% unless comment.comments.empty? %>
+               <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-sub-comments" data-for=".parent-comment-<%= comment.id %>">
+                  <i class="glyphicon glyphicon-chevron-down text-muted"></i>
+               </div>
+            <% end %>
+         </div>   
       </div>
       <div class="block">
          by <%= label_tag comment.user.email %><br/>
