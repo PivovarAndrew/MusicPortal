@@ -26,6 +26,8 @@ gem "bcrypt", "~> 3.1", ">= 3.1.16"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# An Action Dispatch session store backed by an Active Record class
+gem 'activerecord-session_store', '~> 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.9', '>= 1.9.3', require: false
 # Sass-powered version of Bootstrap 3
@@ -38,6 +40,12 @@ gem "devise", "~> 4.8", ">= 4.8.1"
 gem 'devise-bootstrapped', '~> 0.1.1'
 # A normaliser/beautifier for HTML
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
+# A generalized Rack framework for multiple-provider authentication
+gem 'omniauth', '~> 2.0', '>= 2.0.4'
+# OmniAuth strategy for GitHub
+gem 'omniauth-github', '~> 2.0'
+# Google OAuth2 strategy for OmniAuth
+gem 'omniauth-google-oauth2', '~> 1.0'
 # Object oriented authorization for application
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 
