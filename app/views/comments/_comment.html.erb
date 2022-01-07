@@ -21,7 +21,7 @@
    <div class="comment-form comment-<%= comment.id %>">
       <%= render partial: "comments/form", locals: { album: comment.album, parent: comment } %>
    </div>
-   <div class="sub-comment parent-comment-<%= comment.comments.empty? || comment.id %>" id="sub-comment-<%= comment.id %>">
+   <div class="sub-comment parent-comment-<%= !comment.comments.empty? || comment.id %>" id="sub-comment-<%= comment.id %>">
       <%= render comment.comments %>
    </div>
 </article>

@@ -5,4 +5,4 @@ if ("<%= @comment.parent_id %>" === "") {
 }
 
 $('.comment-input-area').val('')
-$('#dropdown-comments-<%= @comment.parent_id %>').html('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-sub-comments" data-for=".parent-comment-<%= @comment.parent_id %>"><i class="glyphicon glyphicon-chevron-down text-muted"></i></div>').show("slow")
+$('#dropdown-comments-<%= @comment.parent_id %>').html('<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-sub-comments" data-for=".parent-comment-<%= @comment.parent_id %>"><i class="glyphicon glyphicon-chevron-up text-muted"></i></div>').show("slow")
