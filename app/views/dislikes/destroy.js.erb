@@ -1,0 +1,2 @@
+$("#dislike-block").html('<%= j render partial: "dislikes/form", locals: { album: @dislike.album } %>').show("slow")
+$("#like-block").html('<%= j render partial: "likes/form", locals: { album: @dislike.album } %>').show("slow")

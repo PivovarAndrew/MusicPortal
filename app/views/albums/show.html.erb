@@ -14,8 +14,13 @@
       </div>
     <% end %>
     <% if current_user %>  
+    <div class="inline-block">
        <div id="like-block">
           <%= render partial: "likes/form", locals: { album: @album } %>
+       </div>
+       <div id="dislike-block">
+          <%= render partial: "dislikes/form", locals: { album: @album } %>
+       </div>
        </div>
     <% end %>
     <% if current_user.try(:admin? || :editor?) %>
