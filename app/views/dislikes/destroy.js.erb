@@ -1,2 +1,3 @@
 $("#dislike-block").html('<%= j render partial: "dislikes/form", locals: { album: @dislike.album } %>').show("slow")
 $("#like-block").html('<%= j render partial: "likes/form", locals: { album: @dislike.album } %>').show("slow")
+$("#rating").html('<span class="small-left-interval stars-container stars-<%= get_rating(@dislike.album) %>">★★★★★</span>')

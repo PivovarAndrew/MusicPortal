@@ -2,7 +2,13 @@
 <% if @album.tracks %>
   <h1 class="secondary-header-default">ALBUM</h1>
   <h2>
-    <%= @album.name %>
+    <div class="inline-block">
+        <%= @album.name %>
+        <div id="rating">
+          <>
+           <span class="small-left-interval stars-container stars-<%= get_rating(@album) %>">★★★★★</span>
+        </div>
+    </div>
   </h2>
   <%= image_tag(@album.image_preview_url, class: "sidebar-album-preview-image") %>
     <% @album.tracks.each_with_index do |track, counter| %>

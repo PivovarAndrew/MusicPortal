@@ -8,7 +8,7 @@
 @import "config/*";
 
 .dislikes-count {
-    @extend .likes-count;
+  @extend .likes-count;
 }
 
 #dislike {
@@ -16,11 +16,11 @@
 }
 
 #dislike:hover {
-    color: $like-button-hover-color;
+  color: $like-button-hover-color;
 }
 
 #dislike-loading {
-    @extend #like-loading;
+  @extend #like-loading;
 }
 
 .dislike-button {
@@ -28,10 +28,10 @@
 }
 
 #disliked {
-    @extend #dislike;
-    color: $liked-button-default-color;
+  @extend #dislike;
+  color: $liked-button-default-color !important;
 }
 
 #disliked:hover {
-    color: $like-button-default-color;
+  color: $like-button-default-color !important;
 }

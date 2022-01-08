@@ -1,9 +1,11 @@
 module ApplicationHelper
-  MIN_RATING_VALUE = 1
+  MAX_RATING_VALUE = 100
+  NO_RATING_VALUE = 0
 
   def get_rating(album)
-    likes_count = likes_count.zero? ? MIN_RATING_VALUE : album.likes.count
-    dislikes_count = dislikes_count.zero? ? MIN_RATING_VALUE : album.dislikes.count
-    ((likes.count / dislikes.count) * 10).round(0)
+    likes_count = album.likes.count
+    dislikes_count = album.dislikes.count
+    total_ratings = likes_count + dislikes_count
+    total_ratings.zero? ? NO_RATING_VALUE : (MAX_RATING_VALUE * likes_count / total_ratings).round
   end
 end
