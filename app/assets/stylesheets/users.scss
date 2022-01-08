@@ -44,6 +44,16 @@
     padding-left: 2px;
 }
 
+.users-preview-image {
+    width: $users_preview_image_width_size;
+    height: $users_preview_image_height_size;
+}
+
+.users-image {
+    width: $users_image_width_size;
+    height: $users_image_height_size;
+}
+
 .not-confirmed-user {
   color: $not_confirmed_text_color;
   font-weight: $not_confirmed_font_weight;
