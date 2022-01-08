@@ -12,26 +12,19 @@
 }
 
 #dislike {
-  font-size: 50px;
-  cursor: pointer;
-  border: none;
-  background-color: $color_white;
-  color: $like-button-default-color;
+  @extend #like;
 }
 
 #dislike:hover {
-  color: $like-button-hover-color;
+    color: $like-button-hover-color;
 }
 
 #dislike-loading {
-    font-size: 50px;
-    border: none;
-    background-color: $color_white;
+    @extend #like-loading;
 }
 
 .dislike-button {
-  border: none;
-  background-color: $color_white;
+  @extend .like-button;
 }
 
 #disliked {
