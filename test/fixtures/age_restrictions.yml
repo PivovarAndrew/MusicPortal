@@ -3,7 +3,7 @@
 # Table name: age_restrictions
 #
 #  id         :bigint           not null, primary key
-#  value      :integer          not null
+#  value      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
