@@ -3,9 +3,13 @@
         <%= image_tag default_avatar(user.user_profile), alt: "avatar", class: "img-circle users-preview-image" %>
     </div>
     <div class="col-xs-8 col-sm-9 col-md-12 col-lg-9 small-left-interval">
-        <strong>
-            <%= link_to user.email, user %>
-        </strong><br>
+        <div class="inline-block">
+           <strong><%= link_to user.email, user %></strong>
+           <% unless user.confirmed_at %>
+              <div class="not-confirmed-user small-left-interval">Not confirmed</div>
+           <% end %>
+        </div>
+        <br>
         <span class="text-muted">Role: <%= user.role %></span>
     </div>
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".user-<%= user.id %>">

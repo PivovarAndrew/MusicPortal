@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "config/*";
+@import "settings/*";
 
 .user-row {
     margin-bottom: 14px;
@@ -51,4 +52,9 @@
 .users-image {
     width: $users_image_width_size;
     height: $users_image_height_size;
+}
+
+.not-confirmed-user {
+  color: $not_confirmed_text_color;
+  font-weight: $not_confirmed_font_weight;
 }
