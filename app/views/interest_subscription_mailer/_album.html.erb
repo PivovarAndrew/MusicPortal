@@ -2,15 +2,15 @@
     <%= @album.name %>
 </h2>
 <div class="inline-block">   
-    <%= image_tag(@album.image_preview_url, class: "album-preview-image") %>
-    <%= @album.description %>
-<div>
+    <%= image_tag(@album.image_preview_url, class: "album-preview-image small-bottom-interval small-right-interval") %>
+    <%= label_tag @album.description, nil, class: "lbl-default" %>
+</div>
 <%= label_tag @album.performer %>
 <%= label_tag @album.main_genre %>
-<%= label_tag @album.release_date, class: "album-release-date" %>
-<%= @album.tracks.each_with_index do |track, counter| %>
+<%= label_tag @album.release_date, nil, class: "album-release-date" %>
+<% @album.tracks.each_with_index do |track, counter| %>
     <div class="field form-group">
-       <%= label_tag "#{counter + 1}  #{track.name}", class: "small-right-interval" %>
-       <%= track.duration %>
+       <%= label_tag "#{counter + 1}  #{track.name}", nil, class: "small-right-interval lbl-default" %>
+       <%= label_tag track.duration.to_s(:time), nil, class: "lbl-default album-duration" %>
     </div>
 <% end %>

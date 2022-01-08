@@ -27,6 +27,10 @@
   color: $album_release_date_text_color;
 }
 
+.album-duration {
+  color: $album_duration_text_color;
+}
+
 .add-album-btn {
   max-width: $add_button_width_size;
   max-height: $add_button_height_size;

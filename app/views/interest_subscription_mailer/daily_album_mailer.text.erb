@@ -8,8 +8,8 @@ Your daily album is here! 🎵 Check it out! 🤟
 <%= @album.release_date %>
 <%= @album.tracks.each_with_index do |track, counter| %>
     <%= "#{counter + 1}  #{track.name}" %>
-    <%= track.duration %>
+    <%= track.duration.to_s(:time) %>
 <% end %>
 
 ===============================================
-You can visit the following URL to unsubscribe: <%= unsubscribe_url(email: @user.email) %>
+
