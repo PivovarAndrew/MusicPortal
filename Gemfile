@@ -40,6 +40,8 @@ gem 'devise-bootstrapped', '~> 0.1.1'
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
 # Object oriented authorization for application
 gem 'pundit', '~> 2.1', '>= 2.1.1'
+# Simple, efficient background processing for Ruby
+gem 'sidekiq', '~> 6.3', '>= 6.3.1'
 
 group :development, :test do
   gem "annotate", "~> 3.1", ">= 3.1.1"
