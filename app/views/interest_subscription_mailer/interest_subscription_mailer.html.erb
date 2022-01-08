@@ -1,0 +1,15 @@
+<html>
+   <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       <%= csrf_meta_tags %>
+       <%= csp_meta_tag %>
+       <%= stylesheet_link_tag "application" %>
+   </head>
+   <body>
+      <h1>Your daily album is here! 🎵 Check it out! 🤟</h1>
+      <%= render "album" %>
+      <p>
+         <%= link_to "Unsubscribe", unsubscribe_url(email: @user.email), target: "_blank" %>
+      </p>
+   </body>
+</html>

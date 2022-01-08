@@ -1,0 +1,16 @@
+<h2>
+    <%= @album.name %>
+</h2>
+<div class="inline-block">   
+    <%= image_tag(@album.image_preview_url, class: "album-preview-image") %>
+    <%= @album.description %>
+<div>
+<%= label_tag @album.performer %>
+<%= label_tag @album.main_genre %>
+<%= label_tag @album.release_date, class: "album-release-date" %>
+<%= @album.tracks.each_with_index do |track, counter| %>
+    <div class="field form-group">
+       <%= label_tag "#{counter + 1}  #{track.name}", class: "small-right-interval" %>
+       <%= track.duration %>
+    </div>
+<% end %>
