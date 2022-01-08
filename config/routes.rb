@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/_album_tracks", to: "albums#_album_tracks"
   get "/_searched_albums", to: "pages#_searched_albums"
   post "/_add_album_to_playlist", to: "albums#_add_album_to_playlist"
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth" }
   root to: "pages#home"
   resources :tracks
   resources :users

@@ -46,6 +46,8 @@ gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'omniauth-github', '~> 2.0'
 # Google OAuth2 strategy for OmniAuth
 gem 'omniauth-google-oauth2', '~> 1.0'
+# Provides omniauth CSRF-protection
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 # Object oriented authorization for application
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 
