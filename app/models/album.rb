@@ -20,4 +20,5 @@ class Album < ApplicationRecord
   has_many :user, through: :user_albums
   has_many :likes
   has_many :dislikes
+  has_many :comments
 end
