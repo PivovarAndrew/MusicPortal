@@ -39,7 +39,7 @@
 
     <div class="field form-group">
         <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.country_select :countries, {}, { class: "small-left-interval large-width", "multiple": true } %>
+        <%= form.country_select :countries, {}, { class: "small-left-interval large-width" } %>
     </div>
 
     <div class="field form-group">
@@ -50,12 +50,12 @@
                                end_year: Date.current.year,
                                date_separator: ".",
                              },
-                             { class: "small-left-interval medium-width small-right-interval selectpicker" } %>
+                             { class: "small-left-interval medium-width small-right-interval" } %>
     </div>
 
     <div class="field form-group">
         <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| ["#{age_restriction.value}+"] }, {}, class: "small-left-interval extra-small-width selectpicker" %>
+        <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| ["#{age_restriction.value}+"] }, {}, { class: "small-left-interval extra-small-width" } %>
     </div>
 
     <div class="field form-group">

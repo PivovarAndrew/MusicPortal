@@ -42,6 +42,8 @@ gem 'devise-bootstrapped', '~> 0.1.1'
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
 # Object oriented authorization for application
 gem 'pundit', '~> 2.1', '>= 2.1.1'
+# Integrates the Twitter Bootstrap pagination component with the will_paginate
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 
 group :development, :test do
   gem "annotate", "~> 3.1", ">= 3.1.1"

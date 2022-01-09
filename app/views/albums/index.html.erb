@@ -1,10 +1,18 @@
-<%= stylesheet_link_tag "application" %>
 <%= render "album_sidebar" %>
 
 <div class="team-grid container intro text-center">
    <h1 class="header-default medium-bottom-interval">ALBUMS</h1>
 </div>
-
+<div class="inline-block small-bottom-interval">
+   <% Album.column_names.map do |attribute_name| %>
+      <% if correct_attribute(attribute_name) %>
+         <div class="block">
+            <%= label_tag attribute_name, nil, class: "small-left-interval" %>
+            <%= select_tag "Select", options_for_select(values_by_attribute(attribute_name)), { id: "filter-#{attribute_name}", class: "small-left-interval medium-width" } %>
+         </div>
+      <% end %>
+   <% end %>
+</div>
 <%= render "layouts/albums_grid" %>
 
 <div class="col-md-4 col-lg-2 item medium-bottom-interval">
