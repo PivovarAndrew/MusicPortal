@@ -3,9 +3,7 @@ class InterestSubscriptionMailerJob < ApplicationJob
 
   def perform(*args)
     User.all.find_each do |user|
-      if user.role == "admin"
-        InterestSubscriptionMailer.with(user: user, album: DailyAlbumService.new.receive_daily_album(user)).daily_album_mailer.deliver_now
-      end
+      InterestSubscriptionMailer.with(user: user, album: DailyAlbumService.new.receive_daily_album(user)).daily_album_mailer.deliver_now
     end
   end
 end
