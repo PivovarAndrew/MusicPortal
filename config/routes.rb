@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_albums
+  resources :user_profiles
   resources :albums
   resources :likes, only: %i[create destroy]
   resources :dislikes, only: %i[create destroy]
@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get "/_searched_albums", to: "pages#_searched_albums"
   post "/_add_album_to_playlist", to: "albums#_add_album_to_playlist"
   devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   root to: "pages#home"
   resources :tracks
   resources :users

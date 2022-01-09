@@ -33,9 +33,15 @@ class User < ApplicationRecord
   has_many :dislikes
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
+  after_initialize :build_user_profile, if: :new_record?
+  has_one :user_profile, dependent: :destroy
 
   def set_default_role
     self.role ||= :user
+  end
+
+  def user_profile
+    super || build_user_profile
   end
 
   # Include default devise modules. Others available are:

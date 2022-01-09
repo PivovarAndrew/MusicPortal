@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag params[:controller] %>
 <%= stylesheet_link_tag "application" %>
 <%= stylesheet_link_tag "multiselect" %>
-<%= stylesheet_link_tag "tags" %>
 <%= javascript_pack_tag "submit" %>
     <div class="row">
     <%= form_for @track do |form| %>
@@ -21,7 +20,6 @@
           </ul>
         </div>
         <% end %>
-
         <fieldset>
             <div class="field form-group">
               <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
@@ -48,7 +46,7 @@
                                        end_year: Date.current.year,
                                        date_separator: ".",
                                      },
-                                     { class: "small-left-interval medium-width small-right-interval selectpicker" } %>
+                                     { :class => "small-left-interval small-right-interval" } %>
               </div>
 
               <div class="field form-group">
@@ -59,12 +57,12 @@
                                        include_seconds: true,
                                        time_separator: ":",
                                      },
-                                     { class: "extra-small-width small-left-interval small-right-interval selectpicker" } %>
+                                     { :class => "extra-small-width small-left-interval small-right-interval" } %>
               </div>
 
             <div class="field form-group">
               <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.country_select :countries, {}, { class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" } %>
+              <%= form.country_select :countries, {}, { class: "small-left-interval large-width selectpicker", data: { "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" } } %>
             </div>
 
             <div class="field form-group">
@@ -74,12 +72,12 @@
 
             <div class="field form-group">
               <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width selectpicker" } %>
+              <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width" } %>
             </div>
 
             <div class="field form-group">
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :related_genres, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" } %>
+              <%= form.select :related_genres, Genre.all.collect { |genre| [genre.name] }, { "multiple": true, "data-max-options": "2" }, { class: "small-left-interval large-width selectpicker" } %>
             </div>
 
             <div class="field form-group">
@@ -94,10 +92,10 @@
           
             <div class="field form-group">
               <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| ["#{age_restriction.value}+"] }, {}, class: "small-left-interval extra-small-width selectpicker" %>
+              <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| [age_restriction.value] }, {}, class: "small-left-interval extra-small-width selectpicker" %>
 
             </div>
-            <%= form.submit "Submit", class: "submit-button small-bottom-interval small-top-interval" %>
-        </fieldset>
-    <% end %>
+              <%= form.submit "Submit", class: "submit-button small-bottom-interval small-top-interval" %>
+              </fieldset>
+          <% end %>
 </div>

@@ -7,5 +7,8 @@ module ApplicationHelper
     dislikes_count = album.dislikes.count
     total_ratings = likes_count + dislikes_count
     total_ratings.zero? ? NO_RATING_VALUE : (MAX_RATING_VALUE * likes_count / total_ratings).round
+
+  def default_avatar(user_profile)
+    user_profile.avatar.url || DEFAULT_AVATAR_IMAGE
   end
 end

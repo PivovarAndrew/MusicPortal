@@ -76,7 +76,6 @@ class TracksController < ApplicationController
                                   :related_genres,
                                   :performer,
                                   :preview_picture,
-                                  :age_restrictions,
-                                  :album_id)
+                                  :age_restrictions)
   end
 end
