@@ -2,13 +2,16 @@
 
 $label_color: $color-fire-engine-red;
 $header_color: $color-denim;
+$secondary_header_color: $color-fire-engine-red;
 
 $link_color_default: $color-coal;
-$link_color_hover: $color-yellow;
+$link_color_hover: $color-magenta;
 $link_color_visited: $color-denim;
 
-$submit_button_border_color: $color-coal;
-$submit_button_text_color: $color-coal;
+$submit_button_border_color: $color-black;
+$submit_button_text_color: $color-white;
+$submit_button_background_color: $color-black;
+
 $default_background_color: $color-white;
 $confirm_mark_color: $color-fire-engine-red;
 
@@ -26,4 +29,8 @@ $normal_glyphicon_text_color: $color-white;
 $album_description_text_color: $color_black;
 $album_release_date_text_color: $color_gray;
 
+$comment_text_color: $color-black;
+$comment_hr_color: $color-black;
+
 $not_confirmed_text_color: $color-fire-engine-red;
+

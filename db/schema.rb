@@ -10,15 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_234425) do
+ActiveRecord::Schema.define(version: 2022_01_06_140937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "age_restrictions", force: :cascade do |t|
-    t.integer "value", null: false
+    t.string "value", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "album_age_restrictions", force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "age_restriction_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["age_restriction_id"], name: "index_album_age_restrictions_on_age_restriction_id"
+    t.index ["album_id"], name: "index_album_age_restrictions_on_album_id"
+  end
+
+  create_table "album_genres", force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_album_genres_on_album_id"
+    t.index ["genre_id"], name: "index_album_genres_on_genre_id"
   end
 
   create_table "albums", force: :cascade do |t|
@@ -28,6 +46,21 @@ ActiveRecord::Schema.define(version: 2022_01_04_234425) do
     t.date "release_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "countries"
+    t.string "main_genre"
+    t.string "performer"
+    t.string "age_restrictions"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "album_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "parent_id"
+    t.index ["album_id"], name: "index_comments_on_album_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -40,15 +73,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_234425) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "track_age_restrictions", force: :cascade do |t|
-    t.bigint "track_id"
-    t.bigint "age_restriction_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["age_restriction_id"], name: "index_track_age_restrictions_on_age_restriction_id"
-    t.index ["track_id"], name: "index_track_age_restrictions_on_track_id"
   end
 
   create_table "track_genres", force: :cascade do |t|
@@ -64,15 +88,10 @@ ActiveRecord::Schema.define(version: 2022_01_04_234425) do
     t.string "name"
     t.text "description"
     t.string "source_link"
-    t.date "release_date"
     t.time "duration"
-    t.string "countries"
     t.string "tags"
-    t.string "main_genre"
     t.string "related_genres"
-    t.string "performer"
     t.string "preview_picture"
-    t.string "age_restrictions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "album_id"
@@ -120,5 +139,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_234425) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "albums"
+  add_foreign_key "comments", "users"
   add_foreign_key "user_profiles", "users"
 end

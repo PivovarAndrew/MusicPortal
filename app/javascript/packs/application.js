@@ -8,6 +8,12 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import './users'
+import './selectors'
+import './sidebar'
+import './select_album'
+import './album'
+import './search'
+import './comment'
 import './upload_image'
 
 Rails.start()
