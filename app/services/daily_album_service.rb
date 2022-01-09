@@ -2,11 +2,8 @@
 class DailyAlbumService
   def receive_daily_album(user)
     if user.albums
-      user.albums.group(:main_genre)
-        .order("count_id DESC")
-        .limit(3)
-        .count(:id)
-        .to_a.sample[0]
+      # user.albums.group(:main_genre).order("count_id DESC").limit(3).count(:id).to_a.sample[0]
+      Album.all.where(main_genre: "Rock").sample
     else
       Album.all.sample
     end

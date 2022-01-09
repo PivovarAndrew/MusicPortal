@@ -38,11 +38,13 @@ gem "devise", "~> 4.8", ">= 4.8.1"
 gem 'devise-bootstrapped', '~> 0.1.1'
 # A normaliser/beautifier for HTML
 gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
+# This gem brings the power of the premailer gem to Rails
+gem 'premailer-rails', '~> 1.11', '>= 1.11.1'
 # Object oriented authorization for application
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 # Simple, efficient background processing for Ruby
 gem 'sidekiq', '~> 6.3', '>= 6.3.1'
-# gem 'sidekiq-cron', '~> 1.2'
+# Enables to set jobs to be run in specified time
 gem 'sidekiq-cron', '~> 1.2'
 
 group :development, :test do
