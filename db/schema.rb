@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_214644) do
+ActiveRecord::Schema.define(version: 2022_01_09_121358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,15 +19,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_214644) do
     t.string "value", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "album_age_restrictions", force: :cascade do |t|
-    t.bigint "album_id"
-    t.bigint "age_restriction_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["age_restriction_id"], name: "index_album_age_restrictions_on_age_restriction_id"
-    t.index ["album_id"], name: "index_album_age_restrictions_on_album_id"
   end
 
   create_table "album_genres", force: :cascade do |t|
@@ -52,16 +43,56 @@ ActiveRecord::Schema.define(version: 2022_01_05_214644) do
     t.string "age_restrictions"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "album_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "parent_id"
+    t.index ["album_id"], name: "index_comments_on_album_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "dislikes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "album_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_dislikes_on_album_id"
+    t.index ["user_id", "album_id"], name: "index_dislikes_on_user_id_and_album_id", unique: true
+    t.index ["user_id"], name: "index_dislikes_on_user_id"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "album_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["album_id"], name: "index_likes_on_album_id"
+    t.index ["user_id", "album_id"], name: "index_likes_on_user_id_and_album_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "track_genres", force: :cascade do |t|
@@ -124,9 +155,17 @@ ActiveRecord::Schema.define(version: 2022_01_05_214644) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "provider", limit: 50, default: "", null: false
+    t.string "uid", limit: 500, default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "albums"
+  add_foreign_key "comments", "users"
+  add_foreign_key "dislikes", "albums"
+  add_foreign_key "dislikes", "users"
+  add_foreign_key "likes", "albums"
+  add_foreign_key "likes", "users"
   add_foreign_key "user_profiles", "users"
 end

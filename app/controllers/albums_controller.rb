@@ -73,7 +73,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
-  def set_album_genres
+  def add_album_genres
     @album.main_genre.split(",").each do |genre|
       AlbumGenre.new(album_id: @album.id, genre_id: Genre.all.find_by(name: genre).id)
     end

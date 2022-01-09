@@ -33,13 +33,13 @@
 
     <div class="field form-group">
         <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width selectpicker" } %>
-        <%= form.collection_select(:id, Genre.all, :id, :name, { include_blank: false, :include_hidden => false, :selected => @album.genres.map(&:id) }, { :multiple => true }) %>
+        <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width" } %>
+       
     </div>
 
     <div class="field form-group">
         <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.country_select :countries, {}, { class: "small-left-interval large-width selectpicker", "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" } %>
+        <%= form.country_select :countries, {}, { class: "small-left-interval large-width", "multiple": true } %>
     </div>
 
     <div class="field form-group">
