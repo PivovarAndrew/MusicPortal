@@ -10,10 +10,12 @@
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
 #  locked_at              :datetime
+#  provider               :string(50)       default(""), not null
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer
+#  uid                    :string(500)      default(""), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
 #  created_at             :datetime         not null
@@ -25,6 +27,12 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  has_many :user_albums
+  has_many :albums, through: :user_albums
+  has_many :likes
+  has_many :dislikes
+  has_many :comments
+
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
   after_initialize :build_user_profile, if: :new_record?

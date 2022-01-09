@@ -1,0 +1,62 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "settings/*";
+@import "config/*";
+@import "scaffolds";
+@import "submit";
+
+.comment {
+  color: $comment_text_color;
+  font-size: $comment_font_size;
+  font-weight: 200;
+}
+
+.comment-hr {
+  display: block;
+  border-bottom: 1px inset $comment_hr_color;
+}
+
+.comments-interval {
+  margin-top: $medium_interval;
+  margin-bottom: $small_interval;
+}
+
+.sub-comment-hr {
+  @extend .comment-hr;
+  border-width: 1px !important;
+}
+
+.sub-comment {
+  @extend .comment;
+  padding-left: 15px;
+  border-left: 1px inset $comment_hr_color;
+}
+
+.reply {
+  @extend .link-default;
+  font-size: $normal_text_font_size !important;
+}
+
+.submit-comment-button {
+  @extend .submit-button;
+  font-size: $normal_text_font_size !important;
+  height: 12% !important;
+  width: 12% !important;
+  padding: 0 0 !important;
+  font-weight: 600 !important;
+}
+
+.comment-form {
+  display: none;
+}
+
+.comment-input-area {
+  width: 80%;
+}
+
+.comment-avatar-preview-image {
+  width: $comment_avatar_preview_image_width_size;
+  height: $comment_avatar_preview_image_height_size;
+}
