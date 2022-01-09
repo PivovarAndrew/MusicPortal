@@ -18,3 +18,8 @@
 .album-release-date {
     color: album_release_date_text_color;
 }
+
+.sidebar-album-preview-image {
+  width: $sidebar_preview_image_width_size;
+  height: $sidebar_preview_image_height_size;
+}
