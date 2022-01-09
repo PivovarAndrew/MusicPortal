@@ -1,0 +1,14 @@
+<h2><%= link_to @album.name, @album %></h2>
+<div class="inline-block">   
+    <%= link_to image_tag(@album.image_preview_url, class: "album-preview-image small-right-interval"), @album %>
+    <%= label_tag @album.description, nil, class: "lbl-default" %>
+</div>
+<%= label_tag @album.performer %>
+<%= label_tag @album.main_genre %>
+<%= label_tag @album.release_date, nil, class: "album-release-date small-bottom-interval" %>
+<% @album.tracks.each_with_index do |track, counter| %>
+    <div class="field form-group">
+       <%= label_tag "#{counter + 1}  #{track.name}", nil, class: "small-right-interval" %>
+       <%= label_tag track.duration.to_s(:time), nil, class: "album-duration" %>
+    </div>
+<% end %>

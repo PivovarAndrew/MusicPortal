@@ -1,3 +1,6 @@
+require "sidekiq/web"
+require "sidekiq/cron/web"
+
 Rails.application.routes.draw do
   resources :user_albums
   resources :albums do
@@ -22,5 +25,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :tracks
   resources :users
+  # get "/unsubscribe", to: "users#unsubscribe"
+  mount Sidekiq::Web => "/sidekiq"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,15 @@
+Your daily album is here! 🎵 Check it out! 🤟
+===============================================
+
+<%= @album.name %>
+<%= @album.description %>
+<%= @album.performer %>
+<%= @album.main_genre %>
+<%= @album.release_date %>
+<%= @album.tracks.each_with_index do |track, counter| %>
+    <%= "#{counter + 1}  #{track.name}" %>
+    <%= track.duration.to_s(:time) %>
+<% end %>
+
+===============================================
+

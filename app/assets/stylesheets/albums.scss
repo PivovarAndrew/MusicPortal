@@ -16,7 +16,36 @@
 }
 
 .album-release-date {
-    color: album_release_date_text_color;
+  color: $album_release_date_text_color;
+}
+
+.album-duration {
+  color: $album_duration_text_color;
+}
+
+.add-album-btn {
+  max-width: $add_button_width_size;
+  max-height: $add_button_height_size;
+  margin: 0;
+}
+
+.add-album-btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $preview_image_width_size;
+  height: $preview_image_height_size;
+}
+
+.sidebar-album-preview-image {
+  width: $sidebar_preview_image_width_size;
+  height: $sidebar_preview_image_height_size;
+  color: album_release_date_text_color;
+}
+
+.mail-album-preview-image {
+  width: $mail_preview_image_width_size;
+  height: $mail_preview_image_height_size;
 }
 
 .sidebar-album-preview-image {

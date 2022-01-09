@@ -1,0 +1,4 @@
+interest_subscription_mailer_job:
+  cron: "0 6 * * *"
+  class: "InterestSubscriptionMailerJob"
+  queue: default
