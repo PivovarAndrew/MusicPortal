@@ -42,6 +42,8 @@ gem 'htmlbeautifier', '~> 1.4', '>= 1.4.1'
 gem 'pundit', '~> 2.1', '>= 2.1.1'
 # Simple, efficient background processing for Ruby
 gem 'sidekiq', '~> 6.3', '>= 6.3.1'
+# gem 'sidekiq-cron', '~> 1.2'
+gem 'sidekiq-cron', '~> 1.2'
 
 group :development, :test do
   gem "annotate", "~> 3.1", ">= 3.1.1"
