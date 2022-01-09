@@ -1,0 +1,12 @@
+@import "config/*";
+@import "settings/*";
+
+.user-profile-text {
+    color: $color-black;
+    font-size: $user_profile_font_size;
+}
+
+.user-info-image {
+    max-width: $user_info_image_width_size;
+    max-height: $user_info_image_height_size;
+}

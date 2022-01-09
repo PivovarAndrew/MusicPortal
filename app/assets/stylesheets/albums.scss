@@ -6,21 +6,13 @@
 @import "config/*";
 
 .album-preview-image {
-  width: $preview_image_width_size;
-  height: $preview_image_height_size;
-}
-
-.album-name {
-  a,
-  a:hover {
-    text-decoration: none;
-    color: $color-black;
-  }
+   width: $preview_image_width_size;
+   height: $preview_image_height_size;
 }
 
 .album-description {
-  font-size: $album_description_font_size;
-  color: $album_description_text_color;
+    font-size: $album_description_font_size;
+    color: album_description_text_color;
 }
 
 .album-release-date {
@@ -48,6 +40,7 @@
 .sidebar-album-preview-image {
   width: $sidebar_preview_image_width_size;
   height: $sidebar_preview_image_height_size;
+  color: album_release_date_text_color;
 }
 
 .mail-album-preview-image {

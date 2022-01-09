@@ -1,11 +1,6 @@
-<%= stylesheet_link_tag "scaffolds" %>
+<h1>Editing Album</h1>
 
-<h1 class="header-default">Editing album</h1>
+<%= render 'form', album: @album %>
 
-<%= render "form", album: @album %>
-
-<%= link_to "Show", @album, { class: "link-default" } %> 
-   <div class="link-separator-default"> 
-      |
-   </div>
-<%= link_to "Back", albums_path, { class: "link-default" } %>
+<%= link_to 'Show', @album %> |
+<%= link_to 'Back', albums_path %>

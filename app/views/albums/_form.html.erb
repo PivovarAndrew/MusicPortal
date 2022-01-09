@@ -1,7 +1,4 @@
-<%= stylesheet_link_tag "application" %>
-<div class="row">
-<%= form_for @album do |form| %>
-<% form.options[:html][:class] << "form-horizontal" %>
+<%= form_with(model: album) do |form| %>
   <% if album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
@@ -13,37 +10,28 @@
       </ul>
     </div>
   <% end %>
-</div>
 
-<fieldset>
-    <div class="field form-group">
-        <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.text_field :name, class: "small-left-interval medium-width" %>
-    </div>
-
-    <div class="field form-group">
-        <%= form.label :description, class: "lbl-default col-sm-2 control-label" %>
-        <%= form.text_area :description, class: "small-left-interval large-width no-resizable" %>
-    </div>
-
-  <div class="field form-group">
-    <%= form.label :image_preview_url, class: "lbl-default col-sm-2 control-label" %>
-    <%= form.text_field :image_preview_url, class: "small-left-interval large-width" %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
 
-  <div class="field form-group">
-                <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
-                <%= form.date_select :release_date, {
-                                       order: [:day, :month, :year],
-                                       start_year: 1950,
-                                       end_year: Date.current.year,
-                                       date_separator: ".",
-                                     },
-                                     { class: "small-left-interval medium-width small-right-interval selectpicker" } %>
-   </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
 
-   <div class="actions">
-      <%= form.submit "Submit", class: "submit-button small-bottom-interval large-top-interval" %>
-   </div>
-</fieldset>
+  <div class="field">
+    <%= form.label :image_preview_url %>
+    <%= form.text_field :image_preview_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :release_date %>
+    <%= form.date_select :release_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>

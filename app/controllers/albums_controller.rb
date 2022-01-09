@@ -6,19 +6,8 @@ class AlbumsController < ApplicationController
     @albums = Album.all
   end
 
-  def user_albums
-    @albums = current_user.albums
-  end
-
   # GET /albums/1 or /albums/1.json
   def show
-  end
-
-  def _album_tracks
-    @current_album = Album.find(params[:id].to_i)
-    respond_to do |format|
-      format.js
-    end
   end
 
   # GET /albums/new
@@ -68,14 +57,13 @@ class AlbumsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_album
+      @album = Album.find(params[:id])
+    end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_album
-    @album = Album.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def album_params
-    params.require(:album).permit(:name, :description, :image_preview_url, :release_date)
-  end
+    # Only allow a list of trusted parameters through.
+    def album_params
+      params.require(:album).permit(:name, :description, :image_preview_url, :release_date)
+    end
 end

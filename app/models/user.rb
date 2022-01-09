@@ -25,13 +25,17 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  has_many :user_albums
-  has_many :albums, through: :user_albums
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
+  after_initialize :build_user_profile, if: :new_record?
+  has_one :user_profile, dependent: :destroy
 
   def set_default_role
     self.role ||= :user
+  end
+
+  def user_profile
+    super || build_user_profile
   end
 
   # Include default devise modules. Others available are:

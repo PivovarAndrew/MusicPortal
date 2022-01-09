@@ -1,0 +1,57 @@
+<%= form_for @user_profile, remote: true, enctype: "multipart/form-data", html: { "data-type": :js } do |form| %>
+  <% form.options[:html][:class] << "form-horizontal" %>
+    <% if user_profile.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(user_profile.errors.count, "error") %> prohibited this user_profile from being saved:
+        </h2>
+
+        <ul>
+          <% user_profile.errors.each do |error| %>
+            <li>
+              <%= error.full_message %>
+            </li>
+            <% end %>
+        </ul>
+      </div>
+      <% end %>
+        <fieldset>
+          <div class="inline">
+            <div class="change-image" id="change-image">
+              <%= image_tag default_avatar(@user_profile), alt: "avatar", id: "avatar",
+                                                           class: "user-info-image medium-bottom-interval" %>
+            </div>
+            <%= form.file_field :avatar, accept: ".png, .jpg, .gif", remote: true,
+                                         id: "avatar-change-uploader", class: "not-visible" %>
+            <div class="block">
+              <div class="field form-group">
+                <%= form.label :name, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.text_field :name, class: "medium-left-interval medium-width" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :surname, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.text_field :surname, class: "medium-left-interval medium-width" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :nickname, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.text_field :nickname, class: "medium-left-interval medium-width" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :address, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.text_field :address, class: "medium-left-interval medium-width" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :date_of_birthday, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.date_select :date_of_birthday, { order: [:day, :month, :year], start_year: 1950, end_year: Date.current.year }, { class: "medium-left-interval" } %>
+              </div>
+            </div>
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          </div>
+        </fieldset>
+        <% end %>
