@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get "/_comments", to: "comments#_comments"
   get "/_searched_albums", to: "pages#_searched_albums"
   post "/_add_album_to_playlist", to: "albums#_add_album_to_playlist"
+  resources :user_profiles
+  resources :albums
   devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   root to: "pages#home"
   resources :tracks
   resources :users

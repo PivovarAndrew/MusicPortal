@@ -1,14 +1,26 @@
+<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag params[:controller] %>
 <%= stylesheet_link_tag "application" %>
-<%= render "album_sidebar" %>
 
 <div class="team-grid container intro text-center">
-   <h1 class="header-default medium-bottom-interval">ALBUMS</h1>
+   <h1 class="header-default medium-bottom-interval">Albums</h1>
 </div>
 
-<%= render "layouts/albums_grid" %>
+<% @albums.each do |album| %>
+  <div class="col-md-4 col-lg-2 item">
+      <%= image_tag(album.image_preview_url, class: "album-preview-image box") %>
+      <div class="album-description">
+          <%= album.name %>
+          <div class = "album-release-date">
+              <%= album.release_date %>
+          </div>
+          <%= link_to "Show", album %>
+          <%= link_to "Edit", edit_album_path(album) %>
+          <%= link_to "Destroy", album, method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>    
+  </div>
+<% end %>
 
-<div class="col-md-4 col-lg-2 item medium-bottom-interval">
-   <div class = "add-album-btn-box">
-      <%= link_to image_tag("add.png", alt: "Add album.", class: "add-album-btn"), new_album_path %>
-   </div>
-</div>
+<br>
+
+<%= link_to "New Album", new_album_path %>
