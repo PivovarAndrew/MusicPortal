@@ -1,0 +1,47 @@
+<div class="inline-block">
+   <% dislike = current_user.dislikes.find_by(album: album) %>
+   <% unless dislike %>
+     <%= form_tag "/dislikes", remote: true, html: { "data-type": :js } do |form| %>
+       <% if album.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+           <ul>
+              <% album.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+           </ul>
+         </div>
+       <% end %>
+       <%= hidden_field :dislike, :album_id, value: album.id %>
+       <div class="actions">
+           <%= button_tag(type: "submit", remote: true, "data-disable-with": "<i id='dislike-loading' class='fa fa-spinner fa-spin'></i>", class: "dislike-button small-bottom-interval small-top-interval") do %>
+                <i id="dislike" class="fa fa-thumbs-down"></i>        
+           <% end %>
+       </div>
+     <% end %>
+   <% else %>
+       <%= form_tag dislike, remote: true, html: { "data-type": :js } do |form| %>
+       <% if album.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+           <ul>
+              <% album.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+           </ul>
+         </div>
+       <% end %>
+       <%= hidden_field :dislike, :album_id, name: "_method", value: "DELETE" %>
+       <div class="actions">
+           <%= button_tag(type: "submit", remote: true, "data-disable-with": "<i id='dislike-loading' class='fa fa-spinner fa-spin'></i>", class: "dislike-button small-bottom-interval small-top-interval") do %>
+                <i id="disliked" class="fa fa-thumbs-down"></i>
+           <% end %>
+       </div>
+     <% end %>
+   <% end %>
+   <div id="dislikes-count">
+      <%= label_tag album.dislikes.count, nil, class: "likes-count" %>
+   </div>
+</div>

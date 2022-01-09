@@ -1,8 +1,14 @@
+<%= stylesheet_link_tag "application" %>
 <div class="container">
 <% if @album.tracks %>
   <h1 class="secondary-header-default">ALBUM</h1>
   <h2>
-    <%= @album.name %>
+    <div class="inline-block">
+        <%= @album.name %>
+        <div id="rating">
+           <span class="small-left-interval stars-container stars-<%= get_rating(@album) %>">★★★★★</span>
+        </div>
+    </div>
   </h2>
   <%= image_tag(@album.image_preview_url, class: "sidebar-album-preview-image") %>
     <% @album.tracks.each_with_index do |track, counter| %>
@@ -12,6 +18,16 @@
              <%= track.duration.to_s(:time) %>
           </div>
       </div>
+    <% end %>
+    <% if current_user %>  
+    <div class="inline-block">
+       <div id="like-block">
+          <%= render partial: "likes/form", locals: { album: @album } %>
+       </div>
+       <div id="dislike-block">
+          <%= render partial: "dislikes/form", locals: { album: @album } %>
+       </div>
+       </div>
     <% end %>
     <% if current_user.try(:admin? || :editor?) %>
         <%= link_to "Edit", edit_album_path(@album) %> |
