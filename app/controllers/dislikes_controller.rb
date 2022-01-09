@@ -4,7 +4,6 @@ class DislikesController < ApplicationController
     @dislike.save
     like = current_user.likes.find_by(album_id: @dislike.album_id)
     like&.destroy
-    like&.save
     respond_to do |format|
       format.js
     end
