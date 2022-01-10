@@ -77,12 +77,6 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
-  def add_album_genres
-    @album.main_genre.split(",").each do |genre|
-      AlbumGenre.new(album_id: @album.id, genre_id: Genre.all.find_by(name: genre).id)
-    end
-  end
-
   # Only allow a list of trusted parameters through.
   def album_params
     params.require(:album).permit(:name,

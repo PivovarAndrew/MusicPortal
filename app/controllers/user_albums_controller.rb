@@ -1,24 +1,17 @@
 class UserAlbumsController < ApplicationController
   before_action :set_user_album, only: %i[ update destroy ]
 
+  MAX_COUNT_OF_ALBUMS_PER_PAGE = 12
+
   # GET /user_albums or /user_albums.json
   def index
-    @albums = current_user.albums
+    @albums = current_user.albums.paginate(page: params[:page], per_page: MAX_COUNT_OF_ALBUMS_PER_PAGE).order("created_at desc")
   end
 
   # POST /user_albums or /user_albums.json
   def create
     @user_album = UserAlbum.new(user_id: current_user.id, album_id: params[:id])
-
-    respond_to do |format|
-      if @user_album.save
-        format.html { redirect_to @user_album, notice: "User album was successfully created." }
-        format.json { render :show, status: :created, location: @user_album }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_album.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to user_albums if @user_album.save
   end
 
   # DELETE /user_albums/1 or /user_albums/1.json

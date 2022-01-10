@@ -23,10 +23,9 @@ window.getAlbum = function (albumId) {
 window.addAlbumToPlaylist = function (albumId) {
     const ALBUM_ALREADY_ADDED_MESSAGE = 'Album has already been added to playlist'
     const CHECKMARK_HTML = '<div class="checkmark"></div>'
-
     $.ajax({
         url: '/_add_album_to_playlist',
-        beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
+        
         type: 'POST',
         data:
         {
@@ -35,13 +34,10 @@ window.addAlbumToPlaylist = function (albumId) {
 
         success: function () {
             $("#add-album-to-playlist-button").attr("disabled", "true")
-            $("#add-album-to-playlist-button").text(concat(ALBUM_ALREADY_ADDED_MESSAGE, CHECKMARK_HTML))
+            $("#add-album-to-playlist-button").val(concat(ALBUM_ALREADY_ADDED_MESSAGE, CHECKMARK_HTML))
+            $("#user_albums_link").css('display', 'inline')
+            $("#user_albums_link").attr('class', 'w3-animate-opacity')
         },
-
-        error: function (request, status, error) {
-            alert(error)
-        }
-
     });
     return false;
 }

@@ -13,12 +13,12 @@
 
 <%= render "pages/albums_grid" %>
 
-<% if @albums.total_pages == @albums.current_page %>
-    <div class="col-md-4 col-lg-2 item medium-bottom-interval">
-        <div class = "add-album-btn-box">
-            <%= link_to image_tag("add.png", alt: "Add album.", class: "add-album-btn"), new_album_path %>
+<% if current_page?(controller: "albums", action: "index") && current_user.try(:admin) %>
+    <% if @albums.total_pages == @albums.current_page %>
+        <div class="col-md-4 col-lg-2 item medium-bottom-interval">
+            <div class = "add-album-btn-box">
+                <%= link_to image_tag("add.png", alt: "Add album.", class: "add-album-btn"), new_album_path %>
+            </div>
         </div>
-    </div>
+    <% end %>
 <% end %>
-
-<%= button_to "Export to CSV", albums_path(format: "csv"), method: :get, class: "submit-button small-bottom-interval small-top-interval" %>
