@@ -76,6 +76,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    bootstrap-select-rails (1.13.8)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (3.36.0)
@@ -106,6 +107,7 @@ GEM
       countries (~> 4.0)
       sort_alphabetical (~> 1.1)
     crass (1.0.6)
+    csv (3.2.2)
     css_parser (1.11.0)
       addressable
     devise (4.8.1)
@@ -316,6 +318,9 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
+    will_paginate-bootstrap (1.0.2)
+      will_paginate (>= 3.0.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.5.1)
@@ -329,10 +334,12 @@ DEPENDENCIES
   bcrypt (~> 3.1, >= 3.1.16)
   bootsnap (~> 1.9, >= 1.9.3)
   bootstrap-sass (~> 3.4, >= 3.4.1)
+  bootstrap-select-rails (~> 1.13, >= 1.13.8)
   byebug (~> 11.1, >= 11.1.3)
   capybara (>= 3.26)
   carrierwave (~> 2.2, >= 2.2.2)
   country_select (~> 6.0)
+  csv (~> 3.2, >= 3.2.2)
   devise (~> 4.8, >= 4.8.1)
   devise-bootstrapped (~> 0.1.1)
   htmlbeautifier (~> 1.4, >= 1.4.1)
@@ -361,6 +368,7 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers (~> 5.0)
   webpacker (~> 5.0)
+  will_paginate-bootstrap (~> 1.0, >= 1.0.2)
 
 RUBY VERSION
    ruby 3.0.2p107

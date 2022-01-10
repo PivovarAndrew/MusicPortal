@@ -21,17 +21,45 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_preview_url %>
-    <%= form.text_field :image_preview_url %>
-  </div>
+    <div class="field form-group">
+        <%= form.label :performer, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :performer, class: "small-left-interval medium-width" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :release_date %>
-    <%= form.date_select :release_date %>
-  </div>
+    <div class="field form-group">
+        <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width" } %>
+       
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="field form-group">
+        <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.country_select :countries, {}, { class: "small-left-interval large-width" } %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.date_select :release_date, {
+                               order: [:day, :month, :year],
+                               start_year: 1950,
+                               end_year: Date.current.year,
+                               date_separator: ".",
+                             },
+                             { class: "small-left-interval medium-width small-right-interval" } %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| ["#{age_restriction.value}+"] }, {}, { class: "small-left-interval extra-small-width" } %>
+    </div>
+
+    <div class="field form-group">
+        <%= form.label :image_preview_url, class: "lbl-default col-sm-2 control-label" %>
+        <%= form.text_field :image_preview_url, class: "small-left-interval large-width" %>
+    </div>
+
+   <div class="actions">
+      <%= form.submit "Submit", class: "submit-button small-bottom-interval medium-top-interval" %>
+   </div>
+</fieldset>
 <% end %>

@@ -32,10 +32,14 @@ gem 'ajax_scaffold_generator', '~> 3.1', '>= 3.1.11'
 gem 'bootsnap', '~> 1.9', '>= 1.9.3', require: false
 # Sass-powered version of Bootstrap 3
 gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
+# Assets for bootstrap-select
+gem 'bootstrap-select-rails', '~> 1.13', '>= 1.13.8'
 # Provides a simple and extremely flexible way to upload files
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 # Provides a simple helper to get an HTML select list of countries
 gem "country_select", "~> 6.0"
+# The CSV library provides a complete interface to CSV files and data
+gem 'csv', '~> 3.2', '>= 3.2.2'
 # Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.8", ">= 4.8.1"
 # Generates nicer default devise views styled with Bootstrap
@@ -48,6 +52,8 @@ gem 'premailer-rails', '~> 1.11', '>= 1.11.1'
 gem 'mini_magick', '~> 4.11'
 # Object oriented authorization for application
 gem 'pundit', '~> 2.1', '>= 2.1.1'
+# Integrates the Twitter Bootstrap pagination component with the will_paginate
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 # Simple, efficient background processing for Ruby
 gem 'sidekiq', '~> 6.3', '>= 6.3.1'
 # Enables to set jobs to be run in specified time

@@ -1,9 +1,13 @@
+require_relative "../services/filter_service"
+
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
 
+  MAX_COUNT_OF_ALBUMS_PER_PAGE = 12
+
   # GET /albums or /albums.json
   def index
-    @albums = Album.all
+    @albums = Album.all.paginate(page: params[:page], per_page: MAX_COUNT_OF_ALBUMS_PER_PAGE).order("created_at desc")
   end
 
   # GET /albums/1 or /albums/1.json
@@ -22,7 +26,6 @@ class AlbumsController < ApplicationController
   # POST /albums or /albums.json
   def create
     @album = Album.new(album_params)
-
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: "Album was successfully created." }
@@ -57,13 +60,21 @@ class AlbumsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_album
-      @album = Album.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def album_params
-      params.require(:album).permit(:name, :description, :image_preview_url, :release_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_album
+    @album = Album.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def album_params
+    params.require(:album).permit(:name,
+                                  :description,
+                                  :image_preview_url,
+                                  :release_date,
+                                  :countries,
+                                  :main_genre,
+                                  :performer,
+                                  :age_restrictions)
+  end
 end

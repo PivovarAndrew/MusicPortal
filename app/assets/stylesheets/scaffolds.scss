@@ -85,3 +85,19 @@ div.actions {
 label {
   display: block;
 }
+
+.inline-block {
+  display: flex;
+}
+
+.block {
+  display: block;
+}
+
+.pagination {
+  @extend .small-left-interval;
+}
+
+.on-right {
+  right: 0;
+}

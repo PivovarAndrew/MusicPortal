@@ -1,0 +1,23 @@
+  <h1>Album</h1>
+  <div class="field form-group">
+  <%= link_to @current_album.name, @current_album, { class: "lbl-default", style: "display:inline-block;color:black" } %>
+  <div class="pull-right">
+    <% if current_user.try(:admin?) or current_user.try(:editor?) %>
+          <%= link_to edit_album_path(@current_album), class: "btn btn-sm btn-warning" do %>
+              <i class="glyphicon glyphicon-edit glyphicon-white"></i>
+          <% end %>     
+          <%= link_to album_path(@current_album), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-danger" do %>
+              <i class="glyphicon glyphicon-remove glyphicon-white"></i>
+          <% end %>
+    <% end %>
+  </div>
+  </div>
+  <%= link_to image_tag(@current_album.image_preview_url, class: "sidebar-album-preview-image small-bottom-interval"), @current_album %>
+    <% @current_album.tracks.each_with_index do |track, counter| %>
+      <div class="inline-block form-group">
+          <%= "#{counter + 1} #{track.name}" %>
+          <%= track.duration.to_s(:time) %>
+      </div>
+    <% end %>
+    
+    <%= render "user_albums/add_album_to_playlist" %>

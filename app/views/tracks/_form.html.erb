@@ -1,9 +1,5 @@
-<%= stylesheet_link_tag params[:controller] %>
-<%= stylesheet_link_tag "application" %>
-<%= stylesheet_link_tag "multiselect" %>
-<%= javascript_pack_tag "submit" %>
-    <div class="row">
-    <%= form_for @track do |form| %>
+<div class="row">
+  <%= form_for(model: [@album, track], local: true) do |form| %>
     <% form.options[:html][:class] << "form-horizontal" %>
       <% if track.errors.any? %>
         <div id="error_explanation">
@@ -38,31 +34,16 @@
 
             <div class="fields-group">
             </div>
-              <div class="field form-group">
-                <%= form.label :release_date, class: "lbl-default col-sm-2 control-label" %>
-                <%= form.date_select :release_date, {
-                                       order: [:day, :month, :year],
-                                       start_year: 1950,
-                                       end_year: Date.current.year,
-                                       date_separator: ".",
-                                     },
-                                     { :class => "small-left-interval small-right-interval" } %>
-              </div>
-
-              <div class="field form-group">
-                <%= form.label :duration, class: "lbl-default col-sm-2 control-label" %>
-                <%= form.time_select :duration, {
-                                       discard_hour: true,
-                                       include_minutes: true,
-                                       include_seconds: true,
-                                       time_separator: ":",
-                                     },
-                                     { :class => "extra-small-width small-left-interval small-right-interval" } %>
-              </div>
 
             <div class="field form-group">
-              <%= form.label :countries, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.country_select :countries, {}, { class: "small-left-interval large-width selectpicker", data: { "multiple": true, "data-mdb-clear-button": true, "data-max-options": "3" } } %>
+               <%= form.label :duration, class: "lbl-default col-sm-2 control-label" %>
+               <%= form.time_select :duration, {
+                                      discard_hour: true,
+                                      include_minutes: true,
+                                      include_seconds: true,
+                                      time_separator: ":",
+                                    },
+                                    { class: "extra-small-width small-left-interval small-right-interval" } %>
             </div>
 
             <div class="field form-group">
@@ -71,18 +52,8 @@
             </div>
 
             <div class="field form-group">
-              <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width" } %>
-            </div>
-
-            <div class="field form-group">
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
               <%= form.select :related_genres, Genre.all.collect { |genre| [genre.name] }, { "multiple": true, "data-max-options": "2" }, { class: "small-left-interval large-width selectpicker" } %>
-            </div>
-
-            <div class="field form-group">
-              <%= form.label :performer, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.text_field :performer, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field form-group">
@@ -90,12 +61,7 @@
               <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
             </div>
           
-            <div class="field form-group">
-              <%= form.label :age_restrictions, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :age_restrictions, AgeRestriction.all.collect { |age_restriction| [age_restriction.value] }, {}, class: "small-left-interval extra-small-width selectpicker" %>
-
-            </div>
-              <%= form.submit "Submit", class: "submit-button small-bottom-interval small-top-interval" %>
-              </fieldset>
-          <% end %>
+            <%= form.submit "Submit", class: "submit-button small-bottom-interval small-top-interval" %>
+        </fieldset>
+    <% end %>
 </div>

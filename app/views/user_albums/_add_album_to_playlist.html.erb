@@ -1,0 +1,7 @@
+<% if user_signed_in? %> 
+   <% unless current_user.albums.include? @current_album %>
+      <%= button_to "Add to playlist +", { controller: "user_albums", action: "create" }, class: "submit-button small-bottom-interval small-top-interval" %>
+   <% else %>
+      <%= button_tag "Album has already been added to playlist", id: "add-album-to-playlist-button", disabled: true, class: "submit-button small-bottom-interval small-top-interval" %>
+   <% end %>
+<% end %>

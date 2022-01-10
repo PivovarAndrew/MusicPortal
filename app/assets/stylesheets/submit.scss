@@ -25,6 +25,8 @@
   touch-action: manipulation;
   width: 100%;
   will-change: transform;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .submit-button:disabled {

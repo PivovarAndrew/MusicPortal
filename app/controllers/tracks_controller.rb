@@ -1,9 +1,10 @@
 class TracksController < ApplicationController
+  before_action :album, only: %i[ show edit update destroy ]
   before_action :set_track, only: %i[ show edit update destroy ]
 
   # GET /tracks or /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = @album.tracks
   end
 
   # GET /tracks/1 or /tracks/1.json
@@ -12,7 +13,7 @@ class TracksController < ApplicationController
 
   # GET /tracks/new
   def new
-    @track = Track.new
+    @track = @album.tracks.new.build
   end
 
   # GET /tracks/1/edit
@@ -21,11 +22,11 @@ class TracksController < ApplicationController
 
   # POST /tracks or /tracks.json
   def create
-    @track = Track.new(track_params)
+    @track = @album.tracks.build(track_params)
 
     respond_to do |format|
       if @track.save
-        format.html { redirect_to @track, notice: "Track was successfully created." }
+        format.html { redirect_to @album, notice: "Track was successfully created." }
         format.json { render :show, status: :created, location: @track }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class TracksController < ApplicationController
   def update
     respond_to do |format|
       if @track.update(track_params)
-        format.html { redirect_to @track, notice: "Track was successfully updated." }
+        format.html { redirect_to @album, notice: "Track was successfully updated." }
         format.json { render :show, status: :ok, location: @track }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,7 +52,7 @@ class TracksController < ApplicationController
   def destroy
     @track.destroy
     respond_to do |format|
-      format.html { redirect_to tracks_url, notice: "Track was successfully destroyed." }
+      format.html { redirect_to @album, notice: "Track was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,7 +61,11 @@ class TracksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_track
-    @track = Track.find(params[:id])
+    @track = @album.posts.find(params[:id])
+  end
+
+  def album
+    @album = Album.find(params[:album_id])
   end
 
   # Only allow a list of trusted parameters through.
@@ -70,12 +75,9 @@ class TracksController < ApplicationController
                                   :source_link,
                                   :release_date,
                                   :duration,
-                                  :countries,
                                   :tags,
-                                  :main_genre,
                                   :related_genres,
-                                  :performer,
                                   :preview_picture,
-                                  :age_restrictions)
+                                  :album_id)
   end
 end

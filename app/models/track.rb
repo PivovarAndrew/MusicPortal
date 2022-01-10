@@ -15,10 +15,11 @@
 #  album_id        :bigint
 #
 class Track < ApplicationRecord
-  has_many :track_genres
-  has_many :genres, through: :track_genres
-  has_many :track_age_restrictions
-  has_many :age_restrictions, through: :track_age_restrictions
   belongs_to :album
   validates :album_id, presence: true
+  validates :name, presence: true
+  validates :source_link, presence: true
+  validates :duration, presence: true
+  validates :related_genres, presence: true
+  validates :preview_picture, presence: true
 end

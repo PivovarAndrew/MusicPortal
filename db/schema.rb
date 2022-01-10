@@ -21,24 +21,6 @@ ActiveRecord::Schema.define(version: 2022_01_08_135941) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "album_age_restrictions", force: :cascade do |t|
-    t.bigint "album_id"
-    t.bigint "age_restriction_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["age_restriction_id"], name: "index_album_age_restrictions_on_age_restriction_id"
-    t.index ["album_id"], name: "index_album_age_restrictions_on_album_id"
-  end
-
-  create_table "album_genres", force: :cascade do |t|
-    t.bigint "album_id"
-    t.bigint "genre_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["album_id"], name: "index_album_genres_on_album_id"
-    t.index ["genre_id"], name: "index_album_genres_on_genre_id"
-  end
-
   create_table "albums", force: :cascade do |t|
     t.string "name"
     t.text "description"
