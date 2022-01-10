@@ -1,0 +1,20 @@
+<%= form_tag album_comments_path(album), remote: true, html: { "data-type": :js } do |form| %>
+  <% if album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(album.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% album.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if parent %>
+     <%= hidden_field :comment, :parent_id, value: parent.id %>
+  <% end %>
+  <%= text_area :comment, :content, class: "comment-input-area no-resizable" %>
+  <div class="actions">
+      <%= submit_tag "Submit", remote: true, class: "submit-comment-button small-bottom-interval small-top-interval" %>
+  </div>
+<% end %>

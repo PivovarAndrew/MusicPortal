@@ -12,8 +12,8 @@
 #
 #  index_user_albums_on_album_id  (album_id)
 #  index_user_albums_on_user_id   (user_id)
-#
+
 class UserAlbum < ApplicationRecord
-    belongs_to :user
-    belongs_to :album
+  belongs_to :user
+  belongs_to :album
 end

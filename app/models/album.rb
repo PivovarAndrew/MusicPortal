@@ -26,4 +26,7 @@ class Album < ApplicationRecord
 
   validates :main_genre, presence: true
   validates :performer, presence: true
+  has_many :likes
+  has_many :dislikes
+  has_many :comments
 end

@@ -29,15 +29,25 @@
 class User < ApplicationRecord
   has_many :user_albums
   has_many :albums, through: :user_albums
+  has_many :likes
+  has_many :dislikes
+  has_many :comments
+
   enum role: %i[user editor admin]
   after_initialize :set_default_role, if: :new_record?
+  after_initialize :build_user_profile, if: :new_record?
+  has_one :user_profile, dependent: :destroy
 
   def set_default_role
     self.role ||= :user
   end
 
+  def user_profile
+    super || build_user_profile
+  end
+
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 end

@@ -2,14 +2,16 @@
 
 $label_color: $color-black;
 $header_color: $color-denim;
+$secondary_header_color: $color-fire-engine-red;
 
 $link_color_default: $color-coal;
-$link_color_hover: $color-yellow;
+$link_color_hover: $color-magenta;
 $link_color_visited: $color-denim;
 
 $submit_button_border_color: $color-black;
 $submit_button_text_color: $color-white;
 $submit_button_background_color: $color-black;
+
 $default_background_color: $color-white;
 $confirm_mark_color: $color-fire-engine-red;
 
@@ -25,6 +27,16 @@ $footer_text_color: $color-light-green;
 $normal_glyphicon_text_color: $color-white;
 
 $album_description_text_color: $color_black;
-$album_release_date_text_color: $color_gray;
-
 $search-hr-color: $color-teal;
+$album_release_date_text_color: $color_gray;
+$album_duration_text_color: $color_coal;
+
+$comment_text_color: $color-black;
+$comment_hr_color: $color-black;
+
+$not_confirmed_text_color: $color-fire-engine-red;
+
+$like-button-default-color: $color-black;
+$like-button-hover-color: $color-fire-engine-red;
+$liked-button-default-color: $like-button-hover-color;
+$liked-button-hover-color: $like-button-default-color;

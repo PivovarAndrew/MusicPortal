@@ -10,19 +10,8 @@ class AlbumsController < ApplicationController
     @albums = Album.all.paginate(page: params[:page], per_page: MAX_COUNT_OF_ALBUMS_PER_PAGE).order("created_at desc")
   end
 
-  def user_albums
-    @albums = current_user.albums
-  end
-
   # GET /albums/1 or /albums/1.json
   def show
-  end
-
-  def _album_tracks
-    @current_album = Album.find(params[:id].to_i)
-    respond_to do |format|
-      format.js
-    end
   end
 
   # GET /albums/new

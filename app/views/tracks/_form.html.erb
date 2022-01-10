@@ -16,7 +16,6 @@
           </ul>
         </div>
         <% end %>
-
         <fieldset>
             <div class="field form-group">
               <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
@@ -44,7 +43,7 @@
                                       include_seconds: true,
                                       time_separator: ":",
                                     },
-                                    { class: "extra-small-width small-left-interval small-right-interval selectpicker" } %>
+                                    { class: "extra-small-width small-left-interval small-right-interval" } %>
             </div>
 
             <div class="field form-group">
@@ -54,7 +53,7 @@
 
             <div class="field form-group">
               <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
-              <%= form.select :related_genres, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval large-width selectpicker", "multiple": true, "data-max-options": "2" } %>
+              <%= form.select :related_genres, Genre.all.collect { |genre| [genre.name] }, { "multiple": true, "data-max-options": "2" }, { class: "small-left-interval large-width selectpicker" } %>
             </div>
 
             <div class="field form-group">
