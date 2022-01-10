@@ -1,3 +1,5 @@
+require_relative "../services/filter_service"
+
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
 

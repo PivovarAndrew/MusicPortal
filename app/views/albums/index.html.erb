@@ -3,22 +3,8 @@
 <div class="team-grid container intro text-center">
    <h1 class="header-default">ALBUMS</h1>
 </div>
-<%= will_paginate @albums, renderer: BootstrapPagination::Rails, class: "pagination" %>
-<div class="inline-block small-bottom-interval">
-   <% Album.column_names.map do |attribute_name| %>
-      <% if correct_attribute(attribute_name) %>
-         <div class="block">
-            <%= label_tag attribute_name, nil, class: "small-left-interval" %>
-            <%= select_tag "Select", options_for_select(values_by_attribute(attribute_name)), { id: "filter-#{attribute_name}", class: "small-left-interval medium-width" } %>
-         </div>
-      <% end %>
-   <% end %>
+<div id="albums"> 
+
+<%= render "pages/pagy_filter_albums_grid" %>
+
 </div>
-<%= render "layouts/albums_grid" %>
-<% if @albums.total_pages == @albums.current_page %>
-   <div class="col-md-4 col-lg-2 item medium-bottom-interval">
-      <div class = "add-album-btn-box">
-         <%= link_to image_tag("add.png", alt: "Add album.", class: "add-album-btn"), new_album_path %>
-      </div>
-   </div>
-<% end %>
