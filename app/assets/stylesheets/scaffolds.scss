@@ -27,7 +27,6 @@ a {
   color: #000;
 }
 
-
 a:visited {
   color: $link_color_visited;
 }
@@ -151,12 +150,12 @@ label {
   width: $large_size;
 }
 
-.display-as-table-cell  {
- vertical-align: top;
+.display-as-table-cell {
+  vertical-align: top;
 }
 
 .no-resizable {
-  resize:none;
+  resize: none;
 }
 
 .link-default {
@@ -209,4 +208,8 @@ label {
 
 .block {
   display: block;
+}
+
+.pagination {
+  @extend .small-left-interval;
 }

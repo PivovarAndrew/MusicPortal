@@ -1,9 +1,11 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
 
+  MAX_COUNT_OF_ALBUMS_PER_PAGE = 12
+
   # GET /albums or /albums.json
   def index
-    @albums = Album.all
+    @albums = Album.all.paginate(page: params[:page], per_page: MAX_COUNT_OF_ALBUMS_PER_PAGE).order("created_at desc")
   end
 
   def user_albums
