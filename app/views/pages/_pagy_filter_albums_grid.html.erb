@@ -20,3 +20,5 @@
         </div>
     </div>
 <% end %>
+
+<%= button_to "Export to CSV", albums_path(format: "csv"), method: :get, class: "submit-button small-bottom-interval small-top-interval" %>

@@ -15,9 +15,6 @@
 #  album_id        :bigint
 #
 class Track < ApplicationRecord
-  has_many :track_genres
-  has_many :genres, through: :track_genres
-
   belongs_to :album
   validates :album_id, presence: true
   validates :name, presence: true

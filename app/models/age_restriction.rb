@@ -9,7 +9,4 @@
 #
 class AgeRestriction < ApplicationRecord
   validates :value, presence: true, uniqueness: true
-
-  has_many :album_age_restrictions, dependent: :destroy
-  has_many :albums, through: :album_age_restrictions, dependent: :destroy
 end

@@ -34,6 +34,8 @@ gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
 gem 'bootstrap-select-rails', '~> 1.13', '>= 1.13.8'
 # Provides a simple helper to get an HTML select list of countries
 gem "country_select", "~> 6.0"
+# The CSV library provides a complete interface to CSV files and data
+gem 'csv', '~> 3.2', '>= 3.2.2'
 # Flexible authentication solution for Rails with Warden
 gem "devise", "~> 4.8", ">= 4.8.1"
 # Generates nicer default devise views styled with Bootstrap

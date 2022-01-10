@@ -9,10 +9,4 @@
 #
 class Genre < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-
-  has_many :track_genres, dependent: :destroy
-  has_many :tracks, through: :track_genres, dependent: :destroy
-
-  has_many :album_genres, dependent: :destroy
-  has_many :albums, through: :album_genres, dependent: :destroy
 end
