@@ -1,11 +1,7 @@
-<p id="notice">
-  <%= notice %>
-</p>
-
 <% if @current_album.tracks %>
-  <h1>ALBUM</h1>
+  <h1>Album</h1>
   <div class="field form-group">
-  <%= label_tag "", @current_album.name, { class: "lbl-default", style: "display:inline-block;color:black" } %>
+  <%= link_to @current_album.name, @current_album, { class: "lbl-default", style: "display:inline-block;color:black" } %>
   <div class="pull-right">
     <% if current_user.try(:admin?) or current_user.try(:editor?) %>
           <%= link_to edit_album_path(@current_album), class: "btn btn-sm btn-warning" do %>
@@ -17,12 +13,12 @@
     <% end %>
   </div>
   </div>
-  <%= image_tag(@current_album.image_preview_url, class: "sidebar-album-preview-image small-bottom-interval") %>
+  <%= link_to image_tag(@current_album.image_preview_url, class: "sidebar-album-preview-image small-bottom-interval"), @current_album %>
     <% @current_album.tracks.each_with_index do |track, counter| %>
-      <div class="field form-group">
-          <%= "#{counter + 1}  #{track.name}" %>
-          <div class="converted-time pull-right" >
-            <%= track.duration %>
+      <div class="inline-block form-group">
+          <%= "#{counter + 1} #{track.name}" %>
+          <div class="pull-right" >
+            <%= track.duration.to_s(:time) %>
           </div>
       </div>
     <% end %>

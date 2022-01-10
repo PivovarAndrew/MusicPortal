@@ -1,10 +1,5 @@
-<%= stylesheet_link_tag params[:controller] %>
-<%= stylesheet_link_tag "application" %>
-<%= stylesheet_link_tag "multiselect" %>
-<%= stylesheet_link_tag "tags" %>
-<%= javascript_pack_tag "submit" %>
-    <div class="row">
-    <%= form_for @track do |form| %>
+<div class="row">
+  <%= form_for(model: [@album, track], local: true) do |form| %>
     <% form.options[:html][:class] << "form-horizontal" %>
       <% if track.errors.any? %>
         <div id="error_explanation">
