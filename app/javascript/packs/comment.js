@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         let currentButton = $(this);
         idFor.slideToggle(400, function () {
             idFor.is(':visible') ? currentButton.html(`<label name="${hide_text.toLowerCase()}", 
-            class="${reply_text.toLowerCase()}">${hide_text}</label>`) : currentButton.html(
-                `<label name="${reply_text.toLowerCase()}", class="${reply_text.toLowerCase()}">${reply_text}</label>`);
+            class="${reply_text.toLowerCase()}">${hide_text}</label>`) : currentButton.html(`<label name="${reply_text.toLowerCase()}", class="${reply_text.toLowerCase()}">${reply_text}</label>`);
         })
     });
 

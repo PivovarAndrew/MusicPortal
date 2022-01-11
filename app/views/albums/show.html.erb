@@ -18,7 +18,7 @@
           </div>
       </div>
     <% end %>
-    <% if current_user %>  
+    <% if user_signed_in? %>  
     <div class="inline-block">
        <div id="like-block">
           <%= render partial: "likes/form", locals: { album: @album } %>

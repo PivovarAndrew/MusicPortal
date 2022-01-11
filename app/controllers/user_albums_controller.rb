@@ -9,9 +9,9 @@ class UserAlbumsController < ApplicationController
   end
 
   # POST /user_albums or /user_albums.json
-  def create
+  def _add_album_to_playist
     @user_album = UserAlbum.new(user_id: current_user.id, album_id: params[:id])
-    redirect_to user_albums if @user_album.save
+    redirect_to root_path if @user_album.save
   end
 
   # DELETE /user_albums/1 or /user_albums/1.json

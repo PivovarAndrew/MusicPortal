@@ -59,6 +59,13 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def _album_tracks
+    @current_album = Album.find(params[:id].to_i)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
