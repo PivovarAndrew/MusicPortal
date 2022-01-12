@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+.carousel-1 {
+  left: 0;
+  top: 0;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.carousel-section {
+  padding: 0;
+  overflow: hidden;
+}
+
+.swiper-bottom-scrollbar-full.swiper-container {
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease-in-out 0.7s;
+  width: 100%;
+  cursor: grabbing;
+  z-index: 1;
+  list-style: none;
+}
+
+.swiper-container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  transform: translate3d(-515.2px, 0px, 0px);
+  transition-duration: 0ms;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  transition-timing-function: ease-in-out;
+}
+
+.swiper {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 550px;
+  height: 100%;
+  position: relative;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  margin: 0;
+  margin-right: 30px;
+}
+
+.swiper-slide {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  display: table;
+  padding: 10%;
+  transition-duration: 0s;
+}
+
+.slide {
+  display: table-cell;
+  vertical-align: middle;
+}
