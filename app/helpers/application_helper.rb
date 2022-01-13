@@ -10,6 +10,10 @@ module ApplicationHelper
     total_ratings.zero? ? NO_RATING_VALUE : (MAX_RATING_VALUE * likes_count / total_ratings).round
   end
 
+  def rated?(album)
+    !album.likes.empty? || !album.dislikes.empty?
+  end
+
   def default_avatar(user_profile)
     user_profile.avatar.url || DEFAULT_AVATAR_IMAGE
   end
