@@ -11,4 +11,8 @@ module AlbumsHelper
   def correct_attribute(attribute_name)
     ALLOWED_PROPERTIES_FOR_FILTER.include? attribute_name
   end
+
+  def most_popular_albums
+    Album.all.last(5)
+  end
 end

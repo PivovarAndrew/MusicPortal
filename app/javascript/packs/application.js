@@ -13,6 +13,7 @@ import './album'
 import './search'
 import './comment'
 import './upload_image'
+import './swiper'
 
 Rails.start()
 ActiveStorage.start()

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         preventClicks: true,
         spaceBetween: 30,
         keyboardControl: true,
-        speed: 1000,
+        speed: 500,
         pagination: {
             el: null
         },
@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         on: {
             resize: function () {
-                fsdsasa
                 var windowWidth = $(window).width();
                 if (windowWidth <= 767) {
                     swiperBottomScrollbarFull.detachEvents();
