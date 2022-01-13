@@ -1,6 +1,7 @@
 module ApplicationHelper
   MAX_RATING_VALUE = 100
   NO_RATING_VALUE = 0
+  DEFAULT_AVATAR_IMAGE = "https://img.flaticon.com/icons/png/512/306/306007.png"
 
   def get_rating(album)
     likes_count = album.likes.count

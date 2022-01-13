@@ -14,7 +14,12 @@
                         </div>
                         <div class="hover-title-box padding-55px-lr width-300px sm-width-100 sm-padding-20px-lr">
                             <div class="separator width-50px bg-black md-display-none xs-margin-lr-auto"></div>
-                            <h1><%= album.performer %></h1>
+                            <div class="inline-block">
+                               <h1><%= album.performer %></h1>
+                               <div id="rating">
+                                   <span class="stars-container stars-<%= get_rating(album) %>">★★★★★</span>
+                               </div>
+                            </div>
                         </div>
                     </div>
                 </div>

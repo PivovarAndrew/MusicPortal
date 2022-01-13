@@ -69,10 +69,19 @@
   font-size: 24px;
 }
 
+.swiper-bottom-scrollbar-full .swiper-slide .hover-title-box h1{
+  font-size: 20px;
+}
+
 .swiper-bottom-scrollbar-full .swiper-slide .hover-title-box {
-  top: 88%;
+  top: 92%;
   visibility: hidden;
   left: 10px;
+}
+
+.swiper-bottom-scrollbar-full .swiper-slide .hover-title-box .inline-block #rating .stars-container {
+  margin-top: 10px;
+  left:200% !important;
 }
 
 .swiper-bottom-scrollbar-full .swiper-slide:hover {
@@ -98,7 +107,7 @@
 }
 
 .swiper-bottom-scrollbar-full .swiper-slide:hover .bottom-text {
-  opacity: 0.7;
+  opacity: 0.9;
   letter-spacing: 5px;
 }
 
