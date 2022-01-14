@@ -88,6 +88,12 @@
   margin-top: 77%;
   opacity: 0;
   visibility: hidden;
+  z-index: 99;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .swiper-bottom-scrollbar-full .swiper-slide:hover .slide .inline-block #rating {
@@ -109,6 +115,7 @@
   position: absolute;
   bottom: 20px;
   opacity: 0;
+  visibility: hidden;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -121,6 +128,7 @@
   opacity: 0.9;
   visibility: visible;
   letter-spacing: 5px;
+  color: white;
 }
 
 .swiper-bottom-scrollbar-full .swiper-slide a:hover {
@@ -130,6 +138,7 @@
 }
 
 .bottom-text {
+  position: absolute;
   color: white;
   left: 10px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -150,7 +159,6 @@
 
 @media (max-width: 1199px) {
   .swiper-bottom-scrollbar-full .bottom-text {
-    opacity: 1;
     letter-spacing: 3px;
   }
 }
