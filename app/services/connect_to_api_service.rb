@@ -2,10 +2,14 @@ require "uri"
 require "net/http"
 require "openssl"
 
-module ConnectToAPIService
+class ConnectToAPIService
   def initialize(url)
-    @url = url
+    @url = URI(url)
+    set_connection
+    set_request
   end
+
+  protected
 
   def set_connection
     @http = Net::HTTP.new(@url.host, @url.port)
