@@ -4,7 +4,6 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import './users'
@@ -14,7 +13,7 @@ import './album'
 import './search'
 import './comment'
 import './upload_image'
+import './swiper'
 
 Rails.start()
-Turbolinks.start()
 ActiveStorage.start()

@@ -1,64 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h2><%= "#{@track.name} from album #{@track.album.name}" %></h2>>
+  <div class="inline-block">
+    <%= image_tag(@track.preview_image, class: "sidebar-album-preview-image smal-right-interval") %>
+    <%= label_tag @track.description, nil, class: "album-description">
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @track.name %>
-</p>
+  <p>
+    <strong>Source link:</strong>
+    <%= @track.source_link %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @track.description %>
-</p>
+  <p>
+    <strong>Release date:</strong>
+    <%= @track.album.release_date %>
+  </p>
 
-<p>
-  <strong>Source link:</strong>
-  <%= @track.source_link %>
-</p>
+  <p>
+    <strong>Duration:</strong>
+    <%= @track.duration %>
+  </p>
 
-<p>
-  <strong>Release date:</strong>
-  <%= @track.release_date %>
-</p>
+  <p>
+    <strong>Countries:</strong>
+    <%= @track.album.countries %>
+  </p>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @track.duration %>
-</p>
+  <p>
+    <strong>Tags:</strong>
+    <%= @track.tags %>
+  </p>
 
-<p>
-  <strong>Countries:</strong>
-  <%= @track.countries %>
-</p>
+  <p>
+    <strong>Main genre:</strong>
+    <%= @track.album.main_genre %>
+  </p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @track.tags %>
-</p>
+  <p>
+    <strong>Related genres:</strong>
+    <%= @track.related_genres %>
+  </p>
 
-<p>
-  <strong>Main genre:</strong>
-  <%= @track.main_genre %>
-</p>
+  <p>
+    <strong>Performer:</strong>
+    <%= @track.album.performer %>
+  </p>
 
-<p>
-  <strong>Related genres:</strong>
-  <%= @track.related_genres %>
-</p>
+  <p>
+    <strong>Preview picture:</strong>
+    <%= @track.preview_picture %>
+  </p>
 
-<p>
-  <strong>Performer:</strong>
-  <%= @track.performer %>
-</p>
-
-<p>
-  <strong>Preview picture:</strong>
-  <%= @track.preview_picture %>
-</p>
-
-<p>
-  <strong>Age restrictions:</strong>
-  <%= @track.age_restrictions %>
-</p>
-
-<%= link_to "Edit", edit_track_path(@track) %> |
-<%= link_to "Back", tracks_path %>
+  <p>
+    <strong>Age restrictions:</strong>
+    <%= @track.album.age_restrictions %>
+  </p>
+</div>

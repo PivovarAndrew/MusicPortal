@@ -25,13 +25,12 @@ window.addAlbumToPlaylist = function (albumId) {
     const CHECKMARK_HTML = '<div class="checkmark"></div>'
     $.ajax({
         url: '/_add_album_to_playlist',
-        
+        beforeSend: function (xhr) { xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content')) },
         type: 'POST',
         data:
         {
             id: albumId,
         },
-
         success: function () {
             $("#add-album-to-playlist-button").attr("disabled", "true")
             $("#add-album-to-playlist-button").val(concat(ALBUM_ALREADY_ADDED_MESSAGE, CHECKMARK_HTML))
