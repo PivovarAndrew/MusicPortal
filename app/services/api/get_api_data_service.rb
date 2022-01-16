@@ -1,6 +1,6 @@
-require "connect_to_api_service"
+require_relative "connect_to_api_service"
 
-class GetApiDataService < ConnectToAPIService
+class GetApiDataService < ConnectToApiService
   def initialize(url)
     super(url)
   end
