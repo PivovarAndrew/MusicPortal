@@ -2,7 +2,7 @@ require "uri"
 require "net/http"
 require "openssl"
 
-class ConnectToAPIService
+class ConnectToApiService
   def initialize(url)
     @url = URI(url)
     set_connection
@@ -19,7 +19,7 @@ class ConnectToAPIService
 
   def set_request
     @request = Net::HTTP::Get.new(@url)
-    @request["x-rapidapi-host"] = Rails.application.credentials.x_rapid_api[:host]
-    @request["x-rapidapi-key"] = Rails.application.credentials.x_rapid_api[:key]
+    @request["deezerapi-host"] = Rails.application.credentials.deezer_api[:host]
+    @request["deezerapi-key"] = Rails.application.credentials.deezer_api[:key]
   end
 end
