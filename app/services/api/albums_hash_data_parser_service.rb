@@ -8,8 +8,8 @@ class AlbumsHashDataParserService
   def parse
     @raw_albums.map do |album_info|
       raw_album_tracks = get_album_tracks(album_info)
-      album = parse_album(raw_album_tracks, album_info)
-      [album: album, tracks: parse_album_tracks(raw_album_tracks, album_info, album.id)]
+      [album: parse_album(raw_album_tracks, album_info),
+       tracks: parse_album_tracks(raw_album_tracks, album_info)]
     end
   end
 
@@ -27,15 +27,14 @@ class AlbumsHashDataParserService
     )
   end
 
-  def parse_album_tracks(raw_album_tracks, album_info, album_id)
+  def parse_album_tracks(raw_album_tracks, album_info)
     raw_album_tracks.map do |track_info|
       Track.new(
         name: track_info["title"],
         source_link: track_info["link"],
-        duration: track_info["duration"],
+        duration: Time.at(track_info["duration"]).utc.strftime("%H:%M:%S"),
         tags: "#{album_info["title"]}, #{track_info["title"]}",
         preview_picture: album_info["cover"],
-        album_id: album_id,
       )
     end
   end

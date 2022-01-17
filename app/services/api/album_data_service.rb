@@ -12,8 +12,7 @@ module AlbumDataService
     end
 
     def search_album_data
-      AlbumsHashDataParserService.new(albums_from_searched_data(data_from_request))
-                                 .parse
+      AlbumsHashDataParserService.new(albums_from_searched_data(data_from_request)).parse
     end
 
     private
@@ -25,6 +24,20 @@ module AlbumDataService
 
     def albums_from_searched_data(hash_data)
       RawSearchedHashDataFilter.new(hash_data, ALBUM_KEY).filter.uniq
+    end
+  end
+
+  class AlbumDataExtracter
+    def initialize(album_data)
+      @album_data = album_data
+    end
+
+    def get_albums
+      @album_data.map { |album_info| album_info[0][:album] }
+    end
+
+    def get_album_tracks
+      @album_data.map { |album_info| album_info[0][:tracks] }
     end
   end
 end
