@@ -1,3 +1,5 @@
+require_relative "../services/api/album_data_service"
+
 class PagesController < ApplicationController
   MAX_COUNT_OF_ALBUMS_PER_PAGE = 12
 

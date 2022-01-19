@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "/_album_tracks", to: "albums#_album_tracks"
   get "/_pagy_filter_albums_grid", controller: "pages", action: "_pagy_filter_albums_grid"
   get "/_searched_albums", to: "pages#_searched_albums"
+  get "/_searched_api_albums", to: "albums#_searched_api_albums"
   post "/_add_album_to_playlist", to: "user_albums#_add_album_to_playlist"
   devise_for :users
   devise_scope :user do

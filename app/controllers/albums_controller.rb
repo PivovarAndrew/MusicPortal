@@ -1,4 +1,5 @@
 require_relative "../services/filter_service"
+require_relative "../services/api/album_data_service"
 
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
@@ -8,6 +9,16 @@ class AlbumsController < ApplicationController
   # GET /albums or /albums.json
   def index
     @albums = Album.all.paginate(page: params[:page], per_page: MAX_COUNT_OF_ALBUMS_PER_PAGE).order("created_at desc")
+  end
+
+  def _searched_api_albums
+    @searched_api_albums = AlbumDataService::AlbumDataExtracter.new(
+      AlbumDataService::SearchAlbumData.new(params[:text]).search_album_data
+    ).get_albums
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /albums/1 or /albums/1.json
