@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../services/filter_service"
 require_relative "../services/api/album_data_service"
 
@@ -14,7 +16,7 @@ class AlbumsController < ApplicationController
   def _searched_api_albums
     @searched_api_albums = AlbumDataService::AlbumDataExtracter.new(
       AlbumDataService::SearchAlbumData.new(params[:text]).search_album_data
-    ).get_albums
+    ).albums
 
     respond_to do |format|
       format.js

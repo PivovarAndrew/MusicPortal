@@ -51,7 +51,7 @@ class User < ApplicationRecord
     album_data_extracter = AlbumDataService::AlbumDataExtracter.new(
       AlbumDataService::SearchAlbumData.new("Metallica").search_album_data
     )
-    album_data_extracter.get_albums
+    album_data_extracter.albums
   end
 
   # Include default devise modules. Others available are:

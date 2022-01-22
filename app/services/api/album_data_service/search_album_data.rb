@@ -22,18 +22,4 @@ module AlbumDataService
       RawSearchedHashDataFilter.new(hash_data, ALBUM_KEY).filter.uniq
     end
   end
-
-  class AlbumDataExtracter
-    def initialize(album_data)
-      @album_data = album_data
-    end
-
-    def get_albums
-      @album_data.map { |album_info| album_info[0][:album] }
-    end
-
-    def get_album_tracks
-      @album_data.map { |album_info| album_info[0][:tracks] }
-    end
-  end
 end
