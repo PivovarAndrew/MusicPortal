@@ -49,6 +49,11 @@
   text-align: $scaffold_h1_text_align;
 }
 
+.secondary-header-default {
+  color: $secondary_header_color;
+  text-align: $h2_text_align;
+}
+
 .extra-small-width {
   width: $extra_small_size;
 }

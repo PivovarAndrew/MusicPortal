@@ -61,7 +61,7 @@ class TracksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_track
-    @track = @album.posts.find(params[:id])
+    @track = @album.tracks.find(params[:id])
   end
 
   def album

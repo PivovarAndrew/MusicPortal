@@ -12,13 +12,17 @@
   <%= image_tag(@album.image_preview_url, class: "sidebar-album-preview-image") %>
     <% @album.tracks.each_with_index do |track, counter| %>
       <div class="form-group">
-          <%= "#{counter + 1}  #{track.name}" %>
-          <div class="converted-time">
-             <%= track.duration.to_s(:time) %>
-          </div>
+         <div class="inline-block">
+            <%= counter + 1 %>  
+            &#xA0 
+            <%= link_to track.name, album_track_path(@album, track) %>
+         </div>
+         <div class="converted-time">
+            <%= track.duration.to_s(:time) %>
+         </div>
       </div>
     <% end %>
-    <% if current_user %>  
+    <% if user_signed_in? %>  
     <div class="inline-block">
        <div id="like-block">
           <%= render partial: "likes/form", locals: { album: @album } %>

@@ -20,6 +20,6 @@ class Track < ApplicationRecord
   validates :name, presence: true
   validates :source_link, presence: true
   validates :duration, presence: true
-  validates :related_genres, presence: true
+  validates :tags, presence: true
   validates :preview_picture, presence: true
 end

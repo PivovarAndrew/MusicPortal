@@ -10,14 +10,11 @@ Rails.application.routes.draw do
 
   get "/_album_tracks", to: "albums#_album_tracks"
   get "/_comments", to: "comments#_comments"
-  get "/_searched_albums", to: "pages#_searched_albums"
-  post "/_add_album_to_playlist", to: "albums#_add_album_to_playlist"
   resources :user_profiles
   resources :albums
   resources :likes, only: %i[create destroy]
   resources :dislikes, only: %i[create destroy]
 
-  get "/_album_tracks", to: "albums#_album_tracks"
   get "/_pagy_filter_albums_grid", controller: "pages", action: "_pagy_filter_albums_grid"
   get "/_searched_albums", to: "pages#_searched_albums"
   get "/_searched_api_albums", to: "albums#_searched_api_albums"
