@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "../services/filter_service"
-require_relative "../services/api/album_data_service"
+require_relative "../services/api/album_data_extracter"
+require_relative "../services/api/search_album_data"
 
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]

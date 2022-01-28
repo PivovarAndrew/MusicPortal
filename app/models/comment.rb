@@ -23,6 +23,9 @@
 class Comment < ApplicationRecord
   belongs_to :album
   belongs_to :user
-  belongs_to :parent, class_name: 'Comment', optional: true
+  belongs_to :parent, class_name: "Comment", optional: true
   has_many :comments, foreign_key: :parent_id
+
+  # belongs_to :signatory, class_name: 'User', optional: true
+  # has_many :users, foreign_key: :signatory_id
 end

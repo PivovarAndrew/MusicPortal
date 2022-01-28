@@ -47,11 +47,8 @@ class User < ApplicationRecord
   end
 
   def get_api_data
-    require_relative "../services/api/album_data_service"
-    album_data_extracter = AlbumDataService::AlbumDataExtracter.new(
-      AlbumDataService::SearchAlbumData.new("Metallica").search_album_data
-    )
-    album_data_extracter.albums
+    require_relative "../services/api/search_album_data"
+    AlbumDataService::SearchAlbumData.new("Morgenshtern").search_album_data
   end
 
   # Include default devise modules. Others available are:

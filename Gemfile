@@ -78,6 +78,10 @@ group :development do
   gem "rack-mini-profiler", "~> 2.0"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring", "~> 4.0"
+  # Automatically generate an entity-relationship diagram (ERD) for Rails models
+  gem 'rails-erd', '~> 1.6', '>= 1.6.1'
+  # Model and controller UML class diagram generator
+  gem 'railroady', '~> 1.6'
 end
 
 group :test do
