@@ -22,6 +22,29 @@ function searchAlbum() {
     return false;
 }
 
+function searchApiAlbums() {
+    $("#searched-api-albums").html("<br/><i id='like-loading' class='fa fa-spinner fa-spin'></i>")
+    $.ajax({
+        url: '/_searched_api_albums',
+        type: 'GET',
+        dataType: 'html',
+        data:
+        {
+            text: $('#api-albums-search-value').val(),
+        },
+
+        success: function (data) {
+            $("#searched-api-albums").html(data)
+        },
+
+        error: function (request, status, error) {
+            // error notification
+        }
+
+    });
+    return false;
+}
+
 const SEARCHED_RESULTS_SIDEBAR_ID = "searched-results-sidebar"
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -48,6 +71,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     $('#searched-albums-sidebar-close-button').click(function () {
         closeSidebar(SEARCHED_RESULTS_SIDEBAR_ID);
+    });
+
+    $('#search-api-albums').click(function () {
+        if ($("api-albums-search-value").val() != "") {
+            searchApiAlbums();
+        }
     });
 });
 

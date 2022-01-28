@@ -3,8 +3,19 @@
 <div class="team-grid container intro text-center">
    <h1 class="header-default">Albums</h1>
 </div>
+
 <div id="albums"> 
 
 <%= render "pages/pagy_filter_albums_grid" %>
 
 </div>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<hr class="search-results-hr">
+
+<div class="inline-block">
+   <div class="lbl-default">If you dont find interested album, <br/>you can add it in our collection</div>
+   <%= text_field_tag "api-albums-search-value", "", class:"large-width small-left-interval small-right-interval"%>
+   <%= button_tag "Find", id: "search-api-albums", class: "submit-button" %>
+</div>
+
+<div id="searched-api-albums"></div>

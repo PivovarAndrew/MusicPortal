@@ -1,0 +1,15 @@
+<div class="block">
+    <% unless @searched_api_albums.empty? %>
+        <hr class="search-results-hr">
+        </div>
+        <% @searched_api_albums.each do |album| %>
+          <div class="inline-block small-bottom-interval">
+            <%= image_tag(album.image_preview_url, class: "dropdown-panel-preview-image small-right-interval") %>
+            <div class="album-description block">
+                <%= album.name %><br/>
+                <%= label_tag album.performer %>
+            </div>
+          </div>
+        <% end %> 
+    <% end %>
+</div>
