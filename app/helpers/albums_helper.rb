@@ -15,4 +15,8 @@ module AlbumsHelper
   def most_popular_albums
     Album.all.last(5)
   end
+
+  def album_exist(album)
+    Album.find_by(name: album.name)
+  end
 end

@@ -22,9 +22,7 @@ class Album < ApplicationRecord
 
   validates :name, presence: true
   validates :image_preview_url, presence: true
-  validates :release_date, presence: true
 
-  validates :main_genre, presence: true
   validates :performer, presence: true
   has_many :likes
   has_many :dislikes

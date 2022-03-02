@@ -7,7 +7,7 @@
                     <%= "#{album.name} (#{album.performer})" %>
                 </div>
                 <div class="album-release-date">
-                    <%= album.release_date.year %>
+                    <%= album.release_date.year if album.release_date %>
                 </div>
             </div>    
         </div>
