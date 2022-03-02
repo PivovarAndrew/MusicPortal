@@ -17,9 +17,9 @@
             &#xA0 
             <%= link_to track.name, album_track_path(@album, track) %>
          </div>
-         <div class="converted-time">
-            <%= track.duration.to_s(:time) %>
-         </div>
+         <div class="track-duration">
+            <%= track.duration.strftime("%M:%S") %>
+          </div>
       </div>
     <% end %>
     <% if user_signed_in? %>  

@@ -16,7 +16,9 @@
     <% @current_album.tracks.each_with_index do |track, counter| %>
       <div class="inline-block form-group">
           <%= "#{counter + 1} #{track.name}" %>
-          <%= track.duration.to_s(:time) %>
+          <div class="track-duration">
+            <%= track.duration.strftime("%M:%S") %>
+          </div>
       </div>
     <% end %>
     
