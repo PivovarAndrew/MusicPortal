@@ -22,7 +22,7 @@ class AlbumsHashDataParserService
   def parse_album(raw_album_tracks, album_info)
     Album.new(
       name: album_info["title"],
-      image_preview_url: album_info["cover"],
+      image_preview_url: album_info["cover_xl"],
       performer: raw_album_tracks.sample["artist"]["name"],
     )
   end
@@ -34,7 +34,7 @@ class AlbumsHashDataParserService
         source_link: track_info["link"],
         duration: Time.at(track_info["duration"]).utc.strftime("%H:%M:%S"),
         tags: "#{album_info["title"]}, #{track_info["title"]}",
-        preview_picture: album_info["cover"],
+        preview_picture: album_info["cover_xl"],
       )
     end
   end

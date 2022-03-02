@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "../services/filter_service"
-require_relative "../services/api/album_data_extracter"
-require_relative "../services/api/search_album_data"
+require_relative "../services/api/deezer/album_data_extracter"
+require_relative "../services/api/deezer/search_album_data"
 
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
@@ -15,12 +15,24 @@ class AlbumsController < ApplicationController
   end
 
   def _searched_api_albums
-    @searched_api_albums = AlbumDataService::AlbumDataExtracter.new(
+    searched_album_data = AlbumDataService::AlbumDataExtracter.new(
       AlbumDataService::SearchAlbumData.new(params[:text]).search_album_data
-    ).albums
+    )
 
+    @searched_albums = searched_album_data.albums
+    
     respond_to do |format|
       format.js
+    end
+  end
+
+  def save_api_album
+    album = Album.new(Rack::Utils.parse_nested_query params[:album])  
+    album.save!
+    params[:album_tracks].split.each { |track| album.tracks << Track.new(Rack::Utils.parse_nested_query(track)) }
+    respond_to do |format|
+        format.html { redirect_to album, notice: "Album was successfully added." }
+        format.json { render :show, status: :created, location: @album }
     end
   end
 

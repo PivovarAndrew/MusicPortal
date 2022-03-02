@@ -1,57 +1,58 @@
 <div class="container">
-  <h2><%= "#{@track.name} from album #{@track.album.name}" %></h2>>
+  <h2><%= "#{@track.name} from album #{@track.album.name}" %></h2>
   <div class="inline-block">
-    <%= image_tag(@track.preview_image, class: "sidebar-album-preview-image smal-right-interval") %>
-    <%= label_tag @track.description, nil, class: "album-description">
+    <%= image_tag(@track.album.image_preview_url, class: "sidebar-album-preview-image smal-right-interval") %>
+    <%= label_tag @track.description, nil, class: "album-description" %>
   </div>
 
-  <p>
-    <strong>Source link:</strong>
-    <%= @track.source_link %>
-  </p>
+  <div class="album-description ">
+    <p>
+      <%= label_tag @track.source_link %>
+    </p>
 
-  <p>
-    <strong>Release date:</strong>
-    <%= @track.album.release_date %>
-  </p>
+    <p>
+      <strong>Release date:</strong>
+      <%= label_tag @track.album.release_date %>
+    </p>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= @track.duration %>
-  </p>
+    <p>
+      <strong>Duration:</strong>
+      <%= label_tag @track.duration %>
+    </p>
 
-  <p>
-    <strong>Countries:</strong>
-    <%= @track.album.countries %>
-  </p>
+    <p>
+      <strong>Countries:</strong>
+      <%= label_tag @track.album.countries %>
+    </p>
 
-  <p>
-    <strong>Tags:</strong>
-    <%= @track.tags %>
-  </p>
+    <p>
+      <strong>Tags:</strong>
+      <%= label_tag @track.tags %>
+    </p>
 
-  <p>
-    <strong>Main genre:</strong>
-    <%= @track.album.main_genre %>
-  </p>
+    <p>
+      <strong>Main genre:</strong>
+      <%= label_tag @track.album.main_genre %>
+    </p>
 
-  <p>
-    <strong>Related genres:</strong>
-    <%= @track.related_genres %>
-  </p>
+    <p>
+      <strong>Related genres:</strong>
+      <%= label_tag @track.related_genres %>
+    </p>
 
-  <p>
-    <strong>Performer:</strong>
-    <%= @track.album.performer %>
-  </p>
+    <p>
+      <strong>Performer:</strong>
+      <%= label_tag @track.album.performer %>
+    </p>
 
-  <p>
-    <strong>Preview picture:</strong>
-    <%= @track.preview_picture %>
-  </p>
+    <p>
+      <strong>Preview picture:</strong>
+      <%= label_tag @track.preview_picture %>
+    </p>
 
-  <p>
-    <strong>Age restrictions:</strong>
-    <%= @track.album.age_restrictions %>
-  </p>
+    <p>
+      <strong>Age restrictions:</strong>
+      <%= label_tag @track.album.age_restrictions %>
+    </p>
+  </div>
 </div>

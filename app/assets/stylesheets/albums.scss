@@ -4,6 +4,7 @@
 
 @import "settings/*";
 @import "config/*";
+@import "submit";
 
 .album-preview-image {
    width: $preview_image_width_size;
@@ -27,6 +28,14 @@
   max-width: $add_button_width_size;
   max-height: $add_button_height_size;
   margin: 0;
+}
+
+.add-album-to-collection-button {
+  @extend .submit-button;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-album-btn-box {

@@ -3,6 +3,22 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 @import "config/*";
+@import "settings/*";
+
+.track-preview-image {
+   width: $preview_image_width_size;
+   height: $preview_image_height_size;
+}
+
+.track-description {
+    font-size: $album_description_font_size;
+    color: album_description_text_color;
+}
+
+.track-duration {
+  margin-left: auto; 
+  margin-right: 0;
+}
 
 #track_release_date_1i {
   width: $small_size;

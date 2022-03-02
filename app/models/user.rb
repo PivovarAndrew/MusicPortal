@@ -46,11 +46,6 @@ class User < ApplicationRecord
     super || build_user_profile
   end
 
-  def get_api_data
-    require_relative "../services/api/search_album_data"
-    AlbumDataService::SearchAlbumData.new("Morgenshtern").search_album_data
-  end
-
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
