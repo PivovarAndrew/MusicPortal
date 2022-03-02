@@ -35,6 +35,7 @@ class AlbumsHashDataParserService
         duration: Time.at(track_info["duration"]).utc.strftime("%H:%M:%S"),
         tags: "#{album_info["title"]}, #{track_info["title"]}",
         preview_picture: album_info["cover_xl"],
+        audio_link: track_info["preview"]
       )
     end
   end
