@@ -1,46 +1,52 @@
 <div class="container">
-<% if @album.tracks %>
-  <h1 class="secondary-header-default">ALBUM</h1>
-  <h2>
-    <div class="inline-block">
-        <%= @album.name %>
-        <div id="rating">
-           <span class="small-left-interval stars-container stars-<%= get_rating(@album) %>">★★★★★</span>
-        </div>
-    </div>
-  </h2>
-  <%= image_tag(@album.image_preview_url, class: "sidebar-album-preview-image") %>
-    <% @album.tracks.each_with_index do |track, counter| %>
-      <div class="form-group">
-         <div class="inline-block">
-            <%= counter + 1 %>  
-            &#xA0 
-            <%= link_to track.name, album_track_path(@album, track) %>
-         </div>
-         <div class="track-duration">
-            <%= track.duration.strftime("%M:%S") %>
+   <% if @album.tracks %>
+      <!--<h1 class="secondary-header-default">ALBUM</h1>-->
+      <h2>
+        <div class="inline-block">
+          <%= label_tag @album.name, nil, class: "album-name small-bottom-interval" %>
+          <div id="rating">
+            <span class="small-left-interval stars-container stars-<%= get_rating(@album) %>">★★★★★</span>
           </div>
+        </div>
+        <%= label_tag @album.performer, nil, class: "album-performer small-bottom-interval" %>
+      </h2>
+      <div class="inline-block">
+         <%= image_tag(@album.image_preview_url, class: "album-info-preview-image medium-bottom-interval") %>
+         <div class="album-description-box">
+           <%= label_tag @album.description, nil, class: "medium-left-interval album-description" %>
+         </div>
       </div>
-    <% end %>
-    <% if user_signed_in? %>  
-    <div class="inline-block">
-       <div id="like-block">
-          <%= render partial: "likes/form", locals: { album: @album } %>
-       </div>
-       <div id="dislike-block" class="small-top-interval">
-          <%= render partial: "dislikes/form", locals: { album: @album } %>
-       </div>
-       </div>
-    <% end %>
-    <% if current_user.try(:admin? || :editor?) %>
-        <%= link_to "Edit", edit_album_path(@album) %> |
-        <%= link_to "Back", albums_path %>
-    <% end %>
-    <h2 class="comments-interval secondary-header-default">Comments</h2>
-    <div id="comments">    
-        <%= render @album.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
-    </div>
-    <h2>Leave comment</h2>
-    <%= render partial: "comments/form", locals: { album: @album, parent: nil } %>
-<% end %>
+      <% @album.tracks.each_with_index do |track, counter| %>
+         <div class="form-group">
+            <div class="inline-block">
+               <%= counter + 1 %>  
+               &#xA0 
+               <%= link_to track.name, album_track_path(@album, track) %>
+               <div class="track-duration">
+                  <%= track.duration.strftime("%M:%S") %>
+               </div>
+            </div>
+         </div>
+      <% end %>
+      <% if user_signed_in? %>  
+         <div class="inline-block">
+            <div id="like-block">
+               <%= render partial: "likes/form", locals: { album: @album } %>
+            </div>
+            <div id="dislike-block" class="small-top-interval">
+               <%= render partial: "dislikes/form", locals: { album: @album } %>
+            </div>
+         </div>
+      <% end %>
+      <% if current_user.try(:admin? || :editor?) %>
+         <%= link_to "Edit", edit_album_path(@album) %> |
+         <%= link_to "Back", albums_path %>
+      <% end %>
+      <h2 class="comments-interval secondary-header-default">Comments</h2>
+      <div id="comments">    
+         <%= render @album.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
+      </div>
+      <h2>Leave comment</h2>
+      <%= render partial: "comments/form", locals: { album: @album, parent: nil } %>
+   <% end %>
 </div>

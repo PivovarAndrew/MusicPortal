@@ -16,7 +16,9 @@ $navigation_bar_links_letter_spacing: $default_letter_spacing;
 
 $glyphicon_font_size: $normal_glyphicon_size;
 
-$album_description_font_size: $small_label_font_size;
+$album_name_font_size: $h1_font_size;
+$album_performer_font_size: $h2_font_size;
+$album_description_font_size: $small_label_font_size + 2;
 
 $comment_font_size: $normal_text_font_size;
 
