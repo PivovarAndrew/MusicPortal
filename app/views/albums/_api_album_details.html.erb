@@ -1,0 +1,36 @@
+<details>
+  <summary>
+    <div class="inline-block small-bottom-interval">
+      <%= image_tag(current_album.image_preview_url, { class: "medium-right-interval album-preview-image" }) %>
+      <div class="album-name">
+        <%= current_album.name %><br/>
+        <%= label_tag current_album.performer %>
+      </div>
+    </div>
+    <div class="details-overlay"></div>
+  </summary>
+  <div class="details">
+    <div class="details-title">
+      <div class="inline-block small-bottom-interval">
+        <%= image_tag(current_album.image_preview_url, { class: "medium-right-interval album-preview-image" }) %>
+        <div class="album-name">
+          <%= current_album.name %><br/>
+          <%= label_tag current_album.performer %>
+        </div>
+      </div>
+    </div>
+    <div class="details-content">
+      <ol>
+        <% current_album.tracks.each do |track| %>
+        <div class="inline-block">
+          <li><%= label_tag track.name %></li>
+          <div class="track-duration"> 
+            <%= track.duration.strftime("%M:%S") %>
+          </div>
+        </div>
+          <% end %>
+      </ol>
+      <%= render partial: "save_api_album", locals: { album: current_album } %>
+    </div>
+  </div>
+</details>
