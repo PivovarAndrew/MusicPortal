@@ -4,8 +4,8 @@
 
 <%= render "form", track: @track %>
 
-<%= link_to "Show", @track, { class: "link-default" } %> 
+<%= link_to "Show", album_track_path(@track.album, @track), { class: "link-default" } %> 
    <div class="link-separator-default"> 
       |
    </div>
-<%= link_to "Back", tracks_path, { class: "link-default" } %>
+<%= link_to "Back", album_tracks_path, { class: "link-default" } %>

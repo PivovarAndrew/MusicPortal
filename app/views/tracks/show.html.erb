@@ -7,10 +7,6 @@
 
   <div class="album-description ">
     <p>
-      <%= label_tag @track.source_link %>
-    </p>
-
-    <p>
       <strong>Release date:</strong>
       <%= label_tag @track.album.release_date %>
     </p>
@@ -54,5 +50,20 @@
       <strong>Age restrictions:</strong>
       <%= label_tag @track.album.age_restrictions %>
     </p>
+
+    <p>
+      <strong>Audio link:</strong>
+      <%= link_to @track.audio_link, @track.audio_link %>
+    </p>
+
+    <p>
+      <strong>Source link:</strong>
+      <%= link_to @track.source_link, @track.source_link %>
+    </p>
+
+    <% if current_user.try(:admin? || :editor?) %>
+      <%= link_to "Edit", edit_album_track_path(@track.album, @track) %> |
+      <%= link_to "Back", albums_path(@track.album) %>
+    <% end %>
   </div>
 </div>
