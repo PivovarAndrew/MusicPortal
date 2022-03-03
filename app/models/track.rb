@@ -23,5 +23,5 @@ class Track < ApplicationRecord
   validates :duration, presence: true
   validates :tags, presence: true
   validates :preview_picture, presence: true
-  validates :audio, presence: true
+  validates :audio_link, presence: true
 end

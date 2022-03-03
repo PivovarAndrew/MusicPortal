@@ -26,6 +26,11 @@
                   <%= track.duration.strftime("%M:%S") %>
                </div>
             </div>
+            <div class="player-with-download" style="width:102%">
+               <audio>
+                 <source src="<%= track.audio_link %>" type="audio/mpeg">
+               </audio>
+             </div>
          </div>
       <% end %>
       <% if user_signed_in? %>  
@@ -33,7 +38,7 @@
             <div id="like-block">
                <%= render partial: "likes/form", locals: { album: @album } %>
             </div>
-            <div id="dislike-block" class="small-top-interval">
+            <div id="dislike-block">
                <%= render partial: "dislikes/form", locals: { album: @album } %>
             </div>
          </div>

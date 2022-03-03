@@ -78,6 +78,7 @@ class TracksController < ApplicationController
                                   :tags,
                                   :related_genres,
                                   :preview_picture,
-                                  :album_id)
+                                  :album_id,
+                                  :audio_link)
   end
 end
