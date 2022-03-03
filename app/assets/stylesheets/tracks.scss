@@ -4,6 +4,7 @@
 
 @import "config/*";
 @import "settings/*";
+@import "style";
 
 .track-preview-image {
    width: $preview_image_width_size;
@@ -16,8 +17,7 @@
 }
 
 .track-duration {
-  margin-left: auto; 
-  margin-right: 0;
+  @extend .on-right
 }
 
 #track_release_date_1i {

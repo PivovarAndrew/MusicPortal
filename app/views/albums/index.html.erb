@@ -6,13 +6,15 @@
 
 <br/>
 
-<div id="albums"> 
+<div id="albums">
 
-<%= render "pages/pagy_filter_albums_grid" %>
+   <%= render "pages/pagy_filter_albums_grid" %>
 
 </div>
+
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 <hr class="search-results-hr" style="width:99%">
 
 <div class="inline-block medium-top-interval">
@@ -22,3 +24,17 @@
 </div>
 
 <div id="searched-api-albums"></div>
+
+<div>
+   <div class="inline-block medium-top-interval medium-bottom-interval">
+      <%= link_to 'Export albums to CSV', albums_path(format: 'csv') %>
+      <% if admin_or_editor? %>
+         <div class="on-right">
+            <%= form_tag import_to_csv_albums_path, multipart: true do %>
+               <%= file_field_tag :csv_file %>
+               <%= submit_tag 'Import CSV', class: "small-top-interval"  %>
+            <% end %>
+         </div>
+      <% end %>
+   </div>
+</div>

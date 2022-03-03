@@ -8,11 +8,27 @@ class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
 
   MAX_COUNT_OF_ALBUMS_PER_PAGE = 12
+  ALBUM_CSV_ATTRIBUTE_NAMES = ['name',
+                               'image_preview_url',
+                               'release_date',
+                               'countries',
+                               'main_genre',
+                               'performer',
+                               'age_restrictions']
 
   # GET /albums or /albums.json
   def index
     @albums = Album.all.paginate(page: params[:page], per_page: MAX_COUNT_OF_ALBUMS_PER_PAGE).order("created_at desc")
+    respond_to do |format|
+      format.html
+      format.csv { send_data @albums.to_csv(ALBUM_CSV_ATTRIBUTE_NAMES) }
+    end
   end
+
+  def import_to_csv
+    Album.import_to_csv(params[:csv_file])
+    redirect_to root_url, notice: 'Albums uploaded successfully'
+   end
 
   def _searched_api_albums
     searched_album_data = AlbumDataService::AlbumDataExtracter.new(
