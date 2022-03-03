@@ -11,6 +11,8 @@
     <% end %>
 </div>
 
+<br/>
+
 <%= render "pages/albums_grid" %>
 
 <% if current_page?(controller: "albums", action: "index") && current_user.try(:admin) %>

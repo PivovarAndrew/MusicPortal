@@ -17,4 +17,8 @@ module ApplicationHelper
   def default_avatar(user_profile)
     user_profile.avatar.url || DEFAULT_AVATAR_IMAGE
   end
+
+  def admin_or_editor?
+    current_user.try(:admin? || :editor?) 
+  end
 end
