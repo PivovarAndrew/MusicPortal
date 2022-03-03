@@ -27,4 +27,24 @@ class Album < ApplicationRecord
   has_many :likes
   has_many :dislikes
   has_many :comments
+
+  # Generate a CSV File of All Album Records
+  def self.to_csv(fields = column_names, options={})
+    CSV.generate do |csv|
+      csv << fields
+      all.each do |album|
+        csv << album.attributes.values_at(*fields)
+      end
+    end
+  end
+
+  # Import CSV, Find or Create Album by its name.
+  # Update the record.
+  def self.import_to_csv(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      albums_hash = row.to_hash
+      album = find_or_initialize_by(name: albums_hash['name'])
+      album.update(albums_hash)
+    end
+  end
 end
