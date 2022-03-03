@@ -31,8 +31,8 @@ class AlbumsController < ApplicationController
     album.save!
     params[:album_tracks].split.each { |track| album.tracks << Track.new(Rack::Utils.parse_nested_query(track)) }
     respond_to do |format|
-        format.html { redirect_to album, notice: "Album was successfully added." }
-        format.json { render :show, status: :created, location: @album }
+      format.html { redirect_to album, notice: "Album was successfully added." }
+      format.json { render :show, status: :created, location: @album }
     end
   end
 

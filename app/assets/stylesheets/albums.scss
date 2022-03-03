@@ -6,21 +6,47 @@
 @import "config/*";
 @import "submit";
 
+.album-name {
+  font-family: $default_font_family;
+  font-size: $album_name_font_size;
+  color: $album_name_text_color;
+}
+
+.album-performer {
+  font-family: $default_font_family;
+  font-size: $album_performer_font_size;
+  color: $album_performer_text_color;
+}
+
 .album-preview-image {
-   width: $preview_image_width_size;
-   height: $preview_image_height_size;
+  width: $preview_image_width_size;
+  height: $preview_image_height_size;
+}
+
+.album-info-preview-image {
+  width: $info_preview_image_width_size;
+  height: $info_preview_image_height_size;
 }
 
 .album-description {
-    font-size: $album_description_font_size;
-    color: album_description_text_color;
+  font-family: $default_font_family;
+  font-size: $album_description_font_size;
+  color: $album_description_text_color;
+}
+
+.album-description-box {
+  text-align: justify;
+  text-justify: inter-word;
+  width: 69%;
 }
 
 .album-release-date {
+  font-family: $default_font_family;
   color: $album_release_date_text_color;
 }
 
 .album-duration {
+  font-family: $default_font_family;
   color: $album_duration_text_color;
 }
 

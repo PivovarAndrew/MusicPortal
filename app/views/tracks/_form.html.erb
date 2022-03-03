@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for(model: [@album, track], local: true) do |form| %>
+  <%= form_for([@album, track], local: true) do |form| %>
     <% form.options[:html][:class] << "form-horizontal" %>
       <% if track.errors.any? %>
         <div id="error_explanation">
@@ -59,6 +59,11 @@
             <div class="field form-group">
               <%= form.label :preview_picture, class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
+            </div>
+
+            <div class="field form-group">
+              <%= form.label :audio_link, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.text_field :audio_link, class: "small-left-interval large-width" %>
             </div>
           
             <%= form.submit "Submit", class: "submit-button small-bottom-interval small-top-interval" %>

@@ -14,6 +14,7 @@ import './search'
 import './comment'
 import './upload_image'
 import './swiper'
+import './audio_player'
 
 Rails.start()
 ActiveStorage.start()

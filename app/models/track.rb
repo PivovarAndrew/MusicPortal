@@ -3,6 +3,7 @@
 # Table name: tracks
 #
 #  id              :bigint           not null, primary key
+#  audio_link      :string
 #  description     :text
 #  duration        :time
 #  name            :string
@@ -22,4 +23,5 @@ class Track < ApplicationRecord
   validates :duration, presence: true
   validates :tags, presence: true
   validates :preview_picture, presence: true
+  validates :audio_link, presence: true
 end
