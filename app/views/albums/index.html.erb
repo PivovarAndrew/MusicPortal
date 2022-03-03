@@ -11,10 +11,11 @@
 <%= render "pages/pagy_filter_albums_grid" %>
 
 </div>
-<br/><br/><br/><br/><br/><br/><br/><br/>
-<hr class="search-results-hr">
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<hr class="search-results-hr" style="width:99%">
 
-<div class="inline-block">
+<div class="inline-block medium-top-interval">
    <div class="lbl-default">If you dont find interested album, <br/>you can add it in our collection</div>
    <%= text_field_tag "api-albums-search-value", "", class:"large-width small-left-interval small-right-interval"%>
    <%= button_tag "Find", id: "search-api-albums", class: "submit-button" %>
