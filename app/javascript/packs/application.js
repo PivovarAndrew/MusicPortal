@@ -15,6 +15,7 @@ import './comment'
 import './upload_image'
 import './swiper'
 import './audio_player'
+import "chartkick/chart.js"
 
 Rails.start()
 ActiveStorage.start()
