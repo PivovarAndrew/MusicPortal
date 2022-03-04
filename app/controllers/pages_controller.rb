@@ -19,4 +19,8 @@ class PagesController < ApplicationController
       format.js
     end
   end
+
+  def chart
+
+  end
 end

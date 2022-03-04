@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :likes, only: %i[create destroy]
   resources :dislikes, only: %i[create destroy]
 
+  get "/charts", to: "pages#charts"
+
   get "/_pagy_filter_albums_grid", controller: "pages", action: "_pagy_filter_albums_grid"
   get "/_searched_albums", to: "pages#_searched_albums"
   get "/_searched_api_albums", to: "albums#_searched_api_albums"

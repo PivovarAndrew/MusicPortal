@@ -1,0 +1,58 @@
+@import "settings/*";
+
+.tab {
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: solid 1px #212121;
+    padding: 2rem;
+    transition: background-color 0.5s ease;
+    font-family: $default_font_family;
+}
+
+.tab-header {
+    font-family: $default_font_family;
+}
+
+.first-tab {
+  @extend .tab;
+}
+
+.first-tab:hover {
+    background-color: #ff9800;
+    border-bottom: solid 1px #ff9800;
+}
+
+.second-tab {
+    @extend .tab;
+    transition: color 0.5s ease;
+}
+
+.second-tab:hover {
+    color: #eeeeee;
+    background-color: #4D4848;
+    border-bottom: solid 1px #4D4848;
+}
+
+.third-tab {
+    @extend .tab;
+}
+
+.third-tab:hover {
+    background-color: #ff6f61;
+    border-bottom: solid 1px #ff6f61;
+}
+
+.tab-content {
+    display: none;
+}
+
+.left-content {
+    padding-left: 4rem;
+    padding-top: 4rem;
+    font-size: 3.75rem;
+}
+
+.right-content {
+    padding-left: 4rem;
+    padding-top: 4rem;
+}
