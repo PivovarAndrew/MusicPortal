@@ -4,33 +4,42 @@
             <h5 class="mb-0">01.</h5>
             <h1 class="mb-0 tab-header"><strong>Pie Chart</strong></h1>
         </div>
-        <div id="bar-chart-link" class="col-sm-4 second-tab tab-header">
+        <div id="bar-chart-link" class="col-sm-4 second-tab">
             <h5 class="mb-0">02.</h5>
             <h1 class="mb-0 tab-header"><strong>Bar Chart</strong></h1>
         </div>
-        <div id="line-chart-link" class="col-sm-4 third-tab tab-header">
+        <div id="line-chart-link" class="col-sm-4 third-tab">
             <h5 class="mb-0">03.</h5>
             <h1 class="mb-0 tab-header"><strong>Line Chart</strong></h1>
         </div>
     </div>
 </div>
 
+<br/>
+
 <div id="pie-chart" class="container-fluid tab-content">
+    <strong class="entity-title">Top of albums by</strong>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6 left-content">
-                aa
+            <!--<div class="col-sm-6 left-content">
+                <strong class="header-default">Performers<strong>
+            </div>-->
+            <div class="col-sm-6">
+               <%= pie_chart @albums_groupped_by_performer, download: true, title: "Performers", legend: "bottom" %>
             </div>
-            <div class="col-sm-6 right-content">
-               bb
+
+            <div class="col-sm-6">
+                <%= pie_chart @albums_groupped_by_countries, download: true, title: "Countries", legend: "bottom" %>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-sm-6 left-content">
-            bb
+            <div class="col-sm-6">
+                <%= pie_chart @albums_groupped_by_genres, download: true, title: "Genres", legend: "bottom" %>
             </div>
-            <div class="col-sm-6 right-content">
-            cc    
+
+            <div class="col-sm-6">
+                <%= pie_chart @albums_groupped_by_age_restrictions, download: true, title: "Age restritions", width: "300px", height: "300px", legend: "bottom" %>
             </div>
         </div>
     </div>
