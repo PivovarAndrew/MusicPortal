@@ -25,6 +25,20 @@ class UsersController < ApplicationController
     @user.update(secure_params) ? (redirect_to users_path, success: "User updated") : (redirect_to users_path, alert: "Unable to update user")
   end
 
+  def activity
+    authorize @user
+    @user = User.find(params[:user_id])
+    @user_likes_create_groupped_by_monthes = @user.likes.group_by_month(:created_at, format: "%b %Y").count
+    @user_dislikes_create_groupped_by_monthes = @user.dislikes.group_by_month(:created_at, format: "%b %Y").count
+    @user_comments_create_groupped_by_monthes = @user.comments.group_by_month(:created_at, format: "%b %Y").count
+    @user_likes_create_groupped_by_weeks = @user.likes.group_by_week(:created_at).count
+    @user_dislikes_create_groupped_by_weeks = @user.dislikes.group_by_week(:created_at).count
+    @user_comments_create_groupped_by_weeks = @user.comments.group_by_week(:created_at).count
+    @user_likes_create_groupped_by_day_of_weeks = @user.likes.group_by_day_of_week(:created_at, format: "%a").count
+    @user_dislikes_create_groupped_by_day_of_weeks = @user.dislikes.group_by_day_of_week(:created_at, format: "%a").count
+    @user_comments_create_groupped_by_day_of_weeks = @user.comments.group_by_day_of_week(:created_at, format: "%a").count
+  end
+
   private
 
   def secure_params

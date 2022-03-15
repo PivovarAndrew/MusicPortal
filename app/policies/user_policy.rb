@@ -18,6 +18,10 @@ class UserPolicy
     @current_user.admin?
   end
 
+  def activity?
+    index?
+  end
+
   def destroy?
     false if @current_user == @user
     @current_user.admin?

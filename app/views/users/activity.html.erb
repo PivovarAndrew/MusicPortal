@@ -1,0 +1,45 @@
+<h1 class="header-default"><%= "#{@user.user_profile.name} activity}" %></h1>
+<div class="container-fluid">
+    <h1>Monthes</h1>
+    <div class="row medium-bottom-interval">
+        <%= area_chart @user_likes_create_groupped_by_monthes, download: true, title: "Likes created count by monthes" unless @user_likes_create_groupped_by_monthes.empty? %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= area_chart @user_dislikes_create_groupped_by_monthes, download: true, title: "Dislikes created count by monthes" unless @user_dislikes_create_groupped_by_monthes.empty? %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= area_chart @user_comments_create_groupped_by_monthes, download: true, title: "Comments created count by monthes" unless @user_comments_create_groupped_by_monthes.empty? %>
+    </div>
+
+    <h1>Weeks</h1>
+
+    <div class="row medium-bottom-interval">
+        <%= area_chart @user_likes_create_groupped_by_weeks, download: true, title: "Likes created count by weeks" unless @user_likes_create_groupped_by_weeks.empty? %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= area_chart @user_dislikes_create_groupped_by_weeks, download: true, title: "Dislikes created count by weeks" unless @user_dislikes_create_groupped_by_weeks.empty? %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= area_chart @user_comments_create_groupped_by_weeks, download: true, title: "Comments created count by weeks" unless @user_comments_create_groupped_by_weeks.empty? %>
+    </div>
+
+    <% if @user.created_at.year == Time.now.year %>
+        <h1>Day of weeks</h1>
+
+        <div class="row medium-bottom-interval">
+            <%= area_chart @user_likes_create_groupped_by_day_of_weeks, download: true, title: "Likes created count by day of weeks" unless @user_likes_create_groupped_by_day_of_weeks.empty? %>
+        </div>
+
+        <div class="row medium-bottom-interval">
+            <%= area_chart @user_dislikes_create_groupped_by_day_of_weeks, download: true, title: "Dislikes created count by day of weeks" unless @user_dislikes_create_groupped_by_day_of_weeks.empty? %>
+        </div>
+
+        <div class="row medium-bottom-interval">
+            <%= area_chart @user_comments_create_groupped_by_day_of_weeks, download: true, title: "Comments created count by day of weeks" unless @user_comments_create_groupped_by_day_of_weeks.empty? %>
+        </div>
+    <% end %>
+</div>

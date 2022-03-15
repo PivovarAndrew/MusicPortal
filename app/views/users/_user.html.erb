@@ -35,6 +35,13 @@
                     <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
                         <strong>
                             <%= link_to user.email, user %>
+                            <%= form_tag users_activity_path(user), id: 'charts-form' do %>
+                                <div class="sidebar-edit-button">
+                                    <%= link_to "#", onclick: "$('#charts-form').submit()", class: "button glyphicon-large btn btn-lg" do %>
+                                        <i class="glyphicon glyphicon-stats text-success"></i>
+                                    <% end %>
+                                </div>
+                            <% end %>
                         </strong><br>
                         <dl>
                             <dt>User role:</dt>

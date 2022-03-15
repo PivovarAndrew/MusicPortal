@@ -29,7 +29,9 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
   root to: "pages#home"
-  resources :users
+  resources :users do
+    get "/activity", to: "users#activity"
+  end
   # get "/unsubscribe", to: "users#unsubscribe"
   mount Sidekiq::Web => "/sidekiq"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
