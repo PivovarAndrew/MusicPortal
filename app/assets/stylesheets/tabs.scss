@@ -13,6 +13,10 @@
     font-family: $default_font_family;
 }
 
+.entity-title {
+    font-size: 2.50rem;
+}
+
 .first-tab {
   @extend .tab;
 }
