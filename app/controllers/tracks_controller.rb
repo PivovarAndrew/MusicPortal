@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-  before_action :album, only: %i[ show edit update destroy ]
+  before_action :album, only: %i[ new create show edit update destroy ]
   before_action :set_track, only: %i[ show edit update destroy ]
 
   # GET /tracks or /tracks.json
@@ -13,7 +13,7 @@ class TracksController < ApplicationController
 
   # GET /tracks/new
   def new
-    @track = @album.tracks.new.build
+    @track = Track.new
   end
 
   # GET /tracks/1/edit
@@ -22,16 +22,12 @@ class TracksController < ApplicationController
 
   # POST /tracks or /tracks.json
   def create
-    @track = @album.tracks.build(track_params)
+    @album.tracks << Track.new(track_params)
 
     respond_to do |format|
-      if @track.save
         format.html { redirect_to @album, notice: "Track was successfully created." }
         format.json { render :show, status: :created, location: @track }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @track.errors, status: :unprocessable_entity }
-      end
+
     end
   end
 
