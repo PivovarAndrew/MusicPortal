@@ -6,16 +6,20 @@
 @import "config/*";
 @import "submit";
 
-.album-name {
+.api-album-name {
   font-family: $default_font_family;
-  font-size: $album_name_font_size;
+  font-size: $api_album_name_font_size;
   color: $album_name_text_color;
 }
 
-.album-performer {
+.api-album-performer {
   font-family: $default_font_family;
-  font-size: $album_performer_font_size;
+  font-size: $api_album_performer_font_size;
   color: $album_performer_text_color;
+}
+
+.album-name {
+  font-weight: bold;
 }
 
 .album-preview-image {

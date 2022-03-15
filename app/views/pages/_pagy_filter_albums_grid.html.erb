@@ -4,8 +4,8 @@
     <% Album.column_names.map do |attribute_name| %>
         <% if correct_attribute(attribute_name) %>
             <div class="block">
-               <%= label_tag attribute_name, nil, class: "small-left-interval" %>
-               <%= select_tag "Select", options_for_select(values_by_attribute(attribute_name)), { id: "#{attribute_name}", class: "small-left-interval medium-width filter" } %>
+                <%= label_tag attribute_name, nil, class: "small-left-interval" %>
+                <%= select_tag "Select", options_for_select(values_by_attribute(attribute_name)), { id: "#{attribute_name}", class: "small-left-interval medium-width filter" } %>
             </div>
         <% end %>
     <% end %>

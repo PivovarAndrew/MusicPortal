@@ -4,7 +4,10 @@
             <%= image_tag(album.image_preview_url, { class: "album-preview-image box selected-album-sidebar-open", onclick: "getAlbum(#{album.id})", "remote": true }) %>
             <div class="album-description">
                 <div class="album-description selected-album-sidebar-open" onclick="getAlbum(<%= album.id %>)">
-                    <%= "#{album.name} (#{album.performer})" %>
+                    <div class="album-name">
+                        <%= album.name %>
+                    </div>
+                    <%= album.performer %>
                 </div>
                 <div class="album-release-date">
                     <%= album.release_date.year if album.release_date %>

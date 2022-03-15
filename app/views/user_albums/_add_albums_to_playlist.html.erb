@@ -1,0 +1,10 @@
+<% if user_signed_in? %> 
+   <% if current_page?(controller: "albums", action: "index") %>
+      <%= form_tag _add_album_to_playlist_path do %>
+         <%= hidden_field_tag :id, album.id %>
+         <%= submit_tag "Add to playlist +", class: "submit-button large-bottom-interval small-top-interval"%>
+      <% end %>
+   <% else if current_page?(controller: "user_albums", action: "index") %>
+      <%= button_tag "Album has already been added to playlist", disabled: true, class: "submit-button large-bottom-interval small-top-interval", "remote": true %>
+   <% end %>
+<% end %>
