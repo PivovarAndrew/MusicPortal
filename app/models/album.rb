@@ -24,9 +24,9 @@ class Album < ApplicationRecord
   validates :image_preview_url, presence: true
 
   validates :performer, presence: true
-  has_many :likes
-  has_many :dislikes
-  has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   # Generate a CSV File of All Album Records
   def self.to_csv(fields = column_names, options={})
