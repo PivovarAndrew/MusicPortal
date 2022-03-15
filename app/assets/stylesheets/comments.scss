@@ -60,3 +60,9 @@
   width: $comment_avatar_preview_image_width_size;
   height: $comment_avatar_preview_image_height_size;
 }
+
+.time-ago {
+  font-size: $normal_text_font_size !important;
+  font-style: italic;
+  font-family: $default_font_family;
+}
