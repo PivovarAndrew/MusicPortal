@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         for (let counter = 0; counter < tabContent.length; counter++) {
             tabContent[counter].style.display = "none";
         }
-        document.getElementById(tabName).style.display = "flex";
+        document.getElementById(tabName).style.display = "block";
     }
 
     let pieChartLinkElement = document.getElementById("pie-chart-link");

@@ -27,8 +27,17 @@ class PagesController < ApplicationController
     @albums_groupped_by_genres = Album.group(:main_genre).count.first(MAX_CHART_ELEMENTS_COUNT)
     @albums_groupped_by_age_restrictions = Album.group(:age_restrictions).count
     
-    @albums_groupped_by_likes_count = Album.joins(:likes).group(:name).count.first(MAX_CHART_ELEMENTS_COUNT)
-    @albums_groupped_by_dislikes_count = Album.joins(:dislikes).group(:name).count.first(MAX_CHART_ELEMENTS_COUNT)
-    @albums_groupped_by_comments_count = Album.joins(:comments).group(:name).count.first(MAX_CHART_ELEMENTS_COUNT)
+    @album_performers_groupped_by_likes_count = Album.joins(:likes).group(:performer).count
+    @album_genres_groupped_by_likes_count = Album.joins(:likes).group(:main_genre).count
+    @album_countries_groupped_by_likes_count = Album.joins(:likes).group(:countries).count
+    @album_age_restrictions_groupped_by_likes_count = Album.joins(:likes).group(:age_restrictions).count
+    @album_performers_groupped_by_dislikes_count = Album.joins(:dislikes).group(:performer).count
+    @album_genres_groupped_by_dislikes_count = Album.joins(:dislikes).group(:main_genre).count
+    @album_countries_groupped_by_dislikes_count = Album.joins(:dislikes).group(:countries).count
+    @album_age_restrictions_groupped_by_dislikes_count = Album.joins(:dislikes).group(:age_restrictions).count
+    @album_performers_groupped_by_comments_count = Album.joins(:comments).group(:performer).count
+    @album_genres_groupped_by_comments_count = Album.joins(:comments).group(:main_genre).count
+    @album_countries_groupped_by_comments_count = Album.joins(:comments).group(:countries).count
+    @album_age_restrictions_groupped_by_comments_count = Album.joins(:comments).group(:age_restrictions).count
   end
 end
