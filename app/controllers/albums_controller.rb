@@ -121,6 +121,11 @@ class AlbumsController < ApplicationController
     @album_comments_create_groupped_by_day_of_weeks  = @album.comments.group_by_day_of_week(:created_at, format: "%a").count
   end
 
+  def performer_albums
+    @performer = params[:performer]
+    @albums = Album.where("performer = ?", @performer)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
