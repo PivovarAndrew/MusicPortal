@@ -1,0 +1,146 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="pie-chart-link" class="col-sm-4 first-tab">
+            <h5 class="mb-0">01.</h5>
+            <h1 class="mb-0 tab-header"><strong>Pie Chart</strong></h1>
+        </div>
+        <div id="bar-chart-link" class="col-sm-4 second-tab">
+            <h5 class="mb-0">02.</h5>
+            <h1 class="mb-0 tab-header"><strong>Bar Chart</strong></h1>
+        </div>
+        <div id="line-chart-link" class="col-sm-4 third-tab">
+            <h5 class="mb-0">03.</h5>
+            <h1 class="mb-0 tab-header"><strong>Line Chart</strong></h1>
+        </div>
+    </div>
+</div>
+
+<br/>
+
+<div id="pie-chart" class="container-fluid tab-content">
+    <strong class="entity-title">Top of albums by</strong>
+    <div class="container-fluid">
+        <div class="row">
+            <!--<div class="col-sm-6 left-content">
+                <strong class="header-default">Performers<strong>
+            </div>-->
+            <div class="col-sm-6">
+               <%= pie_chart @albums_groupped_by_performer, download: true, title: "Performers", legend: "bottom" %>
+            </div>
+
+            <div class="col-sm-6">
+                <%= pie_chart @albums_groupped_by_countries, download: true, title: "Countries", legend: "bottom" %>
+            </div>
+        </div>
+
+        <div class="row medium-bottom-interval">
+            <div class="col-sm-6">
+                <%= pie_chart @albums_groupped_by_genres, download: true, title: "Genres", legend: "bottom" %>
+            </div>
+
+            <div class="col-sm-6">
+                <%= pie_chart @albums_groupped_by_age_restrictions, download: true, title: "Age restritions", legend: "bottom" %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bar-chart" class="container-fluid tab-content">
+    <div class="row medium-bottom-interval">
+        <%= bar_chart @album_performers_groupped_by_likes_count, download: true, title: "Performer likes", colors: random_hex_colors %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= bar_chart @album_genres_groupped_by_likes_count, download: true, title: "Genre likes", colors: random_hex_colors %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= column_chart @album_countries_groupped_by_likes_count, download: true, title: "Country likes", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= column_chart @album_age_restrictions_groupped_by_likes_count, download: true, title: "Age restriction likes", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= bar_chart @album_performers_groupped_by_dislikes_count, download: true, title: "Performer dislikes", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= bar_chart @album_genres_groupped_by_dislikes_count, download: true, title: "Genre dislikes", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= column_chart @album_countries_groupped_by_dislikes_count, download: true, title: "Country dislikes", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= column_chart @album_age_restrictions_groupped_by_dislikes_count, download: true, title: "Age restriction dislikes", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= bar_chart @album_performers_groupped_by_comments_count, download: true, title: "Performer comments", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= bar_chart @album_genres_groupped_by_comments_count, download: true, title: "Genre comments", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= column_chart @album_countries_groupped_by_comments_count, download: true, title: "Country comments", colors: random_hex_colors  %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= column_chart @album_age_restrictions_groupped_by_comments_count, download: true, title: "Age restriction comments", colors: random_hex_colors  %>
+    </div>
+</div>
+
+<div id="line-chart" class="container-fluid tab-content">
+    <div class="row medium-bottom-interval">
+        <%= line_chart @user_create_groupped_by_monthes, download: true, title: "Users created count by monthes" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @like_create_groupped_by_monthes, download: true, title: "Likes created count by monthes" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @dislike_create_groupped_by_monthes, download: true, title: "Dislikes created count by monthes" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @comment_create_groupped_by_monthes, download: true, title: "Comments created count by monthes" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @album_create_groupped_by_monthes, download: true, title: "Albums created count by monthes" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @track_create_groupped_by_monthes, download: true, title: "Tracks created count by monthes" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @user_create_groupped_by_weeks, download: true, title: "Users created count by weeks" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @like_create_groupped_by_weeks, download: true, title: "Likes created count by weeks" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @dislike_create_groupped_by_weeks, download: true, title: "Dislikes created count by weeks" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @comment_create_groupped_by_weeks, download: true, title: "Comments created count by weeks" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @album_create_groupped_by_weeks, download: true, title: "Albums created count by weeks" %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= line_chart @track_create_groupped_by_weeks, download: true, title: "Tracks created count by weeks" %>
+    </div>
+</div>

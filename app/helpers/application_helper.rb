@@ -1,7 +1,8 @@
 module ApplicationHelper
   MAX_RATING_VALUE = 100
   NO_RATING_VALUE = 0
-  DEFAULT_AVATAR_IMAGE = "https://img.flaticon.com/icons/png/512/306/306007.png"
+  DEFAULT_AVATAR_IMAGE = "default_avatar.png"
+  HEX_COLORS_COUNT = 3
 
   def get_rating(album)
     likes_count = album.likes.count
@@ -20,5 +21,9 @@ module ApplicationHelper
 
   def admin_or_editor?
     current_user.try(:admin? || :editor?) 
+  end
+
+  def random_hex_colors
+    HEX_COLORS_COUNT.times.map { "%06x" % (rand * 0xffffff) }
   end
 end

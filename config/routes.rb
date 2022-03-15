@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :tracks
     resources :comments, only: [:create]
     collection { post :import_to_csv }
+    post "/charts", to: "albums#charts"
   end
 
   get "/_album_tracks", to: "albums#_album_tracks"
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
   resources :albums
   resources :likes, only: %i[create destroy]
   resources :dislikes, only: %i[create destroy]
+
+  get "/charts", to: "pages#charts"
 
   get "/_pagy_filter_albums_grid", controller: "pages", action: "_pagy_filter_albums_grid"
   get "/_searched_albums", to: "pages#_searched_albums"
@@ -26,7 +29,9 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
   root to: "pages#home"
-  resources :users
+  resources :users do
+    get "/activity", to: "users#activity"
+  end
   # get "/unsubscribe", to: "users#unsubscribe"
   mount Sidekiq::Web => "/sidekiq"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

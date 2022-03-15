@@ -5,8 +5,9 @@
    <% end %>
 <% end %>
 <li><%= link_to "Albums", albums_path %></li>
-<% if current_user.try(:admin) %>
-     <li><%= link_to "Users", users_path %></li>
+<% if current_user.try(:admin?) %>
+   <li><%= link_to "Charts", charts_path %></li>
+   <li><%= link_to "Users", users_path %></li>
 <% end %>
 <% if user_signed_in? %>
    <li><%= link_to "Profile", current_user.user_profile %></li>
