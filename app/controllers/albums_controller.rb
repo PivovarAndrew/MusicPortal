@@ -108,6 +108,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def performer_albums
+    @performer = params[:performer]
+    @albums = Album.where("performer = ?", @performer)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
