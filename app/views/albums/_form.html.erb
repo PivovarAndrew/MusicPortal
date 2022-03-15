@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
+    <%= form.text_field :name, class: "small-left-interval large-width" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field form-group">
+    <%= form.label :description, class: "lbl-default col-sm-2 control-label" %>
+    <%= form.text_area :description, class: "small-left-interval large-width" %>
   </div>
 
     <div class="field form-group">
@@ -29,7 +29,6 @@
     <div class="field form-group">
         <%= form.label :main_genre, class: "lbl-default col-sm-2 control-label" %>
         <%= form.select :main_genre, Genre.all.collect { |genre| [genre.name] }, {}, { class: "small-left-interval medium-width" } %>
-       
     </div>
 
     <div class="field form-group">
