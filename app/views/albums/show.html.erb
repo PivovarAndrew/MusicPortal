@@ -30,9 +30,9 @@
           </div>
         </div>
 
-      <%= form_tag performer_albums_path do %>
+      <%= form_tag performer_albums_path, id: "performer-albums-form" do %>
         <%= hidden_field_tag :performer, @album.performer %>
-        <%= submit_tag @album.performer, class: "api-album-performer small-bottom-interval" %>
+        <%= link_to @album.performer, "#", onclick: "$('#performer-albums-form').submit()", class: "api-album-performer small-bottom-interval" %>
       <% end %>
       </h2>
       <div class="inline-block">

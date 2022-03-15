@@ -34,14 +34,7 @@
                     </div>
                     <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
                         <strong>
-                            <%= link_to user.email, user %>
-                            <%= form_tag users_activity_path(user), id: 'charts-form' do %>
-                                <div class="sidebar-edit-button">
-                                    <%= link_to "#", onclick: "$('#charts-form').submit()", class: "button glyphicon-large btn btn-lg" do %>
-                                        <i class="glyphicon glyphicon-stats text-success"></i>
-                                    <% end %>
-                                </div>
-                            <% end %>
+                          <%= link_to user.email, user %>
                         </strong><br>
                         <dl>
                             <dt>User role:</dt>
@@ -72,7 +65,7 @@
                     </div>
                     <div class="col-md-9 col-lg-9 hidden-xs hidden-sm">
                         <strong>
-                            <%= link_to user.email, user %>
+                          <%= link_to user.email, user %>
                         </strong><br>
                         <table class="table table-user-information">
                             <tbody>
@@ -120,16 +113,23 @@
             <% unless user == current_user %>
                 <div class="panel-footer">
                     <%= form_for user do |form| %>
-                        <%= button_tag(type: "submit", class: "btn btn-sm btn-warning") do %>
-                        <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {},
-                                        class: "selectpicker" %>
-                            <i class="glyphicon glyphicon-edit"></i>
+                        <div class="inline-block">
+                          <%= button_tag(type: "submit", class: "btn btn-sm btn-warning") do %>
+                            <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {},
+                                            class: "selectpicker" %>
+                                <i class="glyphicon glyphicon-edit"></i>
+                          <% end %>
+                          <div class="sidebar-edit-button small-left-interval">
+                            <%= link_to user_activity_path(user), class: "button glyphicon-large btn btn-lg" do %>
+                                <i class="glyphicon glyphicon-stats text-success"></i>
                             <% end %>
-                                <span class="pull-right">
-                                    <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
-                                        <i class="glyphicon glyphicon-remove glyphicon-white"></i>
-                                    <% end %>
-                                </span>
+                          </div>
+                          <span class="on-right">
+                            <%= link_to user_path(user), data: { confirm: "Are you sure?" }, method: :delete, class: "button glyphicon-large btn btn-sm btn-danger" do %>
+                                <i class="glyphicon glyphicon-remove glyphicon-white"></i>
+                            <% end %>
+                         </span>
+                       </div>
                      <% end %>
                 </div>
             <% end %>

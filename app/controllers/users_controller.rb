@@ -26,8 +26,8 @@ class UsersController < ApplicationController
   end
 
   def activity
-    authorize @user
     @user = User.find(params[:user_id])
+    authorize @user
     @user_likes_create_groupped_by_monthes = @user.likes.group_by_month(:created_at, format: "%b %Y").count
     @user_dislikes_create_groupped_by_monthes = @user.dislikes.group_by_month(:created_at, format: "%b %Y").count
     @user_comments_create_groupped_by_monthes = @user.comments.group_by_month(:created_at, format: "%b %Y").count
