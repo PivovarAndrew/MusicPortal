@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :tracks
     resources :comments, only: [:create]
     collection { post :import_to_csv }
+    post "/charts", to: "albums#charts"
   end
 
   get "/_album_tracks", to: "albums#_album_tracks"

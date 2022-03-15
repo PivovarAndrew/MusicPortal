@@ -108,6 +108,19 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def charts
+    @album = Album.find(params[:album_id])
+    @album_likes_create_groupped_by_monthes = @album.likes.group_by_month(:created_at, format: "%b %Y").count
+    @album_dislikes_create_groupped_by_monthes = @album.dislikes.group_by_month(:created_at, format: "%b %Y").count
+    @album_comments_create_groupped_by_monthes = @album.comments.group_by_month(:created_at, format: "%b %Y").count
+    @album_likes_create_groupped_by_weeks = @album.likes.group_by_week(:created_at).count
+    @album_dislikes_create_groupped_by_weeks = @album.dislikes.group_by_week(:created_at).count
+    @album_comments_create_groupped_by_weeks = @album.comments.group_by_week(:created_at).count
+    @album_likes_create_groupped_by_day_of_weeks = @album.likes.group_by_day_of_week(:created_at, format: "%a").count
+    @album_dislikes_create_groupped_by_day_of_weeks  = @album.dislikes.group_by_day_of_week(:created_at, format: "%a").count
+    @album_comments_create_groupped_by_day_of_weeks  = @album.comments.group_by_day_of_week(:created_at, format: "%a").count
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

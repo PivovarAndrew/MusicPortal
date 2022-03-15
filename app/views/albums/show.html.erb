@@ -7,6 +7,16 @@
           <div id="rating">
             <span class="small-left-interval stars-container stars-<%= get_rating(@album) %>">★★★★★</span>
           </div>
+          <%= form_tag album_charts_path(@album), id: 'charts-form' do %>
+            <% if current_user.try(:admin?) %>
+               <div class="sidebar-edit-button">
+                  <%= link_to "#", onclick: "$('#charts-form').submit()", class: "button glyphicon-large btn btn-lg" do %>
+                     <i class="glyphicon glyphicon-stats text-success"></i>
+                  <% end %>
+               </div>
+            <% end %>
+          <% end %>
+          
         </div>
         <%= label_tag @album.performer, nil, class: "album-performer small-bottom-interval" %>
       </h2>
