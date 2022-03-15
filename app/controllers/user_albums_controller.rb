@@ -9,9 +9,16 @@ class UserAlbumsController < ApplicationController
   end
 
   # POST /user_albums or /user_albums.json
-  def _add_album_to_playist
+  def _add_album_to_playlist
     @user_album = UserAlbum.new(user_id: current_user.id, album_id: params[:id])
-    redirect_to root_path if @user_album.save
+    
+    respond_to do |format|
+      if @user_album.save
+        format.html { redirect_to user_albums_url, notice: "Album was added to your playlist." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /user_albums/1 or /user_albums/1.json
