@@ -6,6 +6,8 @@ ruby "3.0.2"
 
 # Beautiful JavaScript charts
 gem 'chartkick', '~> 4.1', '>= 4.1.3'
+# The simplest way to group temporal data
+gem 'groupdate', '~> 6.0', '>= 6.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.4", ">= 6.1.4.1"
 # Use postgresql as the database for Active Record
