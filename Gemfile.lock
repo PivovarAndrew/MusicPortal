@@ -119,6 +119,9 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-bootstrapped (0.1.1)
+    easy_translate (0.5.1)
+      thread
+      thread_safe
     erubi (1.10.0)
     et-orbi (1.2.6)
       tzinfo
@@ -295,6 +298,8 @@ GEM
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
     thor (1.1.0)
+    thread (0.2.2)
+    thread_safe (0.3.6)
     tilt (2.0.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
@@ -347,6 +352,7 @@ DEPENDENCIES
   csv (~> 3.2, >= 3.2.2)
   devise (~> 4.8, >= 4.8.1)
   devise-bootstrapped (~> 0.1.1)
+  easy_translate (~> 0.5.1)
   groupdate (~> 6.0, >= 6.0.1)
   htmlbeautifier (~> 1.4, >= 1.4.1)
   jbuilder (~> 2.7)

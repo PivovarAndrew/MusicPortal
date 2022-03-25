@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     commentForms.hide();
 
     $(document).on('click', replyButton, function () {
-        let reply_text = "Reply"
-        let hide_text = "Hide"
+        let reply_text = "Ответить"
+        let hide_text = "Скрыть"
         let idFor = $($(this).attr('data-for'));
         let currentButton = $(this);
         idFor.slideToggle(400, function () {

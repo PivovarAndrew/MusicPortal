@@ -9,18 +9,22 @@
                 <div class="swiper-slide">
                     <div class="slide">
                         <div class="inline-block">
-                            <%= image_tag album.image_preview_url, class: "slide-image"%>
-                            <%= link_to album.name, album, class: "bottom-text" %>
+                            <%= image_tag album.image_preview_url, class: "slide-image" %>
+                            
+                                <%= link_to album.name, album, class: "bottom-text" %>
+                            
                             <% if rated? album %>
                                 <div id="rating">
                                     <div class="lbl-default"><span class="stars-container stars-<%= get_rating(album) %>">★★★★★</span></div>
                                 </div>
                             <% end %>
                         </div>
-                        <div class="hover-title-box">
-                            <h1><%= album.performer %></h1>
-                            <div class="separator"></div>
-                        </div>
+                       
+                            <div class="hover-title-box">
+                                <h1><%= album.performer %></h1>
+                                <div class="separator"></div>
+                            </div>
+                        
                     </div>
                 </div>
             <% end %>

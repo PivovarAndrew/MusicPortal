@@ -76,6 +76,13 @@
   height: $preview_image_height_size;
 }
 
+.find-api-album-button {
+  @extend .submit-button;
+  font-size: $normal_text_font_size !important;
+  height: 60% !important;
+  font-weight: 600 !important;
+}
+
 .sidebar-album-preview-image {
   width: $sidebar_preview_image_width_size;
   height: $sidebar_preview_image_height_size;

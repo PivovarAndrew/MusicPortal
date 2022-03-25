@@ -1,69 +1,58 @@
 <div class="container">
-  <h2><%= "#{@track.name} from album #{@track.album.name}" %></h2>
+  <h2>
+    <div class="inline-block">
+      <div class="api-album-name small-bottom-interval">
+        <%= "#{@track.name} from album #{@track.album.name}" %>
+      </div>
+      <div id="rating">
+        <span class="small-left-interval stars-container stars-<%= get_rating(@track.album) %>">★★★★★</span>
+      </div>
+
+      <%= form_tag album_charts_path(@track.album), id: 'charts-form' do %>
+        <% if current_user.try(:admin?) %>
+           <div class="sidebar-edit-button">
+              <%= link_to "#", onclick: "$('#charts-form').submit()", class: "button glyphicon-large btn btn-lg" do %>
+                 <i class="glyphicon glyphicon-stats text-success"></i>
+              <% end %>
+           </div>
+        <% end %>
+      <% end %>
+
+      <div class="on-right">
+        <% if current_user.try(:admin?) or current_user.try(:editor?) %>
+          <%= link_to edit_album_track_path(@track.album, @track), class: "btn btn-sm btn-warning" do %>
+            <i class="glyphicon glyphicon-edit glyphicon-white"></i>
+          <% end %>     
+          <%= link_to album_track_path(@track.album, @track), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-sm btn-danger" do %>
+            <i class="glyphicon glyphicon-remove glyphicon-white"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  <%= form_tag performer_albums_path, id: "performer-albums-form" do %>
+    <%= hidden_field_tag :performer, @album.performer %>
+    <%= link_to @track.album.performer, "#", onclick: "$('#performer-albums-form').submit()", class: "api-album-performer small-bottom-interval" %>
+  <% end %>
+  </h2>
   <div class="inline-block">
-    <%= image_tag(@track.album.image_preview_url, class: "sidebar-album-preview-image smal-right-interval") %>
-    <%= label_tag @track.description, nil, class: "album-description" %>
+     <%= image_tag(@track.album.image_preview_url, class: "album-info-preview-image medium-bottom-interval") %>
+     <div class="album-description-box">
+       <%= label_tag @track.description, nil, class: "medium-left-interval album-description" %>
+     </div>
   </div>
-
-  <div class="album-description ">
-    <p>
-      <strong>Release date:</strong>
-      <%= label_tag @track.album.release_date %>
-    </p>
-
-    <p>
-      <strong>Duration:</strong>
-      <%= label_tag @track.duration %>
-    </p>
-
-    <p>
-      <strong>Countries:</strong>
-      <%= label_tag @track.album.countries %>
-    </p>
-
-    <p>
-      <strong>Tags:</strong>
-      <%= label_tag @track.tags %>
-    </p>
-
-    <p>
-      <strong>Main genre:</strong>
-      <%= label_tag @track.album.main_genre %>
-    </p>
-
-    <p>
-      <strong>Related genres:</strong>
-      <%= label_tag @track.related_genres %>
-    </p>
-
-    <p>
-      <strong>Performer:</strong>
-      <%= label_tag @track.album.performer %>
-    </p>
-
-    <p>
-      <strong>Preview picture:</strong>
-      <%= label_tag @track.preview_picture %>
-    </p>
-
-    <p>
-      <strong>Age restrictions:</strong>
-      <%= label_tag @track.album.age_restrictions %>
-    </p>
-
-    <p>
-      <strong>Audio link:</strong>
-      <%= link_to @track.audio_link, @track.audio_link %>
-    </p>
-
-    <p>
-      <strong>Source link:</strong>
-      <%= link_to @track.source_link, @track.source_link %>
-    </p>
-
-    <% if current_user.try(:admin? || :editor?) %>
-      <%= link_to "Edit", edit_album_track_path(@track.album, @track) %> |
-      <%= link_to "Back", albums_path(@track.album) %>
-    <% end %>
+     <div class="form-group">
+        <div class="inline-block">
+           <%= link_to @track.name, album_track_path(@track.album, @track) %>
+           <div class="track-duration">
+              <%= @track.duration.strftime("%M:%S") %>
+           </div>
+        </div>
+        <div class="player-with-download" style="width:102%">
+           <audio>
+             <source src="<%= @track.audio_link %>" type="audio/mpeg">
+           </audio>
+         </div>
+     </div>
   </div>
 </div>

@@ -1,45 +1,45 @@
-<h1 class="header-default"><%= "#{@album.name} by #{@album.performer}" %></h1>
+<h1 class="header-default"><%= "#{@album.name} - #{@album.performer}" %></h1>
 <div class="container-fluid">
-    <h1>Monthes</h1>
+    <h1>Месяцы</h1>
     <div class="row medium-bottom-interval">
-        <%= area_chart @album_likes_create_groupped_by_monthes, download: true, title: "Likes created count by monthes" unless @album_likes_create_groupped_by_monthes.empty? %>
+        <%= area_chart @album_likes_create_groupped_by_monthes, download: true, title: "Количество лайков поставленных по месяцам" unless @album_likes_create_groupped_by_monthes.empty? %>
     </div>
 
     <div class="row medium-bottom-interval">
-        <%= area_chart @album_dislikes_create_groupped_by_monthes, download: true, title: "Dislikes created count by monthes" unless @album_dislikes_create_groupped_by_monthes.empty? %>
+        <%= area_chart @album_dislikes_create_groupped_by_monthes, download: true, title: "Количество лайков поставленных по месяцам" unless @album_dislikes_create_groupped_by_monthes.empty? %>
     </div>
 
     <div class="row medium-bottom-interval">
-        <%= area_chart @album_comments_create_groupped_by_monthes, download: true, title: "Comments created count by monthes" unless @album_comments_create_groupped_by_monthes.empty? %>
+        <%= area_chart @album_comments_create_groupped_by_monthes, download: true, title: "Количество комментариев оставленных по месяцам" unless @album_comments_create_groupped_by_monthes.empty? %>
     </div>
 
-    <h1>Weeks</h1>
+    <h1>Неделя</h1>
 
     <div class="row medium-bottom-interval">
-        <%= area_chart @album_likes_create_groupped_by_weeks, download: true, title: "Likes created count by weeks" unless @album_likes_create_groupped_by_weeks.empty? %>
-    </div>
-
-    <div class="row medium-bottom-interval">
-        <%= area_chart @album_dislikes_create_groupped_by_weeks, download: true, title: "Dislikes created count by weeks" unless @album_dislikes_create_groupped_by_weeks.empty? %>
+        <%= area_chart @album_likes_create_groupped_by_weeks, download: true, title: "Количество лайков поставленных по неделям" unless @album_likes_create_groupped_by_weeks.empty? %>
     </div>
 
     <div class="row medium-bottom-interval">
-        <%= area_chart @album_comments_create_groupped_by_weeks, download: true, title: "Comments created count by weeks" unless @album_comments_create_groupped_by_weeks.empty? %>
+        <%= area_chart @album_dislikes_create_groupped_by_weeks, download: true, title: "Количество дизлайков поставленных по неделям" unless @album_dislikes_create_groupped_by_weeks.empty? %>
+    </div>
+
+    <div class="row medium-bottom-interval">
+        <%= area_chart @album_comments_create_groupped_by_weeks, download: true, title: "Количество комментариев оставленных по неделям" unless @album_comments_create_groupped_by_weeks.empty? %>
     </div>
 
     <% if @album.created_at.year == Time.now.year %>
-        <h1>Day of weeks</h1>
+        <h1>Дни недели</h1>
 
         <div class="row medium-bottom-interval">
-            <%= area_chart @album_likes_create_groupped_by_day_of_weeks, download: true, title: "Likes created count by day of weeks" unless @album_likes_create_groupped_by_day_of_weeks.empty? %>
+            <%= area_chart @album_likes_create_groupped_by_day_of_weeks, download: true, title: "Количество лайков оставленных по дням недели" unless @album_likes_create_groupped_by_day_of_weeks.empty? %>
         </div>
 
         <div class="row medium-bottom-interval">
-            <%= area_chart @album_dislikes_create_groupped_by_day_of_weeks, download: true, title: "Dislikes created count by day of weeks" unless @album_dislikes_create_groupped_by_day_of_weeks.empty? %>
+            <%= area_chart @album_dislikes_create_groupped_by_day_of_weeks, download: true, title: "Количество дизлайков поставленных по дням недели" unless @album_dislikes_create_groupped_by_day_of_weeks.empty? %>
         </div>
 
         <div class="row medium-bottom-interval">
-            <%= area_chart @album_comments_create_groupped_by_day_of_weeks, download: true, title: "Comments created count by day of weeks" unless @album_comments_create_groupped_by_day_of_weeks.empty? %>
+            <%= area_chart @album_comments_create_groupped_by_day_of_weeks, download: true, title: "Количество комментарие оставленных по дням недели" unless @album_comments_create_groupped_by_day_of_weeks.empty? %>
         </div>
     <% end %>
 </div>

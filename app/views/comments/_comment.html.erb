@@ -8,18 +8,23 @@
                   <i class="glyphicon glyphicon-chevron-down text-muted"></i>
                </div>
             <% end %>
-         </div>   
+         </div>
       </div>
+
       <div class="block">
-         by <%= label_tag comment.user.user_profile.name %>
+         by <%= label_tag do %>
+            <%= link_to comment.user.user_profile.name, comment.user %>
+         <% end %>
          &nbsp
          <%= label_tag time_ago_in_words(comment.created_at), nil, class: "time-ago" %><br/>
          <small><%= label_tag comment.content, nil, class: "comment" %></small>
       </div>
    </div>
-   <div class="reply-button" data-for=".comment-<%= comment.id %>">
-      <%= label_tag "reply", "Reply", class: "reply" %>
-   </div>
+   <% if current_user %>
+      <div class="reply-button" data-for=".comment-<%= comment.id %>">
+         <%= label_tag "reply", "Ответить", class: "reply" %>
+      </div>
+   <% end %>
    <div class="comment-form comment-<%= comment.id %>">
       <%= render partial: "comments/form", locals: { album: comment.album, parent: comment } %>
    </div>

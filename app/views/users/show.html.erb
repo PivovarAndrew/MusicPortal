@@ -1,2 +1,36 @@
-<h3>User</h3>
-<p>Email: <%= @user.email if @user.email %></p>
+<%= render "albums/album_sidebar" %>
+
+<div class="container">
+    <!--<h1 class="secondary-header-default">ALBUM</h1>-->
+    <h2>
+    <%= label_tag name(@user.user_profile), nil, class: "api-album-name small-bottom-interval" %>
+    </h2>
+    
+    <div class="inline-block">
+       <%= image_tag(default_avatar(@user.user_profile), class: "album-info-preview-image medium-bottom-interval medium-right-interval") %>
+       <div class="album-description-box block">
+        <div class="field form-group">
+         <%= label_tag "Роль: #{@user.role}" %>
+        </div>
+        <div class="field form-group">
+         <%= label_tag "Никнейм: #{nickname(@user.user_profile)}" %>
+        </div>
+        <div class="field form-group">
+         <%= label_tag "Дата рождения: #{date_of_birthday(@user.user_profile)}" %>
+        </div>
+        <div class="field form-group">
+         <%= label_tag "Адрес: #{address(@user.user_profile)}" %>
+        </div>
+        <div class="field form-group">
+         <%= label_tag "Зарегестрирован с: #{@user.created_at.strftime("%F")}" %>
+        </div>
+      </div>
+    </div>
+    <% unless @albums.empty? %>
+        <div class="team-grid container intro text-center">
+            <h1 class="header-default medium-bottom-interval">Плейлист</h1>
+        </div>
+
+        <%= render "pages/albums_grid" %>
+    <% end %>
+</div>

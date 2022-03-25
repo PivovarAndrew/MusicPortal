@@ -1,7 +1,8 @@
   <!--<h1>Album</h1>-->
   <div class="inline-block">
     <div class="sidebar-text-box">
-      <h3><%= link_to @current_album.name, @current_album, { class: "medium-right-interval", style: "display:inline-block;color:black" } %></h3>
+        <h1><%= link_to @current_album.name, @current_album, { class: "medium-right-interval", style: "display:inline-block;color:black" } %></h3>
+        <%= label_tag @current_album.performer, nil, class: "api-album-performer" %>
     </div>
     <div class="sidebar-edit small-left-interval inline-block ">
       <% if current_user.try(:admin?) or current_user.try(:editor?) %>
@@ -39,13 +40,13 @@
   </div>
 
 
-<% if user_signed_in? %> 
+<% if user_signed_in? %>
    <% unless current_user.albums.include? @current_album %>
       <%= form_tag _add_album_to_playlist_path do %>
          <%= hidden_field_tag :id, @current_album.id %>
-         <%= submit_tag "Add to playlist +", class: "submit-button large-bottom-interval small-top-interval"%>
+         <%= submit_tag "Добавить в плейлист +", class: "submit-button large-bottom-interval small-top-interval"%>
       <% end %>
    <% else %>
-      <%= button_tag "Album has already been added to playlist", disabled: true, class: "submit-button large-bottom-interval small-top-interval", "remote": true %>
+      <%= button_tag "Альбом находится в вашем плейлисте", disabled: true, class: "submit-button large-bottom-interval small-top-interval", "remote": true %>
    <% end %>
 <% end %>

@@ -6,11 +6,11 @@
         <div class="inline-block">
            <strong><%= link_to user.email, user %></strong>
            <% unless user.confirmed_at %>
-              <div class="not-confirmed-user small-left-interval">Not confirmed</div>
+              <div class="not-confirmed-user small-left-interval">Не подтверждён</div>
            <% end %>
         </div>
         <br>
-        <span class="text-muted">Role: <%= user.role %></span>
+        <span class="text-muted">Роль: <%= user.role %></span>
     </div>
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".user-<%= user.id %>">
         <i class="glyphicon glyphicon-chevron-down text-muted"></i>
@@ -21,7 +21,7 @@
         class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">User information</h3>
+                <h3 class="panel-title">Информация о пользователе</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -37,29 +37,29 @@
                           <%= link_to user.email, user %>
                         </strong><br>
                         <dl>
-                            <dt>User role:</dt>
+                            <dt>Роль:</dt>
                             <dd>
                                 <%= user.role %>
                             </dd>
-                            <dt>Name:</dt>
+                            <dt>Имя:</dt>
                             <dd>
                                 <%= name(user.user_profile) %>
                             </dd>
-                            <dt>Nickname:</dt>
+                            <dt>Никнейм:</dt>
                             <dd>
                                 <%= nickname(user.user_profile) %>
                             </dd>
-                            <dt>Date of birthday:</dt>
+                            <dt>Дата рождения:</dt>
                             <dd>
                                 <%= date_of_birthday(user.user_profile) %>
                             </dd>
-                            <dt>Address:</dt>
+                            <dt>Адрес:</dt>
                             <dd>
                                 <%= address(user.user_profile) %>
                             </dd>
-                            <dt>Registered since:</dt>
+                            <dt>Зарегестрирован с:</dt>
                             <dd>
-                                <%= user.created_at %>
+                                <%= user.created_at.strftime("%F") %>
                             </dd>
                         </dl>
                     </div>
@@ -70,39 +70,39 @@
                         <table class="table table-user-information">
                             <tbody>
                                 <tr>
-                                    <td>User role:</td>
+                                    <td>Роль:</td>
                                     <td>
                                         <%= user.role %>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Name:</td>
+                                    <td>Имя:</td>
                                     <td>
                                         <%= name(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Nickname:</td>
+                                    <td>Никнейм:</td>
                                     <td>
                                         <%= nickname(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Date of birthday:</td>
+                                    <td>Дата рождения:</td>
                                     <td>
                                         <%= date_of_birthday(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Address:</td>
+                                    <td>Адрес:</td>
                                     <td>
                                         <%= address(user.user_profile) %>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Registered since:</td>
+                                    <td>Зарегестрирован с:</td>
                                     <td>
-                                        <%= user.created_at %>
+                                        <%= user.created_at.strftime("%F") %>
                                     </td>
                                 </tr>
                             </tbody>

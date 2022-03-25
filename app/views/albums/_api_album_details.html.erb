@@ -12,23 +12,23 @@
   <div class="details">
     <div class="details-title">
       <div class="inline-block small-bottom-interval">
-        <%= image_tag(current_album.image_preview_url, { class: "medium-right-interval album-preview-image" }) %>
-        <div class="album-name">
-          <%= current_album.name %><br/>
-          <%= label_tag current_album.performer %>
+        <%= image_tag(current_album.image_preview_url, { class: "small-right-interval album-preview-image" }) %>
+        <div class="form-group">
+          <h1><%= label_tag current_album.name, nil, class: "api-album-name" %></h1>
+          <%= label_tag current_album.performer, nil, class: "api-album-performer" %>
         </div>
       </div>
     </div>
     <div class="details-content">
       <ol>
         <% current_album.tracks.each do |track| %>
-        <div class="inline-block">
-          <li><%= label_tag track.name %></li>
-          <div class="track-duration"> 
-            <%= track.duration.strftime("%M:%S") %>
+          <div class="inline-block">
+            <li><%= label_tag track.name %></li>
+            <div class="track-duration"> 
+              <%= track.duration.strftime("%M:%S") %>
+            </div>
           </div>
-        </div>
-          <% end %>
+        <% end %>
       </ol>
       <%= render partial: "save_api_album", locals: { album: current_album } %>
     </div>

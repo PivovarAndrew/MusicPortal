@@ -1,7 +1,7 @@
 <%= render "album_sidebar" %>
 
 <div class="team-grid container intro text-center">
-   <h1 class="header-default">Albums</h1>
+   <h1 class="header-default">Коллекция альбомов</h1>
 </div>
 
 <br/>
@@ -14,26 +14,26 @@
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<br/><br/>
+<br/><br/><br/><br/>
 
 <hr class="search-results-hr" style="width:99%">
 
 <div class="inline-block medium-top-interval">
-   <div class="lbl-default">If you dont find interested album, <br/>you can add it in our collection</div>
+   <div class="lbl-default">Если вы не нашли интересующие альбомы, <br/>вы можете добавить их в нашу коллекцию</div>
    <%= text_field_tag "api-albums-search-value", "", class:"large-width small-left-interval small-right-interval"%>
-   <%= button_tag "Find", id: "search-api-albums", class: "submit-button" %>
+   <%= button_tag "Искать", id: "search-api-albums", class: "find-api-album-button" %>
 </div>
 
 <div id="searched-api-albums"></div>
 
 <div>
    <div class="inline-block medium-top-interval medium-bottom-interval">
-      <%= link_to 'Export albums to CSV', albums_path(format: 'csv') %>
+      <%= link_to 'Экспорт альбомов в CSV', albums_path(format: 'csv') %>
       <% if admin_or_editor? %>
          <div class="on-right">
             <%= form_tag import_to_csv_albums_path, multipart: true do %>
                <%= file_field_tag :csv_file %>
-               <%= submit_tag 'Import CSV', class: "small-top-interval"  %>
+               <%= submit_tag 'Импорт из CSV', class: "small-top-interval"  %>
             <% end %>
          </div>
       <% end %>

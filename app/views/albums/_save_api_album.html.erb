@@ -2,6 +2,6 @@
   <%= form_tag save_api_album_path do %>
     <%= hidden_field_tag :album, URI.encode_www_form(album.attributes) %>
     <%= hidden_field_tag :album_tracks, album.tracks.map { |track| URI.encode_www_form(track.attributes) } %>
-    <%= submit_tag "Add to collection", class: "add-album-to-collection-button small-top-interval" %>
+    <%= submit_tag "Добавить в коллекцию", class: "add-album-to-collection-button small-top-interval" %>
   <% end %>
 <% end %>
