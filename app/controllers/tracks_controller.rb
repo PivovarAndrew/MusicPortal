@@ -1,6 +1,8 @@
 class TracksController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :album, only: %i[ new create show edit update destroy ]
   before_action :set_track, only: %i[ show edit update destroy ]
+  before_action :authorize_track!
 
   # GET /tracks or /tracks.json
   def index
@@ -25,7 +27,7 @@ class TracksController < ApplicationController
     @album.tracks << Track.new(track_params)
 
     respond_to do |format|
-        format.html { redirect_to @album, notice: "Track was successfully created." }
+        format.html { redirect_to @album, notice: "Трек был успешно создан." }
         format.json { render :show, status: :created, location: @track }
 
     end
@@ -35,7 +37,7 @@ class TracksController < ApplicationController
   def update
     respond_to do |format|
       if @track.update(track_params)
-        format.html { redirect_to @album, notice: "Track was successfully updated." }
+        format.html { redirect_to @album, notice: "Трек был успешно обновлён." }
         format.json { render :show, status: :ok, location: @track }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,7 +50,7 @@ class TracksController < ApplicationController
   def destroy
     @track.destroy
     respond_to do |format|
-      format.html { redirect_to @album, notice: "Track was successfully destroyed." }
+      format.html { redirect_to @album, notice: "Трек был успешно удалён." }
       format.json { head :no_content }
     end
   end
@@ -76,5 +78,9 @@ class TracksController < ApplicationController
                                   :preview_picture,
                                   :album_id,
                                   :audio_link)
+  end
+
+  def authorize_track!
+    authorize(@track || Track)
   end
 end
