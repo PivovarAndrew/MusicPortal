@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @comment = current_user.comments.new(comment_params)
+    authorize(@comment || Comment)
     @comment.save
     respond_to do |format|
       format.js
