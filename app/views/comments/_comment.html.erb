@@ -8,10 +8,13 @@
                   <i class="glyphicon glyphicon-chevron-down text-muted"></i>
                </div>
             <% end %>
-         </div>   
+         </div>
       </div>
+      
       <div class="block">
-         by <%= label_tag comment.user.user_profile.name %>
+         by <%= label_tag do %>
+            <%= link_to comment.user.user_profile.name, comment.user %>
+         <% end %>
          &nbsp
          <%= label_tag time_ago_in_words(comment.created_at), nil, class: "time-ago" %><br/>
          <small><%= label_tag comment.content, nil, class: "comment" %></small>

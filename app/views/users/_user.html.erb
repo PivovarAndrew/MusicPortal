@@ -59,7 +59,7 @@
                             </dd>
                             <dt>Зарегестрирован с:</dt>
                             <dd>
-                                <%= user.created_at %>
+                                <%= user.created_at.strftime("%F") %>
                             </dd>
                         </dl>
                     </div>
@@ -102,7 +102,7 @@
                                 <tr>
                                     <td>Зарегестрирован с:</td>
                                     <td>
-                                        <%= user.created_at %>
+                                        <%= user.created_at.strftime("%F") %>
                                     </td>
                                 </tr>
                             </tbody>
