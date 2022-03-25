@@ -1,5 +1,4 @@
 <div class="container">
-   <% if @album.tracks %>
       <!--<h1 class="secondary-header-default">ALBUM</h1>-->
       <h2>
         <div class="inline-block">
@@ -34,6 +33,7 @@
         <%= hidden_field_tag :performer, @album.performer %>
         <%= link_to @album.performer, "#", onclick: "$('#performer-albums-form').submit()", class: "api-album-performer small-bottom-interval" %>
       <% end %>
+
       </h2>
       <div class="inline-block">
          <%= image_tag(@album.image_preview_url, class: "album-info-preview-image medium-bottom-interval") %>
@@ -75,12 +75,13 @@
             </div>
          </div>
       <% end %>
-      <%= button_to "Back", albums_path, method: :get, class: "submit-button small-bottom-interval small-top-interval" %>
-      <h2 class="comments-interval secondary-header-default">Comments</h2>
+      <%= button_to "К списку", albums_path, method: :get, class: "submit-button small-bottom-interval small-top-interval" %>
+      <h2 class="comments-interval secondary-header-default">Комментарии</h2>
       <div id="comments">    
          <%= render @album.comments.where(parent_id: nil).includes(:user).order(id: :desc) %>
       </div>
-      <h2>Leave comment</h2>
-      <%= render partial: "comments/form", locals: { album: @album, parent: nil } %>
-   <% end %>
+      <% if current_user %>
+         <h2>Оставьте комментарий</h2>
+         <%= render partial: "comments/form", locals: { album: @album, parent: nil } %>
+      <% end %>
 </div>

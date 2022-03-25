@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "application" %>
 <div class="row">
   <div class="medium-right-interval">
-    <h1>Edit password</h1>
+    <h1>Изменение пароля</h1>
     <hr>
     <%= form_for(resource, as: resource_name, url: registration_path(:user), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -16,31 +16,31 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.label "Пароль" %> <i>(оставьте пустым если хотите оставить без изменений)</i><br />
         <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label "Подтверждение пароля" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label "Текущий пароль" %> <i>(нам нужен ваш текущий пароль, чтобы подтвердить изменения)</i><br />
         <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.submit "Update", class: "btn btn-lg btn-block btn-primary" %>
+        <%= f.submit "Обновит", class: "btn btn-lg btn-block btn-primary" %>
       </div>
     <% end %>
     <hr>
 
-    <h2>Delete my account</h2>
+    <h2>Удаление аккаунта</h2>
 
-    <p>Unhappy? <%= button_to "Delete my account", registration_path(:user), class: "btn btn-danger", data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
+    <p>Unhappy? <%= button_to "Удалить мой аккаунт", registration_path(:user), class: "btn btn-danger", data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
 
-    <%= link_to "Back", :back %>
+    <%= link_to "Назад", :back %>
     <hr>
   </div>
 </div>

@@ -18,17 +18,17 @@
         <% end %>
         <fieldset>
             <div class="field form-group">
-              <%= form.label :name, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Название", class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :name, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field form-group">
-              <%= form.label :description, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Описание", class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_area :description, class: "small-left-interval large-width no-resizable" %>
             </div>
 
             <div class="field form-group">
-              <%= form.label :source_link, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Ссылка на источник", class: "lbl-default col-sm-2 control-label" %>
                 <%= form.text_field :source_link, class: "small-left-interval large-width" %>
             </div>
 
@@ -36,7 +36,7 @@
             </div>
 
             <div class="field form-group">
-               <%= form.label :duration, class: "lbl-default col-sm-2 control-label" %>
+               <%= form.label "Длительность", class: "lbl-default col-sm-2 control-label" %>
                <%= form.time_select :duration, {
                                       discard_hour: true,
                                       include_minutes: true,
@@ -47,26 +47,26 @@
             </div>
 
             <div class="field form-group">
-              <%= form.label :tags, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Теги", class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :tags, class: "small-left-interval medium-width" %>
             </div>
 
             <div class="field form-group">
-              <%= form.label :related_genres, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Прочий жанр", class: "lbl-default col-sm-2 control-label" %>
               <%= form.select :related_genres, Genre.all.collect { |genre| [genre.name] }, { "multiple": true, "data-max-options": "2" }, { class: "small-left-interval large-width selectpicker" } %>
             </div>
 
             <div class="field form-group">
-              <%= form.label :preview_picture, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Превью картинка", class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :preview_picture, class: "small-left-interval large-width" %>
             </div>
 
             <div class="field form-group">
-              <%= form.label :audio_link, class: "lbl-default col-sm-2 control-label" %>
+              <%= form.label "Ссылка на аудио", class: "lbl-default col-sm-2 control-label" %>
               <%= form.text_field :audio_link, class: "small-left-interval large-width" %>
             </div>
           
-            <%= form.submit "Submit", class: "submit-button small-bottom-interval small-top-interval" %>
+            <%= form.submit "Сохранить", class: "submit-button small-bottom-interval small-top-interval" %>
         </fieldset>
     <% end %>
 </div>

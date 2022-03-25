@@ -50,8 +50,8 @@ const SEARCHED_RESULTS_SIDEBAR_ID = "searched-results-sidebar"
 document.addEventListener("DOMContentLoaded", function (event) {
     const search = $('#search')
     const SEARCED_TEXT_HTML_DIV = '<div id="searched-text-value"></div>'
-    const RESULTS_NOT_FOUND_HTML = `No results were found for "${SEARCED_TEXT_HTML_DIV}".`
-    const RESULTS_FOUND_HTML = `All results for "${SEARCED_TEXT_HTML_DIV}".`
+    const RESULTS_NOT_FOUND_HTML = `Ничего не найдено по запросу "${SEARCED_TEXT_HTML_DIV}".`
+    const RESULTS_FOUND_HTML = `Все результаты по запросу "${SEARCED_TEXT_HTML_DIV}".`
 
     search.on('input', function () {
         searchAlbum();

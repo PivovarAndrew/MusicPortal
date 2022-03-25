@@ -25,27 +25,27 @@
                                          id: "avatar-change-uploader", class: "not-visible" %>
             <div class="block">
               <div class="field form-group">
-                <%= form.label :name, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.label "Имя", class: "user-profile-text col-sm-2 control-label" %>
                 <%= form.text_field :name, class: "medium-left-interval medium-width" %>
               </div>
 
               <div class="field form-group">
-                <%= form.label :surname, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.label "Фамилия", class: "user-profile-text col-sm-2 control-label" %>
                 <%= form.text_field :surname, class: "medium-left-interval medium-width" %>
               </div>
 
               <div class="field form-group">
-                <%= form.label :nickname, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.label "Никнейм", class: "user-profile-text col-sm-2 control-label" %>
                 <%= form.text_field :nickname, class: "medium-left-interval medium-width" %>
               </div>
 
               <div class="field form-group">
-                <%= form.label :address, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.label "Адрес", class: "user-profile-text col-sm-2 control-label" %>
                 <%= form.text_field :address, class: "medium-left-interval medium-width" %>
               </div>
 
               <div class="field form-group">
-                <%= form.label :date_of_birthday, class: "user-profile-text col-sm-2 control-label" %>
+                <%= form.label "Дата рождения", class: "user-profile-text col-sm-2 control-label" %>
                 <%= form.date_select :date_of_birthday, { order: [:day, :month, :year], start_year: 1950, end_year: Date.current.year }, { class: "medium-left-interval" } %>
               </div>
             </div>

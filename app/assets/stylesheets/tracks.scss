@@ -16,6 +16,11 @@
     color: album_description_text_color;
 }
 
+.track-name {
+  font-size: $album_description_font_size;
+  color: album_description_text_color;
+}
+
 .track-duration {
   @extend .on-right
 }

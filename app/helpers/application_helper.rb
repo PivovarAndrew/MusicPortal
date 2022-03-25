@@ -8,7 +8,7 @@ module ApplicationHelper
     likes_count = album.likes.count
     dislikes_count = album.dislikes.count
     total_ratings = likes_count + dislikes_count
-    total_ratings.zero? ? NO_RATING_VALUE : (MAX_RATING_VALUE * likes_count / total_ratings).round
+    total_ratings.zero? ? NO_RATING_VALUE : (MAX_RATING_VALUE * likes_count / total_ratings).round(-1)
   end
 
   def rated?(album)

@@ -12,18 +12,18 @@ module UserProfilesHelper
   end
 
   def show_name
-    @user_profile.name && @user_profile.surname ? "Name: #{@user_profile.name} #{@user_profile.surname}" : "Email: #{current_user.email}"
+    @user_profile.name && @user_profile.surname ? "Имя: #{@user_profile.name} #{@user_profile.surname}" : "Email: #{current_user.email}"
   end
 
   def show_nickname
-    "Nickname: #{@user_profile.nickname}" if @user_profile.nickname
+    "Никнейм: #{@user_profile.nickname}" if @user_profile.nickname
   end
 
   def show_date_of_birthday
-    "Date of birthday: #{@user_profile.date_of_birthday}" if @user_profile.date_of_birthday
+    "Дата рождения: #{@user_profile.date_of_birthday}" if @user_profile.date_of_birthday
   end
 
   def show_address
-    "Address: #{@user_profile.address}" if @user_profile.address
+    "Адрес: #{@user_profile.address}" if @user_profile.address
   end
 end

@@ -1,12 +1,15 @@
 <%= will_paginate @albums, renderer: BootstrapPagination::Rails, class: "pagination" %>
 
 <div class="inline-block small-bottom-interval">
+    <% @attribute_names = ["Страна", "Жанр", "Исполнитель", "Возрастное ограничение"] %>
+    <% counter = 0 %>
     <% Album.column_names.map do |attribute_name| %>
         <% if correct_attribute(attribute_name) %>
             <div class="block">
-                <%= label_tag attribute_name, nil, class: "small-left-interval" %>
+                <%= label_tag @attribute_names[counter], nil, class: "small-left-interval" %>
                 <%= select_tag "Select", options_for_select(values_by_attribute(attribute_name)), { id: "#{attribute_name}", class: "small-left-interval medium-width filter" } %>
             </div>
+            <% counter = counter + 1 %>
         <% end %>
     <% end %>
 </div>
@@ -15,7 +18,7 @@
 
 <%= render "pages/albums_grid" %>
 
-<% if current_page?(controller: "albums", action: "index") && current_user.try(:admin) %>
+<% if current_page?(controller: "albums", action: "index") && current_user.try(:admin?) %>
     <% if @albums.total_pages == @albums.current_page %>
         <div class="col-md-4 col-lg-2 item medium-bottom-interval">
             <div class = "add-album-btn-box">

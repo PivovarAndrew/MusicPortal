@@ -1,5 +1,5 @@
 module UsersHelper
-  EMPTY_MESSAGE = "Still not filled"
+  EMPTY_MESSAGE = "Пока не заполнено"
 
   def name(user_profile)
     user_profile.name && user_profile.surname ? "#{user_profile.name} #{user_profile.surname}" : user_profile.user.email
