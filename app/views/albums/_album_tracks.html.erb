@@ -40,7 +40,7 @@
   </div>
 
 
-<% if user_signed_in? %> 
+<% if user_signed_in? %>
    <% unless current_user.albums.include? @current_album %>
       <%= form_tag _add_album_to_playlist_path do %>
          <%= hidden_field_tag :id, @current_album.id %>
