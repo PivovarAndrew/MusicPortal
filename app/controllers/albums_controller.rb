@@ -5,7 +5,9 @@ require_relative "../services/api/deezer/album_data_extracter"
 require_relative "../services/api/deezer/search_album_data"
 
 class AlbumsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show _album_tracks]
   before_action :set_album, only: %i[ show edit update destroy ]
+  before_action :authorize_album!
 
   MAX_COUNT_OF_ALBUMS_PER_PAGE = 12
   ALBUM_CSV_ATTRIBUTE_NAMES = ['name',
@@ -27,8 +29,8 @@ class AlbumsController < ApplicationController
 
   def import_to_csv
     Album.import_to_csv(params[:csv_file])
-    redirect_to root_url, notice: 'Albums uploaded successfully'
-   end
+    redirect_to root_url, notice: 'Альбомы были успешно загружены!'
+  end
 
   def _searched_api_albums
     searched_album_data = AlbumDataService::AlbumDataExtracter.new(
@@ -47,7 +49,7 @@ class AlbumsController < ApplicationController
     album.save!
     params[:album_tracks].split.each { |track| album.tracks << Track.new(Rack::Utils.parse_nested_query(track)) }
     respond_to do |format|
-      format.html { redirect_to album, notice: "Album was successfully added." }
+      format.html { redirect_to album, notice: "Альбом был успешно добавлен." }
       format.json { render :show, status: :created, location: @album }
     end
   end
@@ -70,7 +72,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(album_params)
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: "Album was successfully created." }
+        format.html { redirect_to @album, notice: "Альбом был успешно создан." }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -83,7 +85,7 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
-        format.html { redirect_to @album, notice: "Album was successfully updated." }
+        format.html { redirect_to @album, notice: "Альбом был успешно обновлён." }
         format.json { render :show, status: :ok, location: @album }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -96,7 +98,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url, notice: "Album was successfully destroyed." }
+      format.html { redirect_to albums_url, notice: "Альбом был успешно уничтожен." }
       format.json { head :no_content }
     end
   end
@@ -143,5 +145,9 @@ class AlbumsController < ApplicationController
                                   :main_genre,
                                   :performer,
                                   :age_restrictions)
+  end
+
+  def authorize_album!
+    authorize(@album || Album)
   end
 end
